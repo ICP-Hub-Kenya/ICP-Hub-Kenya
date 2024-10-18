@@ -56,8 +56,8 @@ const NavBar = () => {
           <div className="hidden lg:flex items-center space-x-8">
             <NavLink href="/about" value="About" canActive={true} />
             <NavLink href="/education" value="Education" canActive={true} />
-            <NavLink href="/events" value="Events" canActive={true} />
-            <NavLink href="/blog" value="Blog" canActive={true} />
+            <NavLink href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" value="Events" canActive={true} />
+            <NavLink href="https://icphub-ke.medium.com/" value="Blog" canActive={true} />
             <NavLink href="/contact" value="Contact" canActive={true} />
             <GradientButton onClick={handleTelegramRedirect}>
               <span className="px-4">Join Us</span>
