@@ -17,6 +17,8 @@ import ICPEducationCard from '../../components/molecules/Card/ICPEducationCard/I
 import TechJourneyStats from '../../components/molecules/Card/JourneyStarts';
 import GrantApplicationCard from '../../components/molecules/Card/GrantApplicationCard/GrantApplicationCard';
 import InnovationIncubatorCard from '../../components/molecules/Card/InnovatorCard/InnovatorCard';
+import NavBar from '../../components/organisms/NavBar';
+import FooterNavBrand from '../../components/atoms/NavBrand/FooterNavBrand';
 
 const statsData = [
   { value: '20+', label: 'Hackathon' },
@@ -26,7 +28,12 @@ const statsData = [
 
 const About = () => {
   return (
-    <PageTemplate title="About - ICP Hub Kenya">
+    // <PageTemplate title="About - ICP Hub Kenya">
+    <div>
+        <div className='mx-auto max-w-7xl'>
+          <NavBar /> 
+        </div>
+
         <FirstComponent /> 
 
         <div className="bg-[#212121] p-8">
@@ -57,7 +64,9 @@ const About = () => {
           </section>
         </div>
 
-    </PageTemplate>
+        <Footer />
+      </div>
+    // </PageTemplate>
   )
 }
 

@@ -1,3 +1,4 @@
+import GradientButton from "../../atoms/GradientButton/GradientButton";
 import NavBrand from "../../atoms/NavBrand";
 import FooterNavBrand from "../../atoms/NavBrand/FooterNavBrand";
 import NavLink from "../../atoms/NavLink";
@@ -5,8 +6,13 @@ import Text from "../../atoms/Text";
 import React from "react";
 
 const Footer = () => {
+
+  const handleTelegramRedirect = () => {
+    window.open('https://t.me/icphub_KE', '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <footer className="bg-[#632020] text-white py-16 px-24 flex flex-col ">
+    <footer className="bg-[#632020] text-white py-16 px-24 flex flex-col">
       <div className="container flex flex-col space-y-5">
         <div className="flex items-center justify-between">
           <div className="flex flex-col  w-full space-y-6 items-center lg:items-start text-center lg:text-left mb-12 lg:mb-0">
@@ -18,12 +24,17 @@ const Footer = () => {
               ICP Hub Kenya is dedicated to providing the advancement of
               blockchain technology within our region and beyond.
             </p>
-            <a
+            {/* <a
               href="#"
               className="bg-[#f6b73c] text-center text-black text-xl  px-6 py-3 w-[50%] rounded-lg hover:bg-[#d9972c] transition"
             >
               Join ICP Kenya Hub
-            </a>
+            </a> */}
+            <GradientButton
+              onClick={handleTelegramRedirect}
+            >
+              Join ICP Hub Kenya
+            </GradientButton>
           </div>
           <div className="mt-12 lg:mt-0">
             <img
@@ -31,6 +42,7 @@ const Footer = () => {
               alt="Astronaut"
               className="max-w-4xl h-auto"
             />
+            {/* <Image  */}
           </div>
         </div>
 
