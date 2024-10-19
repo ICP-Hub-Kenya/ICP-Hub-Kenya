@@ -64,7 +64,7 @@ const About = () => {
           </section>
         </div>
 
-        <Footer />
+        {/* <Footer /> */}
       </div>
     // </PageTemplate>
   )
