@@ -4,6 +4,7 @@ import FooterNavBrand from "../../atoms/NavBrand/FooterNavBrand";
 import NavLink from "../../atoms/NavLink";
 import Text from "../../atoms/Text";
 import React from "react";
+import Link from "next/link"; // Importing Next.js Link component
 
 const Footer = () => {
 
@@ -24,15 +25,7 @@ const Footer = () => {
               ICP Hub Kenya is dedicated to providing the advancement of
               blockchain technology within our region and beyond.
             </p>
-            {/* <a
-              href="#"
-              className="bg-[#f6b73c] text-center text-black text-xl  px-6 py-3 w-[50%] rounded-lg hover:bg-[#d9972c] transition"
-            >
-              Join ICP Kenya Hub
-            </a> */}
-            <GradientButton
-              onClick={handleTelegramRedirect}
-            >
+            <GradientButton onClick={handleTelegramRedirect}>
               Join ICP Hub Kenya
             </GradientButton>
           </div>
@@ -42,14 +35,12 @@ const Footer = () => {
               alt="Astronaut"
               className="max-w-4xl h-auto"
             />
-            {/* <Image  */}
           </div>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            {/* <NavBrand /> */}
-            <FooterNavBrand /> 
+            <FooterNavBrand />
             <p className="text-md mt-4 text-white/60 ">
               Copyright © {new Date().getFullYear()}
             </p>
@@ -110,9 +101,12 @@ const Footer = () => {
           <div>
             <h4 className="text-lg  font-bold mb-4">Blog</h4>
             <ul className="space-y-2">
-              <a className="text-white" href="/blog">
-                Our blog posts
-              </a>
+              <li className="mb-4">
+                {/* Replacing the <a> tag with Next.js <Link> */}
+                <Link href="https://icphub-ke.medium.com/" passHref>
+                  Our blog posts
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

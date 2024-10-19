@@ -86,8 +86,8 @@ const NavBar = () => {
           <div className="flex flex-col space-y-5">
             <NavLink href="/about" value="About" canActive={true} />
             <NavLink href="/education" value="Education" canActive={true} />
-            <NavLink href="/events" value="Events" canActive={true} />
-            <NavLink href="/blog" value="Blog" canActive={true} />
+            <NavLink href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" value="Events" canActive={true} />
+            <NavLink href="https://icphub-ke.medium.com/" value="Blog" canActive={true} />
             <NavLink href="/contact" value="Contact" canActive={true} />
             <GradientButton onClick={handleTelegramRedirect}>
               <span className="px-4">Join Us</span>

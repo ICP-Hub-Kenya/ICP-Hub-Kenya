@@ -46,7 +46,7 @@ const Home = () => {
         <BlockchainEducationBanner />
 
         {/* Feature List */}
-        <section className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-6xl">
+        <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
             <TechJourneyStats
               title="We provide easy medium to get started in your tech journey"
