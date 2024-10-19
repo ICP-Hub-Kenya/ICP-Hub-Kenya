@@ -22,14 +22,14 @@ const BlockchainEducationBanner = () => {
   const isDesktop = useMediaQuery('(min-width: 640px)');
 
   const containerClass = isDesktop
-    ? "mx-auto md:mt-10 md:mx-32 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 bg-gradient-to-r from-[#571E1E] to-[#340A0A] rounded-[20px] sm:rounded-[40px] shadow-xl border-[4px] border-[#400d0b] flex flex-col sm:flex-row items-center max-w-6xl"
+    ? "mx-auto md:mt-10 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 bg-gradient-to-r from-[#571E1E] to-[#340A0A] rounded-[20px] sm:rounded-[40px] shadow-xl border-[4px] border-[#400d0b] flex flex-col sm:flex-row items-center max-w-6xl"
     : "mx-4 md:mx-8 lg:mx-16 xl:mx-48 my-10 px-6 md:px-12 py-8 md:py-16 rounded-2xl bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl";
 
   return (
     <div className={containerClass}>
       {/* Image Section - Appears on top in mobile view */}
       <div className="w-full sm:w-1/2 flex items-center justify-center mb-10 sm:mb-0 sm:order-last">
-        <Image src="/images/HeroImage.svg" width={350} height={350} alt="Grant Application" className="max-w-full h-auto" />
+        <Image src="/images/HeroImage.svg" width={500} height={400} alt="Grant Application" className="max-w-full h-auto" />
       </div>
 
       {/* Text Section */}

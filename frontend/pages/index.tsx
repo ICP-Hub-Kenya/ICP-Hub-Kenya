@@ -28,6 +28,7 @@ import ICPEducationCard from "../components/molecules/Card/ICPEducationCard/ICPE
 import InnovationIncubatorCard from "../components/molecules/Card/InnovatorCard/InnovatorCard";
 import VisionVideoCard from "../components/molecules/Card/VisionCard/VisionCard";
 import BlockchainEducationBanner from "../components/molecules/Card/BlockchainEducationBanner/BlockchainEducationBanner";
+import NavBar from "../components/organisms/NavBar";
 
 const statsData = [
   { value: "20+", label: "Hackathon" },
@@ -39,6 +40,8 @@ const Home = () => {
   return (
     <>
       <PageTemplate title="Home - ICP HUB KE">
+      {/* <div> */}
+        <NavBar /> 
         {/* Banner Section */}
         <BlockchainEducationBanner />
 
@@ -86,7 +89,7 @@ const Home = () => {
             <div className="flex flex-col items-center">
               <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
                 <img
-                  src="/images/Profiles/Yvonne.png"
+                  src="/images/Profiles/Tevin.png"
                   alt="Tevin Isaac"
                   className="w-full h-full object-cover"
                 />
@@ -99,7 +102,7 @@ const Home = () => {
             <div className="flex flex-col items-center">
               <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
                 <img
-                  src="/images/Profiles/Yvonne.png"
+                  src="/images/Profiles/Mary.png"
                   alt="Mary Usaji"
                   className="w-full h-full object-cover"
                 />
@@ -189,9 +192,10 @@ const Home = () => {
         </section>
 
         <LineDivider />
+      {/* </div> */}
       </PageTemplate>
-
-      <Footer />
+      
+        <Footer />
     </>
   );
 };
