@@ -22,7 +22,7 @@ const BlockchainEducationBanner = () => {
   const isDesktop = useMediaQuery('(min-width: 640px)');
 
   const containerClass = isDesktop
-    ? "mx-auto md:mt-10 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 bg-gradient-to-r from-[#571E1E] to-[#340A0A] rounded-[20px] sm:rounded-[40px] shadow-xl border-[4px] border-[#400d0b] flex flex-col sm:flex-row items-center max-w-6xl"
+    ? "mx-auto md:my-10 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 bg-gradient-to-r from-[#571E1E] to-[#340A0A] rounded-[20px] sm:rounded-[40px] shadow-xl border-[4px] border-[#400d0b] flex flex-col sm:flex-row items-center max-w-6xl"
     : "mx-4 md:mx-8 lg:mx-16 xl:mx-48 my-10 px-6 md:px-12 py-8 md:py-16 rounded-2xl bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl";
 
   return (
