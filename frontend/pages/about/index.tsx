@@ -19,6 +19,7 @@ import GrantApplicationCard from '../../components/molecules/Card/GrantApplicati
 import InnovationIncubatorCard from '../../components/molecules/Card/InnovatorCard/InnovatorCard';
 import NavBar from '../../components/organisms/NavBar';
 import FooterNavBrand from '../../components/atoms/NavBrand/FooterNavBrand';
+import Gallery from '../../components/organisms/Gallery/gallery';
 
 const statsData = [
   { value: '20+', label: 'Hackathon' },
@@ -63,6 +64,8 @@ const About = () => {
 
           </section>
         </div>
+
+        <Gallery /> 
 
         <Footer />
       </div>
