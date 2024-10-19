@@ -1,14 +1,12 @@
 import GradientButton from "../../atoms/GradientButton/GradientButton";
-import NavBrand from "../../atoms/NavBrand";
+
 import FooterNavBrand from "../../atoms/NavBrand/FooterNavBrand";
-import NavLink from "../../atoms/NavLink";
-import Text from "../../atoms/Text";
+
 import React from "react";
 
 const Footer = () => {
-
   const handleTelegramRedirect = () => {
-    window.open('https://t.me/icphub_KE', '_blank', 'noopener,noreferrer');
+    window.open("https://t.me/icphub_KE", "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -30,9 +28,7 @@ const Footer = () => {
             >
               Join ICP Kenya Hub
             </a> */}
-            <GradientButton
-              onClick={handleTelegramRedirect}
-            >
+            <GradientButton onClick={handleTelegramRedirect}>
               Join ICP Hub Kenya
             </GradientButton>
           </div>
@@ -49,7 +45,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             {/* <NavBrand /> */}
-            <FooterNavBrand /> 
+            <FooterNavBrand />
             <p className="text-md mt-4 text-white/60 ">
               Copyright © {new Date().getFullYear()}
             </p>

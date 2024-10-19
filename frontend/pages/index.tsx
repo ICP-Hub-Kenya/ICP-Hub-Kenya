@@ -29,6 +29,7 @@ import InnovationIncubatorCard from "../components/molecules/Card/InnovatorCard/
 import VisionVideoCard from "../components/molecules/Card/VisionCard/VisionCard";
 import BlockchainEducationBanner from "../components/molecules/Card/BlockchainEducationBanner/BlockchainEducationBanner";
 import NavBar from "../components/organisms/NavBar";
+import Gallery from "../components/organisms/Gallery/gallery";
 
 const statsData = [
   { value: "20+", label: "Hackathon" },
@@ -40,8 +41,8 @@ const Home = () => {
   return (
     <>
       <PageTemplate title="Home - ICP HUB KE">
-      {/* <div> */}
-        <NavBar /> 
+        {/* <div> */}
+        <NavBar />
         {/* Banner Section */}
         <BlockchainEducationBanner />
 
@@ -192,10 +193,12 @@ const Home = () => {
         </section>
 
         <LineDivider />
-      {/* </div> */}
+
+        <Gallery />
+        {/* </div> */}
       </PageTemplate>
-      
-        <Footer />
+
+      <Footer />
     </>
   );
 };
