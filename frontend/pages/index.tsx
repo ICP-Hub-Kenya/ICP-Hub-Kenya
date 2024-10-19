@@ -195,7 +195,7 @@ const Home = () => {
       {/* </div> */}
       </PageTemplate>
       
-        {/* <Footer /> */}
+        <Footer />
     </>
   );
 };
