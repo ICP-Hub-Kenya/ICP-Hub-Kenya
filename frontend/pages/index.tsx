@@ -69,9 +69,9 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
             {/* Team member 1 */}
             <div className="flex flex-col items-center">
-              <div className="w-64 h-64 border-4 border-[#f8b230] rounded-md mb-4 overflow-hidden">
+              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
                 <img
-                  src="/images/yvonne.png"
+                  src="/images/Profiles/Yvonne.png"
                   alt="Yvonne Kagondu"
                   className="w-full h-full object-cover"
                 />
@@ -84,9 +84,9 @@ const Home = () => {
 
             {/* Team member 2 */}
             <div className="flex flex-col items-center">
-              <div className="w-64 h-64 border-4 border-[#f8b230] rounded-md mb-4 overflow-hidden">
+              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
                 <img
-                  src="/images/tevin.png"
+                  src="/images/Profiles/Yvonne.png"
                   alt="Tevin Isaac"
                   className="w-full h-full object-cover"
                 />
@@ -97,9 +97,9 @@ const Home = () => {
 
             {/* Team member 3 */}
             <div className="flex flex-col items-center">
-              <div className="w-64 h-64 border-4 border-[#f8b230] rounded-md mb-4 overflow-hidden">
+              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
                 <img
-                  src="/images/Mary.png"
+                  src="/images/Profiles/Yvonne.png"
                   alt="Mary Usaji"
                   className="w-full h-full object-cover"
                 />
@@ -108,7 +108,7 @@ const Home = () => {
               <p className="text-gray-300">PROJECT MANAGER</p>
             </div>
             {/* Team member 4 */}
-            <div className="flex flex-col items-center">
+            {/* <div className="flex flex-col items-center">
               <div className="w-64 h-64 border-4 border-[#f8b230] rounded-md mb-4 overflow-hidden">
                 <img
                   src="/images/steve.png"
@@ -118,12 +118,12 @@ const Home = () => {
               </div>
               <h3 className="text-white text-lg font-semibold">Steve Kimoi</h3>
               <p className="text-gray-300">PROJECT MANAGER</p>
-            </div>
+            </div> */}
             {/* Team member 5 */}
             <div className="flex flex-col items-center">
-              <div className="w-64 h-64 border-4 border-[#f8b230] rounded-md mb-4 overflow-hidden">
+              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
                 <img
-                  src="/images/bella.png"
+                  src="/images/Profiles/Bellah.png"
                   alt="Bella Chris"
                   className="w-full h-full object-cover"
                 />
@@ -133,9 +133,9 @@ const Home = () => {
             </div>
             {/* Team member 6 */}
             <div className="flex flex-col items-center">
-              <div className="w-64 h-64 border-4 border-[#f8b230] rounded-md mb-4 overflow-hidden">
+              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
                 <img
-                  src="/images/sammy.png"
+                  src="/images/Profiles/Sammy.png"
                   alt="Sammy Fash"
                   className="w-full h-full object-cover"
                 />
@@ -145,9 +145,9 @@ const Home = () => {
             </div>
             {/* Team member 7 */}
             <div className="flex flex-col items-center">
-              <div className="w-64 h-64 border-4 border-[#f8b230] rounded-md mb-4 overflow-hidden">
+              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
                 <img
-                  src="/images/orlah.png"
+                  src="/images/Profiles/Orlah.png"
                   alt="Peace Adekoya"
                   className="w-full h-full object-cover"
                 />
@@ -159,9 +159,9 @@ const Home = () => {
             </div>
             {/* Team member 8 */}
             <div className="flex flex-col items-center">
-              <div className="w-64 h-64   mb-4 overflow-hidden">
+              <div className="w-64 h-64 mb-4 overflow-hidden">
                 <img
-                  src="/images/maic.png"
+                  src="/images/Profiles/Maic.png"
                   alt="Maic Sebakara"
                   className="w-full h-full object-cover"
                 />
@@ -173,9 +173,9 @@ const Home = () => {
             </div>
             {/* Team member 9 */}
             <div className="flex flex-col items-center">
-              <div className="w-64 h-64 border-8 border-[#f8b230] rounded-md mb-4 overflow-hidden">
+              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
                 <img
-                  src="/images/charles.png"
+                  src="/images/Profiles/Charles.png"
                   alt="Charles Maina"
                   className="w-full h-full object-cover"
                 />
