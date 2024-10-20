@@ -22,18 +22,22 @@ const BlockchainEducationBanner = () => {
   const isDesktop = useMediaQuery('(min-width: 640px)');
 
   const containerClass = isDesktop
-    ? "mx-auto md:my-10 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 bg-gradient-to-r from-[#571E1E] to-[#340A0A] rounded-[20px] sm:rounded-[40px] shadow-xl border-[4px] border-[#400d0b] flex flex-col sm:flex-row items-center max-w-6xl"
-    : "mx-4 md:mx-8 lg:mx-16 xl:mx-48 my-10 px-6 md:px-12 py-8 md:py-16 rounded-2xl bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl";
+    ? "mx-auto md:my-8 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 rounded-[20px] sm:rounded-[40px] flex flex-col sm:flex-row items-center max-w-6xl bg-cover bg-center"
+    : "mx-4 md:mx-8 lg:mx-16 xl:mx-48 my-10 px-6 md:px-12 py-8 md:py-16 rounded-2xl bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl shadow-xl border-[4px] border-[#400d0b]";
+
+  const containerStyle = isDesktop
+    ? { backgroundImage: "url('/Images/HeroImage.png')" }
+    : {};
 
   return (
-    <div className={containerClass}>
+    <div className={containerClass} style={containerStyle}>
       {/* Image Section - Appears on top in mobile view */}
       <div className="w-full sm:w-1/2 flex items-center justify-center mb-10 sm:mb-0 sm:order-last">
         <Image src="/images/HeroImage.svg" width={500} height={400} alt="Grant Application" className="max-w-full h-auto" />
       </div>
 
       {/* Text Section */}
-      <div className="w-full sm:w-1/2 text-white text-base sm:pr-4 text-center sm:text-left">
+      <div className="w-full sm:w-1/2 text-white text-base sm:pr-4 text-center sm:text-left lg:ml-6">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-7">
           Revolutionizing <br /> Blockchain Education
         </h1>

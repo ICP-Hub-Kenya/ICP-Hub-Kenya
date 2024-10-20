@@ -41,8 +41,9 @@ const Home = () => {
   return (
     <>
       <PageTemplate title="Home - ICP HUB KE">
-        {/* <div> */}
+        
         <NavBar />
+
         {/* Banner Section */}
         <BlockchainEducationBanner />
 
