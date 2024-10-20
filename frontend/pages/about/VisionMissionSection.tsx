@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const VisionMissionComponent = () => {
   return (
-    <div className="bg-[#212121] text-white p-8 sm:h-[100vh] h-[120vh] flex items-center">
+    <div className="bg-[#212121] text-white p-8 sm:h-[100vh] h-[150vh] flex items-center">
       <div className="max-w-6xl mx-auto">
         {/* Group Photo */}
         <div className="relative mb-12 rounded-lg overflow-hidden">

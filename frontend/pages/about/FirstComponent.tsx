@@ -34,7 +34,7 @@ const FirstComponent = () => {
           landscape of tomorrow, one block at a time in Africa.
         </p>
 
-        <div className='sm:ml-0 ml-40'>
+        <div className='sm:ml-0 ml-28'>
           <GradientButton onClick={() => console.log("Contact!")}>
             Contact Us 
           </GradientButton>

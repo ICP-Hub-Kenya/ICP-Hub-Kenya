@@ -22,7 +22,7 @@ const TechJourneyStats: React.FC<TechJourneyStatsProps> = ({ title, stats, isDar
         <span className="font-gordita">{title}</span>
       </h1>
       
-      <div className="flex mt-8 sm:items-end sm:ml-0 ml-4">
+      <div className="flex mt-8 sm:items-end sm:ml-0">
         {stats.map((stat, index) => (
           <div key={index} className="text-center m-2 items-center">
             <p className={`font-bold text-[60px] sm:text-[30px] ${statValueColor} tracking-[-0.11em]`}>{stat.value}</p>

@@ -15,12 +15,12 @@ const ICPEducationCard: React.FC<ICPEducationCardProps> = ({ imagePosition = 'to
             ICP <span className="hidden sm:inline"><br/></span> Education
           </span>
           </h1>
-          <p className="text-2xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
+          <p className="text-2xl text-center sm:text-start font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
             Our educational programs are designed to empower individuals and organizations
             with the expertise needed to navigate the blockchain and ICP ecosystem.
           </p>
         </div>
-        <div className={`w-full sm:w-1/3 mb-6 sm:mb-0 ${imagePosition === 'top' ? 'order-1 sm:order-2' : 'order-1'}`}>
+        <div className={`w-full sm:w-1/3 mb-14 sm:mb-0 ${imagePosition === 'top' ? 'order-1 sm:order-2' : 'order-1'}`}>
           <div className="aspect-square relative mx-auto sm:mx-0" style={{ maxWidth: '200px' }}>
             <div className="absolute inset-0 rounded-full"></div>
             <Image 

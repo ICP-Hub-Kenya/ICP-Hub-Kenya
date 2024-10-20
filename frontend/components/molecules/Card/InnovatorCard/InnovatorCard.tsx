@@ -17,10 +17,10 @@ const InnovationIncubatorCard: React.FC<InnovationIncubatorCardProps> = ({
     <div className={`max-w-2xl mx-auto ${bgColor} ${textColor} rounded-2xl overflow-hidden p-6`}>
       <div className={`flex flex-col ${imagePosition === 'bottom' ? 'sm:flex-row-reverse' : 'sm:flex-row'} items-center`}>
         <div className={`w-full sm:w-2/3 ${imagePosition === 'top' ? 'order-2 sm:order-1' : 'order-2'} sm:pr-6`}>
-          <h1 className="text-4xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-7 sm:text-start text-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-7 sm:text-start text-center">
             Innovation Incubator
           </h1>
-          <p className={`text-2xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0 ${isDarkMode ? 'text-black' : 'text-white'}`}>
+          <p className={`text-2xl text-center sm:text-start font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0 ${isDarkMode ? 'text-black' : 'text-white'}`}>
             Our Incubator Program is at the heart of our mission to inspire creativity and
             drive progress within the blockchain and Internet Computer community.
           </p>

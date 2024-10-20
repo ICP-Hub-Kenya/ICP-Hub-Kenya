@@ -21,7 +21,7 @@ const GrantApplicationCard: React.FC<GrantApplicationCardProps> = ({
           <h1 className="text-4xl sm:text-4xl text-center sm:text-start lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">
             Grant Application
           </h1>
-          <p className="text-gray-600 text-2xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
+          <p className="text-gray-600 text-center sm:text-start text-2xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
             Our grant services are designed to provide the financial support and
             resources needed to turn your groundbreaking ideas into reality.
           </p>

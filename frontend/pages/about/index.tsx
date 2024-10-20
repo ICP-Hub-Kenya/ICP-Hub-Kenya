@@ -35,7 +35,7 @@ const About = () => {
           <NavBar /> 
         </div>
         
-        <div className='mb-28 h-[130vh] sm:h-[50vh]'>
+        <div className='mb-28 h-[140vh] sm:h-[50vh]'>
           <FirstComponent /> 
         </div>
 
