@@ -38,10 +38,10 @@ const BlockchainEducationBanner = () => {
 
       {/* Text Section */}
       <div className="w-full sm:w-1/2 text-white text-base sm:pr-4 text-center sm:text-left lg:ml-6">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-7">
+        <h1 className="text-5xl sm:text-4xl text-center sm:text-start lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">
           Revolutionizing <br /> Blockchain Education
         </h1>
-        <p className="font-thin mb-8 text-base sm:text-lg lg:text-xl px-4 sm:px-0">
+        <p className="text-2xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
           At the forefront of technology is ICP Hub Kenya <br className="hidden sm:inline" />
           dedicated to advancing the Internet Computer <br className="hidden sm:inline" />
           ecosystem.

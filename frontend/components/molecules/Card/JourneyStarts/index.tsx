@@ -18,14 +18,14 @@ const TechJourneyStats: React.FC<TechJourneyStatsProps> = ({ title, stats, isDar
   return (
     <div className={`p-8 font-gordita max-w-2xl mx-auto ${textColor}`}>
       
-      <h1 className="text-3xl sm:text-5xl lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">
+      <h1 className="text-5xl text-center sm:text-start sm:text-5xl lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">
         <span className="font-gordita">{title}</span>
       </h1>
       
-      <div className="flex mt-8">
+      <div className="flex mt-8 sm:items-end sm:ml-0 ml-4">
         {stats.map((stat, index) => (
           <div key={index} className="text-center m-2 items-center">
-            <p className={`font-bold text-[30px] ${statValueColor} tracking-[-0.11em]`}>{stat.value}</p>
+            <p className={`font-bold text-[60px] sm:text-[30px] ${statValueColor} tracking-[-0.11em]`}>{stat.value}</p>
             <p className="text-sm mt-2 uppercase tracking-[-0.11em]">{stat.label}</p>
           </div>
         ))}
