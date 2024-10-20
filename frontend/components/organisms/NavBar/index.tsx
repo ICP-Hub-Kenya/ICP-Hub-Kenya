@@ -47,7 +47,7 @@ const NavBar = () => {
   }, [isOpen]);
 
   return (
-    <nav className={`xl:px-[70px] px-8 w-full top-5 left-0 z-30 ${isScrolled ? "absolute" : "absolute"}`}>
+    <nav className={`xl:px-[70px] lg:ml-28 w-[85%] top-5 left-8 z-30 ${isScrolled ? "absolute" : "absolute"}`}>
       <Container>
         <div className="flex items-center justify-between py-4">
           <NavBrand />

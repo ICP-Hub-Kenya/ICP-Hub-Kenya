@@ -17,7 +17,7 @@ const NavLink = ({ href, value, canActive = false }: Props) => {
     <Link href={href} passHref>
       <p
         className={`
-          font-inter font-extralight leading-[16px] text-black select-none hover:text-grey
+          font-inter font-light leading-[16px] text-black select-none hover:text-grey
           ${router.pathname == href && canActive ? 'font-normal' : 'text-opacity-80 font-normal'}
           ${isMobile ? 'cursor-default' : 'cursor-pointer'}
         `}

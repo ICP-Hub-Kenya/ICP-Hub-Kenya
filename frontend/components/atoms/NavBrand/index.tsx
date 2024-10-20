@@ -16,7 +16,7 @@ const NavBrand = () => {
           <div className="w-fit h-fit">
             <Image
               src={"/images/brand3.png"}
-              width={250}
+              width={170}
               height={50}
               alt="company brand"
               loading="lazy"
