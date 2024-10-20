@@ -53,7 +53,7 @@ const PageTemplate = ({
         {/* bg-dark/[.80] backdrop-blur-[175px] */}
           <div
             className={`w-full h-fit min-h-screen ${
-              light ? 'bg-[#FFEDED]' : 'bg-[#fff8f6]'
+              light ? 'bg-[#FFF7F7]' : 'bg-[#FFF7F7]'
             } overflow-x-hidden`}
           >
             <div className="w-full h-full min-h-screen relative bg-cover">

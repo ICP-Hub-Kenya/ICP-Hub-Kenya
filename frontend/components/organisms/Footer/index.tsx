@@ -18,7 +18,7 @@ const Footer = () => {
             <h2 className="text-5xl font-bold mb-4 tracking-tighter">
               Join The Revolution
             </h2>
-            <p className="text-lg max-w-sm">
+            <p className="font-thin mb-8 text-base sm:text-lg lg:text-xl px-4 sm:px-0">
               ICP Hub Kenya is dedicated to providing the advancement of
               blockchain technology within our region and beyond.
             </p>

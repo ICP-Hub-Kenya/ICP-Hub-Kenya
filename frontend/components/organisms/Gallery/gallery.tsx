@@ -14,7 +14,7 @@ const Gallery: React.FC = () => {
   return (
     <div className="py-12 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-10">Our Gallery</h2>
+        <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">Our Gallery</h2>
         <div className="mb-4">
           <img
             src={images[currentIndex]}

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const VisionMissionComponent = () => {
   return (
-    <div className="bg-[#212121] text-white p-8">
+    <div className="bg-[#212121] text-white p-8 h-[100vh] flex items-center">
       <div className="max-w-6xl mx-auto">
         {/* Group Photo */}
         <div className="relative mb-12 rounded-lg overflow-hidden">
@@ -20,8 +20,8 @@ const VisionMissionComponent = () => {
         {/* Vision and Mission */}
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative">
-            <h2 className="text-5xl font-extrabold mb-4">Our Vision</h2>
-            <p className="text-md font-thin leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">Our Vision</h2>
+            <p className="font-thin mb-8 text-base sm:text-lg lg:text-xl px-4 sm:px-0">
               We&apos;re dedicated to democratizing blockchain technology through
               accessible education and empowering developers to create real
               decentralized applications on the Internet Computer platform.
@@ -30,8 +30,8 @@ const VisionMissionComponent = () => {
             </p>
           </div>
           <div className="relative md:border-l md:border-gray-300 md:pl-8">
-            <h2 className="text-5xl font-extrabold mb-4">Our Mission</h2>
-            <p className="text-md font-thin leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">Our Mission</h2>
+            <p className="font-thin mb-8 text-base sm:text-lg lg:text-xl px-4 sm:px-0">
               We envision a world where blockchain technology empowers
               individuals and organizations, enabling them to unlock their full
               potential. The Internet Computer is our chosen vessel for this

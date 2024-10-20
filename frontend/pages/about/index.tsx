@@ -34,8 +34,10 @@ const About = () => {
         <div className='mx-auto max-w-7xl'>
           <NavBar /> 
         </div>
-
-        <FirstComponent /> 
+        
+        <div className='mb-28'>
+          <FirstComponent /> 
+        </div>
 
         <div className="bg-[#212121] p-8">
 

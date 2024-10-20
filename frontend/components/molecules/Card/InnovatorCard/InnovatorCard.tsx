@@ -14,8 +14,10 @@ const InnovationIncubatorCard: React.FC<InnovationIncubatorCardProps> = ({ isDar
     <div className={`max-w-2xl mx-auto ${bgColor} ${textColor} rounded-2xl overflow-hidden p-6 flex items-center`}>
       <div className="flex justify-between items-center">
         <div className="flex-1 pr-6 mt-6">
-          <h2 className="text-4xl font-bold mb-4">Innovation Incubator</h2>
-          <p className={`text-sm mb-2 font-light ${isDarkMode ? 'text-black' : 'text-white'}`}>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-7">
+            Innovation Incubator
+          </h1>
+          <p className={`font-thin mb-8 text-base sm:text-lg lg:text-xl px-4 sm:px-0 ${isDarkMode ? 'text-black' : 'text-white'}`}>
             Our Incubator Program is at the heart of our mission to inspire creativity and
             drive progress within the blockchain and Internet Computer community.
           </p>

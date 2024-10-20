@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <>
       <PageTemplate title="Home - ICP HUB KE">
-        
+
         <NavBar />
 
         {/* Banner Section */}
@@ -67,129 +67,133 @@ const Home = () => {
         <VisionVideoCard />
 
         {/* Our Teams */}
-        <section className="bg-[#4b1c1c]  py-12 px-4 sm:px-8 md:px-12 w-full">
-          <h2 className="text-white text-4xl font-bold text-center mb-12">
-            Our Core Team
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-            {/* Team member 1 */}
-            <div className="flex flex-col items-center">
-              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
-                <img
-                  src="/images/Profiles/Yvonne.png"
-                  alt="Yvonne Kagondu"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-white text-lg font-semibold">
-                Yvonne Kagondu
-              </h3>
-              <p className="text-gray-300">CO-FOUNDER</p>
-            </div>
+        <section className="bg-[#4b1c1c] items-center py-12 px-4 sm:px-8 md:px-12 w-full">
+          
+          {/* <div className="bg-[#4b1c1c] flex items-center py-12 px-4 sm:px-8 md:px-12 w-full"> */}
+            <h1 className="text-white text-center text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">
+              Our Core Team
+            </h1>
 
-            {/* Team member 2 */}
-            <div className="flex flex-col items-center">
-              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
-                <img
-                  src="/images/Profiles/Tevin.png"
-                  alt="Tevin Isaac"
-                  className="w-full h-full object-cover"
-                />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center w-[80%] lg:ml-32 ml-14"> 
+              {/* Team member 1 */}
+              <div className="flex flex-col items-center">
+                <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
+                  <img
+                    src="/images/Profiles/Yvonne.png"
+                    alt="Yvonne Kagondu"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white text-lg font-semibold">
+                  Yvonne Kagondu
+                </h3>
+                <p className="text-gray-300">CO-FOUNDER</p>
               </div>
-              <h3 className="text-white text-lg font-semibold">Tevin Isaac</h3>
-              <p className="text-gray-300">DEVELOPER</p>
-            </div>
 
-            {/* Team member 3 */}
-            <div className="flex flex-col items-center">
-              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
-                <img
-                  src="/images/Profiles/Mary.png"
-                  alt="Mary Usaji"
-                  className="w-full h-full object-cover"
-                />
+              {/* Team member 2 */}
+              <div className="flex flex-col items-center">
+                <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
+                  <img
+                    src="/images/Profiles/Tevin.png"
+                    alt="Tevin Isaac"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white text-lg font-semibold">Tevin Isaac</h3>
+                <p className="text-gray-300">DEVELOPER</p>
               </div>
-              <h3 className="text-white text-lg font-semibold">Mary Usaji</h3>
-              <p className="text-gray-300">PROJECT MANAGER</p>
-            </div>
-            {/* Team member 4 */}
-            {/* <div className="flex flex-col items-center">
-              <div className="w-64 h-64 border-4 border-[#f8b230] rounded-md mb-4 overflow-hidden">
-                <img
-                  src="/images/steve.png"
-                  alt="Steve KImoi"
-                  className="w-full h-full object-cover"
-                />
+
+              {/* Team member 3 */}
+              <div className="flex flex-col items-center">
+                <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
+                  <img
+                    src="/images/Profiles/Mary.png"
+                    alt="Mary Usaji"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white text-lg font-semibold">Mary Usaji</h3>
+                <p className="text-gray-300">PROJECT MANAGER</p>
               </div>
-              <h3 className="text-white text-lg font-semibold">Steve Kimoi</h3>
-              <p className="text-gray-300">PROJECT MANAGER</p>
-            </div> */}
-            {/* Team member 5 */}
-            <div className="flex flex-col items-center">
-              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
-                <img
-                  src="/images/Profiles/Bellah.png"
-                  alt="Bella Chris"
-                  className="w-full h-full object-cover"
-                />
+              {/* Team member 4 */}
+              {/* <div className="flex flex-col items-center">
+                <div className="w-50 h-64 border-4 border-[#f8b230] rounded-md mb-4 overflow-hidden">
+                  <img
+                    src="/images/steve.png"
+                    alt="Steve KImoi"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white text-lg font-semibold">Steve Kimoi</h3>
+                <p className="text-gray-300">PROJECT MANAGER</p>
+              </div> */}
+              {/* Team member 5 */}
+              <div className="flex flex-col items-center">
+                <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
+                  <img
+                    src="/images/Profiles/Bellah.png"
+                    alt="Bella Chris"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white text-lg font-semibold">Bella Chris</h3>
+                <p className="text-gray-300">COMMUNITY MANAGER</p>
               </div>
-              <h3 className="text-white text-lg font-semibold">Bella Chris</h3>
-              <p className="text-gray-300">COMMUNITY MANAGER</p>
-            </div>
-            {/* Team member 6 */}
-            <div className="flex flex-col items-center">
-              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
-                <img
-                  src="/images/Profiles/Sammy.png"
-                  alt="Sammy Fash"
-                  className="w-full h-full object-cover"
-                />
+              {/* Team member 6 */}
+              <div className="flex flex-col items-center">
+                <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
+                  <img
+                    src="/images/Profiles/Sammy.png"
+                    alt="Sammy Fash"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white text-lg font-semibold">Sammy Fash</h3>
+                <p className="text-gray-300">LEAD DESIGNER</p>
               </div>
-              <h3 className="text-white text-lg font-semibold">Sammy Fash</h3>
-              <p className="text-gray-300">LEAD DESIGNER</p>
-            </div>
-            {/* Team member 7 */}
-            <div className="flex flex-col items-center">
-              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
-                <img
-                  src="/images/Profiles/Orlah.png"
-                  alt="Peace Adekoya"
-                  className="w-full h-full object-cover"
-                />
+              {/* Team member 7 */}
+              <div className="flex flex-col items-center">
+                <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
+                  <img
+                    src="/images/Profiles/Orlah.png"
+                    alt="Peace Adekoya"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white text-lg font-semibold">
+                  Peace Adekoya
+                </h3>
+                <p className="text-gray-300">SOCIAL MEDIA MANAGER</p>
               </div>
-              <h3 className="text-white text-lg font-semibold">
-                Peace Adekoya
-              </h3>
-              <p className="text-gray-300">SOCIAL MEDIA MANAGER</p>
-            </div>
-            {/* Team member 8 */}
-            <div className="flex flex-col items-center">
-              <div className="w-64 h-64 mb-4 overflow-hidden">
-                <img
-                  src="/images/Profiles/Maic.png"
-                  alt="Maic Sebakara"
-                  className="w-full h-full object-cover"
-                />
+              {/* Team member 8 */}
+              <div className="flex flex-col items-center">
+                <div className="w-50 h-64 mb-4 overflow-hidden">
+                  <img
+                    src="/images/Profiles/Maic.png"
+                    alt="Maic Sebakara"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white text-lg font-semibold">
+                  Maic Sebakara
+                </h3>
+                <p className="text-gray-300">ICP RWANDA SPOKE</p>
               </div>
-              <h3 className="text-white text-lg font-semibold">
-                Maic Sebakara
-              </h3>
-              <p className="text-gray-300">ICP RWANDA SPOKE</p>
-            </div>
-            {/* Team member 9 */}
-            <div className="flex flex-col items-center">
-              <div className="w-64 h-64 rounded-md mb-4 overflow-hidden">
-                <img
-                  src="/images/Profiles/Charles.png"
-                  alt="Charles Maina"
-                  className="w-full h-full object-cover"
-                />
+              {/* Team member 9 */}
+              <div className="flex flex-col items-center">
+                <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
+                  <img
+                    src="/images/Profiles/Charles.png"
+                    alt="Charles Maina"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white text-lg font-semibold">
+                  Charles Maina
+                </h3>
+                <p className="text-gray-300">TECHNICAL WRITER</p>
               </div>
-              <h3 className="text-white text-lg font-semibold">
-                Charles Maina
-              </h3>
-              <p className="text-gray-300">TECHNICAL WRITER</p>
-            </div>
+            {/* </div> */}
           </div>
         </section>
 
