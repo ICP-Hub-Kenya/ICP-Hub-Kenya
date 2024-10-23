@@ -15,7 +15,6 @@ import PricingCard from "../components/molecules/Card/PricingCard";
 import ProjectCard from "../components/molecules/Card/ProjectCard";
 import SectionSentence from "../components/molecules/SectionSentence";
 import LogoList from "../components/organisms/LogoList";
-import TestimonialList from "../components/organisms/TestimonialList";
 import PageTemplate from "../components/templates/PageTemplate";
 import Image from "next/image";
 import TeamCard from "../components/molecules/Card/TeamCard";
@@ -127,6 +126,7 @@ const Home = () => {
                 <h3 className="text-white text-lg font-semibold">Steve Kimoi</h3>
                 <p className="text-gray-300">PROJECT MANAGER</p>
               </div> */}
+
               {/* Team member 5 */}
               <div className="flex flex-col items-center">
                 <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">

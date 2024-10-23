@@ -28,7 +28,7 @@ const PageTemplate = ({
       {browserName == 'Firefox' ? (
         // <div className="w-full h-fit min-h-screen bg-dark overflow-x-hidden">
           // <div className="w-full h-full min-h-screen relative">
-            <div className="w-full h-full min-h-screen relative before:absolute before:w-full before:h-full before:min-h-screen before:bg-[url('/images/page-background.svg')] before:bg-cover before:blur-[175px]">
+            <div className="w-full h-full min-h-screen relative before:absolute before:w-full before:h-full before:min-h-screen before:bg-cover before:blur-[175px]">
               {/* Space for navbar, because navbar is absolute */}
               <div
                 className={`w-full h-full min-h-screen relative ${

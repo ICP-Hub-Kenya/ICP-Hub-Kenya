@@ -33,7 +33,7 @@ const BlockchainEducationBanner = () => {
     <div className={containerClass} style={containerStyle}>
       {/* Image Section - Appears on top in mobile view */}
       <div className="w-full sm:w-1/2 flex items-center justify-center mb-10 sm:mb-0 sm:order-last">
-        <Image src="/images/HeroImage.svg" width={500} height={400} alt="Grant Application" className="max-w-full h-auto" />
+        <Image src="/images/Hero.png" width={500} height={400} alt="Grant Application" className="max-w-full h-auto" />
       </div>
 
       {/* Text Section */}

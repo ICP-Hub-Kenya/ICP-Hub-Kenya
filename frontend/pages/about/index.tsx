@@ -5,7 +5,6 @@ import LineDivider from '../../components/atoms/LineDivider';
 import TeamCard from '../../components/molecules/Card/TeamCard';
 import PageSentence from '../../components/molecules/PageSentence';
 import SectionSentence from '../../components/molecules/SectionSentence';
-import TestimonialList from '../../components/organisms/TestimonialList';
 import PricingCard from '../../components/molecules/Card/PricingCard';
 import IconListItem from '../../components/molecules/IconListItem';
 import StatisticList from '../../components/organisms/StatisticList';

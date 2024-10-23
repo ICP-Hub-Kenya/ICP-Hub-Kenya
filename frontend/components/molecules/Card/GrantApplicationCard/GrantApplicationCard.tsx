@@ -30,7 +30,7 @@ const GrantApplicationCard: React.FC<GrantApplicationCardProps> = ({
                         ${imagePosition === 'top' ? 'sm:ml-6' : 'sm:mr-6'}`}>
           <div className="relative">
             <Image 
-              src='/images/GrantApplication.svg' 
+              src='/images/Grant.png' 
               width={200} 
               height={100} 
               alt='Grant Application' 

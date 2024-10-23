@@ -8,7 +8,7 @@ const VisionMissionComponent = () => {
         {/* Group Photo */}
         <div className="relative mb-12 rounded-lg overflow-hidden">
           <Image
-            src="/images/Mission.svg"
+            src="/images/Mission.png"
             alt="Group photo of blockchain enthusiasts"
             width={1200}
             height={300}

@@ -24,7 +24,7 @@ const ICPEducationCard: React.FC<ICPEducationCardProps> = ({ imagePosition = 'to
           <div className="aspect-square relative mx-auto sm:mx-0" style={{ maxWidth: '200px' }}>
             <div className="absolute inset-0 rounded-full"></div>
             <Image 
-              src='/images/EducateCard.svg' 
+              src='/images/Educate.png' 
               width={150} 
               height={50} 
               alt='ICP Education' 

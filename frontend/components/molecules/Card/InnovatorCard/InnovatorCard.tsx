@@ -28,7 +28,7 @@ const InnovationIncubatorCard: React.FC<InnovationIncubatorCardProps> = ({
         <div className={`w-full sm:w-1/3 mb-6 sm:mb-0 ${imagePosition === 'top' ? 'order-1 sm:order-2' : 'order-1'}`}>
           <div className="aspect-square relative mx-auto sm:mx-0" style={{ maxWidth: '200px' }}>
             <Image 
-              src='/images/InnovatorCard.svg' 
+              src='/images/Innovator.png' 
               width={200} 
               height={200} 
               alt='Innovation Incubator' 

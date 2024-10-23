@@ -10,7 +10,7 @@ const FirstComponent = () => {
       <div className="flex-1 grid grid-cols-2 gap-6 order-1 md:order-none">
         <div className="col-span-2 flex justify-center items-center">
           <Image 
-            src={'/images/About.svg'} 
+            src={'/images/About.png'} 
             width={450} 
             height={300} 
             alt='Grant Application' 
