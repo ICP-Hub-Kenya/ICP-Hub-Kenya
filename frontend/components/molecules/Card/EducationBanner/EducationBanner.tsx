@@ -9,7 +9,7 @@ const EducationBanner = () => {
         {/* Certificate Icon */}
         <div className="flex  items-end justify-center  w-full">
           <img
-            src="images/Education.svg"
+            src="images/certificate.png"
             alt="Certificate Icon"
             className="w-56 "
           />
@@ -24,7 +24,7 @@ const EducationBanner = () => {
           {/* Gold Coin Icon */}
           <div>
             <img
-              src="images/Frame.svg"
+              src="images/Frame.png"
               alt="Gold Coin Icon"
               className="w-[50px] h-[50px] md:w-[70px] md:h-[70px]"
             />

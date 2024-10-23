@@ -28,7 +28,7 @@ const Footer = () => {
           </div>
           <div className="mb-8 sm:mb-0 sm:mt-0">
             <img
-              src="/images/Astronaut.svg"
+              src="/images/Astronaut.png"
               alt="Astronaut"
               className="max-w-full sm:max-w-4xl h-auto"
             />
