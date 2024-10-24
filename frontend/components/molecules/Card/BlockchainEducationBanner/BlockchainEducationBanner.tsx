@@ -16,24 +16,31 @@ const useMediaQuery = (query: string) => {
   }, [matches, query]);
 
   return matches;
-}
+};
 
 const BlockchainEducationBanner = () => {
   const isDesktop = useMediaQuery('(min-width: 640px)');
 
   const containerClass = isDesktop
-    ? "mx-auto md:my-8 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 rounded-[20px] sm:rounded-[40px] flex flex-col sm:flex-row items-center max-w-6xl bg-cover bg-center"
-    : "mx-4 md:mx-8 lg:mx-16 xl:mx-48 my-10 px-6 md:px-12 py-8 md:py-16 rounded-2xl bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl shadow-xl border-[4px] border-[#400d0b]";
-
-  const containerStyle = isDesktop
-    ? { backgroundImage: "url('/Images/HeroImage.png')" }
-    : {};
+    ? `mx-auto md:my-8 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 
+       rounded-[20px] sm:rounded-[40px] flex flex-col sm:flex-row items-center max-w-6xl
+       bg-[url('/images/HeroImage.png')] bg-cover bg-center`
+    : `mx-4 md:mx-8 lg:mx-16 xl:mx-48 my-10 px-6 md:px-12 py-8 md:py-16 rounded-2xl 
+       bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl border-[4px] border-[#400d0b]`;
 
   return (
-    <div className={containerClass} style={containerStyle}>
-      {/* Image Section - Appears on top in mobile view */}
+    <div className={containerClass}>
+      {/* Image Section */}
       <div className="w-full sm:w-1/2 flex items-center justify-center mb-10 sm:mb-0 sm:order-last">
-        <Image src="/images/Hero.png" width={500} height={400} alt="Grant Application" className="max-w-full h-auto" />
+        <div className="relative w-full max-w-[500px] h-[550px]">
+          <Image 
+            src="/images/Hero.png"
+            alt="Grant Application"
+            layout="fill"
+            objectFit="contain"
+            className="max-w-full h-auto"
+          />
+        </div>
       </div>
 
       {/* Text Section */}
