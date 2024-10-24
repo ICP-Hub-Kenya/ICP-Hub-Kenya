@@ -15,7 +15,7 @@ const FooterNavBrand = () => {
         <Link href={"/"} passHref>
           <div className="w-fit h-fit">
             <Image
-              src={"/images/WhiteLogo.svg"}
+              src={"/images/WhiteLogo.png"}
               width={250}
               height={50}
               alt="company brand"

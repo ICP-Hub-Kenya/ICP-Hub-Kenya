@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const EducationBanner = () => {
   return (
-    <div className="mx-auto my-20 relative overflow-hidden h-auto md:h-[70vh] p-[40px_30px] bg-gradient-to-r from-[#571E1E] to-[#340A0A] rounded-[40px] shadow-xl border-[4px] border-[#400d0b] hero-section max-w-6xl flex flex-col space-y-4 items-center">
+    <div className="mx-auto my-20 relative overflow-hidden h-[100vh] md:h-[80vh] p-[40px_30px] bg-gradient-to-r from-[#571E1E] to-[#340A0A] rounded-[40px] shadow-xl border-[4px] border-[#400d0b] hero-section max-w-6xl flex flex-col space-y-4 items-center">
       <div className="flex flex-col items-start">
         {/* Certificate Icon */}
         <div className="flex  items-end justify-center  w-full">
