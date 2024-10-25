@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 
 const images: string[] = [
-  "/images/Gal2.jpg",
+  "/images/Gal10.jpg",
+  "/images/Gal1.jpg",
+  "/images/Gal9.jpg",
+  "/images/Gal8.jpg",
+  "/images/Gal7.jpg",
   "/images/Gal3.jpg",
   "/images/Gal4.jpg",
   "/images/Gal5.jpg",
   "/images/Gal6.jpg",
+  "/images/Gal2.jpg",
 ];
 
 const Gallery: React.FC = () => {

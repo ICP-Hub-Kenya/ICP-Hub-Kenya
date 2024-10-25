@@ -99,7 +99,7 @@ const Home = () => {
                   />
                 </div>
                 <h3 className="text-white text-lg font-semibold">Tevin Isaac</h3>
-                <p className="text-gray-300">DEVELOPER</p>
+                <p className="text-gray-300">DEVELOPER RELATIONS</p>
               </div>
 
               {/* Team member 3 */}
@@ -115,17 +115,17 @@ const Home = () => {
                 <p className="text-gray-300">PROJECT MANAGER</p>
               </div>
               {/* Team member 4 */}
-              {/* <div className="flex flex-col items-center">
-                <div className="w-50 h-64 border-4 border-[#f8b230] rounded-md mb-4 overflow-hidden">
+              <div className="flex flex-col items-center">
+                <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
                   <img
-                    src="/images/steve.png"
+                    src="/images/Profiles/Steve.png"
                     alt="Steve KImoi"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <h3 className="text-white text-lg font-semibold">Steve Kimoi</h3>
-                <p className="text-gray-300">PROJECT MANAGER</p>
-              </div> */}
+                <p className="text-gray-300">DEVELOPER RELATIONS</p>
+              </div>
 
               {/* Team member 5 */}
               <div className="flex flex-col items-center">
