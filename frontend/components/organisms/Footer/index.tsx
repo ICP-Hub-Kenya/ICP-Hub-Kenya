@@ -81,7 +81,7 @@ const Footer = () => {
                   className="text-white"
                   href="https://dacade.org/communities/icp"
                 >
-                  Decade Courses
+                  Dacade Courses
                 </a>
               </li>
               <li className="mb-4">
