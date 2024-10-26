@@ -24,7 +24,7 @@ const BlockchainEducationBanner = () => {
   const containerClass = isDesktop
     ? `mx-auto md:my-8 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 
        rounded-[20px] sm:rounded-[40px] flex flex-col sm:flex-row items-center max-w-6xl
-       bg-[url('/images/HeroImage.png')] bg-cover bg-center`
+       bg-[url('/images/HeroImage.webp')] bg-cover bg-center`
     : `mx-4 md:mx-8 lg:mx-16 xl:mx-48 my-10 px-6 md:px-12 py-8 md:py-16 rounded-2xl 
        bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl border-[4px] border-[#400d0b]`;
 
@@ -34,7 +34,7 @@ const BlockchainEducationBanner = () => {
       <div className="w-full sm:w-1/2 flex items-center justify-center mb-10 sm:mb-0 sm:order-last">
         <div className="relative w-full max-w-[500px] h-[550px]">
           <Image 
-            src="/images/Hero.png"
+            src="/images/HeroImage2.png"
             alt="Grant Application"
             layout="fill"
             objectFit="contain"

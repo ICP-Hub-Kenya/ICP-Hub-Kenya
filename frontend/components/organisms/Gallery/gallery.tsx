@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 
-const images: string[] = [
+const images = [
+  "/images/Gal11.jpg",
   "/images/Gal10.jpg",
   "/images/Gal1.jpg",
   "/images/Gal9.jpg",
@@ -46,23 +47,71 @@ const RightArrow = () => (
   </svg>
 );
 
-const Gallery: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+const Gallery = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Preload images
+  useEffect(() => {
+    const preloadImages = () => {
+      images.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          setLoadedImages(prevSet => {
+            const newSet = new Set(prevSet);
+            newSet.add(src);
+            return newSet;
+          });
+        };
+      });
+    };
+    preloadImages();
+  }, []);
+
+  // Preload adjacent images
+  useEffect(() => {
+    const preloadAdjacent = () => {
+      const nextIndex = (currentIndex + 1) % images.length;
+      const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+      
+      [images[prevIndex], images[currentIndex], images[nextIndex]].forEach(src => {
+        if (!loadedImages.has(src)) {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => {
+            setLoadedImages(prevSet => {
+              const newSet = new Set(prevSet);
+              newSet.add(src);
+              return newSet;
+            });
+          };
+        }
+      });
+    };
+    preloadAdjacent();
+  }, [currentIndex, loadedImages]);
 
   const goToPrevious = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentIndex((prevIndex) => 
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
+    setTimeout(() => setIsTransitioning(false), 300);
   };
 
   const goToNext = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentIndex((prevIndex) => 
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
+    setTimeout(() => setIsTransitioning(false), 300);
   };
 
-  // Handle keyboard navigation
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft') {
         goToPrevious();
@@ -73,7 +122,7 @@ const Gallery: React.FC = () => {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, []);
+  }, [isTransitioning]);
 
   return (
     <div className="py-12 px-4 relative">
@@ -82,19 +131,37 @@ const Gallery: React.FC = () => {
           Our Gallery
         </h2>
         
-        {/* Image Container */}
-        <div className="relative mb-4 min-h-[50vh] flex items-center justify-center">
-          {/* Main Image */}
-          <img
-            src={images[currentIndex]}
-            className="object-contain max-h-[65vh] mx-auto"
-            alt={`Gallery image ${currentIndex + 1}`}
-          />
+        <div className="relative mb-4 min-h-[50vh] flex items-center justify-center overflow-hidden">
+          {/* Hidden preload container */}
+          <div className="hidden">
+            {images.map((src, index) => (
+              <img 
+                key={`preload-${index}`}
+                src={src}
+                alt=""
+                className="hidden"
+              />
+            ))}
+          </div>
+
+          {/* Main Image with transition */}
+          <div className={`transition-opacity duration-300 ${isTransitioning ? 'opacity-50' : 'opacity-100'}`}>
+            <img
+              src={images[currentIndex]}
+              className="object-contain max-h-[65vh] mx-auto"
+              alt={`Gallery image ${currentIndex + 1}`}
+              style={{ 
+                opacity: loadedImages.has(images[currentIndex]) ? 1 : 0,
+                transition: 'opacity 0.3s ease-in-out'
+              }}
+            />
+          </div>
 
           {/* Navigation Buttons */}
           <button
             onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-r-lg transition-colors"
+            disabled={isTransitioning}
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-r-lg transition-colors disabled:opacity-50"
             aria-label="Previous image"
           >
             <LeftArrow />
@@ -102,7 +169,8 @@ const Gallery: React.FC = () => {
           
           <button
             onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-l-lg transition-colors"
+            disabled={isTransitioning}
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-l-lg transition-colors disabled:opacity-50"
             aria-label="Next image"
           >
             <RightArrow />
@@ -114,12 +182,19 @@ const Gallery: React.FC = () => {
           {images.map((_, index) => (
             <button
               key={index}
+              disabled={isTransitioning}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 currentIndex === index 
                   ? "bg-[#4f1919] w-4 h-4" 
                   : "bg-gray-300 hover:bg-gray-400"
               }`}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => {
+                if (!isTransitioning) {
+                  setIsTransitioning(true);
+                  setCurrentIndex(index);
+                  setTimeout(() => setIsTransitioning(false), 300);
+                }
+              }}
               aria-label={`Go to image ${index + 1}`}
             />
           ))}
