@@ -1,34 +1,22 @@
-import React from "react";
-import {
-  FiFigma,
-  FiCode,
-  FiBox,
-  FiDollarSign,
-  FiAirplay,
-} from "react-icons/fi";
+import React, { useEffect, useState, Suspense } from "react";
+import LoadingScreen from "./Loading";
 
-import ButtonLink from "../components/atoms/Button/ButtonLink";
+// Lazy load components that might take time to load
+const NavBar = React.lazy(() => import("../components/organisms/NavBar"));
+const BlockchainEducationBanner = React.lazy(() => 
+  import("../components/molecules/Card/BlockchainEducationBanner/BlockchainEducationBanner")
+);
+const Gallery = React.lazy(() => import("../components/organisms/Gallery/gallery"));
+const Footer = React.lazy(() => import("../components/organisms/Footer"));
+
+// Keep immediate loading components with regular imports
 import LineDivider from "../components/atoms/LineDivider";
-import FeatureCard from "../components/molecules/Card/FeatureCard";
-import PageSentence from "../components/molecules/PageSentence";
-import PricingCard from "../components/molecules/Card/PricingCard";
-import ProjectCard from "../components/molecules/Card/ProjectCard";
-import SectionSentence from "../components/molecules/SectionSentence";
-import LogoList from "../components/organisms/LogoList";
 import PageTemplate from "../components/templates/PageTemplate";
-import Image from "next/image";
-import TeamCard from "../components/molecules/Card/TeamCard";
-import CallOut from "../components/organisms/CallOut";
-import Footer from "../components/organisms/Footer";
-import Link from "next/link";
 import TechJourneyStats from "../components/molecules/Card/JourneyStarts";
 import GrantApplicationCard from "../components/molecules/Card/GrantApplicationCard/GrantApplicationCard";
 import ICPEducationCard from "../components/molecules/Card/ICPEducationCard/ICPEducationCard";
 import InnovationIncubatorCard from "../components/molecules/Card/InnovatorCard/InnovatorCard";
 import VisionVideoCard from "../components/molecules/Card/VisionCard/VisionCard";
-import BlockchainEducationBanner from "../components/molecules/Card/BlockchainEducationBanner/BlockchainEducationBanner";
-import NavBar from "../components/organisms/NavBar";
-import Gallery from "../components/organisms/Gallery/gallery";
 
 const statsData = [
   { value: "20+", label: "Hackathon" },
@@ -37,14 +25,59 @@ const statsData = [
 ];
 
 const Home = () => {
-  return (
-    <>
-      <PageTemplate title="Home - ICP HUB KE">
+  const [isLoading, setIsLoading] = useState(true);
+  const [componentsLoaded, setComponentsLoaded] = useState(false);
 
-        <NavBar />
+  useEffect(() => {
+    // Create an array of promises that resolve when components are loaded
+    const componentPromises = [
+      import("../components/organisms/NavBar"),
+      import("../components/molecules/Card/BlockchainEducationBanner/BlockchainEducationBanner"),
+      import("../components/organisms/Gallery/gallery"),
+      import("../components/organisms/Footer")
+    ];
+
+    // Wait for all components to load
+    Promise.all(componentPromises)
+      .then(() => {
+        setComponentsLoaded(true);
+      })
+      .catch(error => {
+        console.error("Error loading components:", error);
+        setComponentsLoaded(true);
+      });
+
+    // Set minimum loading time
+    const timer = setTimeout(() => {
+      if (componentsLoaded) {
+        setIsLoading(false);
+      }
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [componentsLoaded]);
+
+  useEffect(() => {
+    if (componentsLoaded && !isLoading) {
+      setIsLoading(false);
+    }
+  }, [componentsLoaded]);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+  
+  return (
+    <Suspense fallback={<LoadingScreen />}>
+      <PageTemplate title="Home - ICP HUB KE">
+       <Suspense fallback={null}>
+          <NavBar />
+        </Suspense>
 
         {/* Banner Section */}
-        <BlockchainEducationBanner />
+        <Suspense fallback={null}>
+          <BlockchainEducationBanner />
+        </Suspense>
 
         {/* Feature List */}
         <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 p-8">
@@ -199,12 +232,16 @@ const Home = () => {
 
         <LineDivider />
 
-        <Gallery />
+        <Suspense fallback={null}>
+          <Gallery />
+        </Suspense>
         {/* </div> */}
       </PageTemplate>
 
-      <Footer />
-    </>
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+    </Suspense>
   );
 };
 
