@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import GradientButton from '../../../atoms/GradientButton/GradientButton';
 
-const useMediaQuery = (query: string) => {
+const useMediaQuery = (query: any) => {
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
@@ -20,13 +20,34 @@ const useMediaQuery = (query: string) => {
 
 const BlockchainEducationBanner = () => {
   const isDesktop = useMediaQuery('(min-width: 640px)');
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  
+  useEffect(() => {
+    // Preload the background image
+    const img = document.createElement('img');
+    img.src = '/images/HeroImage.webp';
+    
+    // Set a timeout for the minimum display time of the gradient
+    const timer = setTimeout(() => {
+      img.onload = () => {
+        setIsImageLoaded(true);
+      };
+    }, 15000); // 15 seconds minimum gradient display
+    
+    return () => {
+      clearTimeout(timer);
+      img.onload = null;
+    };
+  }, []);
 
-  const containerClass = isDesktop
-    ? `mx-auto md:my-8 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 
-       rounded-[20px] sm:rounded-[40px] flex flex-col sm:flex-row items-center max-w-6xl
-       bg-[url('/images/HeroImage.webp')] bg-cover bg-center`
-    : `mx-4 md:mx-8 lg:mx-16 xl:mx-48 my-10 px-6 md:px-12 py-8 md:py-16 rounded-2xl 
-       bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl border-[4px] border-[#400d0b]`;
+  const baseClasses = isDesktop
+    ? 'mx-auto md:my-8 relative overflow-hidden min-h-[80vh] sm:min-h-[70vh] p-6 sm:p-10 rounded-[20px] sm:rounded-[40px] flex flex-col sm:flex-row items-center max-w-6xl'
+    : 'mx-4 md:mx-8 lg:mx-16 xl:mx-48 my-10 px-6 md:px-12 py-8 md:py-16 rounded-2xl';
+
+  const gradientClasses = 'bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl border-[4px] border-[#400d0b]';
+  const backgroundImageClasses = 'bg-[url("/images/HeroImage.webp")] bg-cover bg-center';
+
+  const containerClass = `${baseClasses} ${isImageLoaded ? backgroundImageClasses : gradientClasses} transition-all duration-1000`;
 
   return (
     <div className={containerClass}>
@@ -39,6 +60,7 @@ const BlockchainEducationBanner = () => {
             layout="fill"
             objectFit="contain"
             className="max-w-full h-auto"
+            priority // Add priority to load this image earlier
           />
         </div>
       </div>
