@@ -7,18 +7,22 @@ interface GalleryImage {
 }
 
 const images: GalleryImage[] = [
+  { src: "/images/Gal13.jpg", alt: "Gallery image 13" },
+  { src: "/images/Gal14.jpg", alt: "Gallery image 14" },
   { src: "/images/Gal12.jpg", alt: "Gallery image 12" },
-  { src: "/images/Gal11.jpg", alt: "Gallery image 11" },
-  { src: "/images/Gal10.jpg", alt: "Gallery image 10" },
-  { src: "/images/Gal1.jpg", alt: "Gallery image 1" },
+  // { src: "/images/Gal11.jpg", alt: "Gallery image 11" },
+  // { src: "/images/Gal10.jpg", alt: "Gallery image 10" },
+  // { src: "/images/Gal1.jpg", alt: "Gallery image 1" },
   { src: "/images/Gal9.jpg", alt: "Gallery image 9" },
-  { src: "/images/Gal8.jpg", alt: "Gallery image 8" },
-  { src: "/images/Gal7.jpg", alt: "Gallery image 7" },
-  { src: "/images/Gal3.jpg", alt: "Gallery image 3" },
-  { src: "/images/Gal4.jpg", alt: "Gallery image 4" },
+  // { src: "/images/Gal8.jpg", alt: "Gallery image 8" },
+  { src: "/images/Gal16.jpg", alt: "Gallery image 8" },
+  // { src: "/images/Gal7.jpg", alt: "Gallery image 7" },
+  // { src: "/images/Gal3.jpg", alt: "Gallery image 3" },
+  { src: "/images/Gal15.jpeg", alt: "Gallery image 8" },
+  // { src: "/images/Gal4.jpg", alt: "Gallery image 4" },
   { src: "/images/Gal5.jpg", alt: "Gallery image 5" },
   { src: "/images/Gal6.jpg", alt: "Gallery image 6" },
-  { src: "/images/Gal2.jpg", alt: "Gallery image 2" },
+  // { src: "/images/Gal2.jpg", alt: "Gallery image 2" },
 ];
 
 const Gallery: React.FC = () => {
