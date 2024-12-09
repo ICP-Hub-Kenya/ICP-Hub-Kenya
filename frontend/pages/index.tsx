@@ -17,6 +17,7 @@ import GrantApplicationCard from "../components/molecules/Card/GrantApplicationC
 import ICPEducationCard from "../components/molecules/Card/ICPEducationCard/ICPEducationCard";
 import InnovationIncubatorCard from "../components/molecules/Card/InnovatorCard/InnovatorCard";
 import VisionVideoCard from "../components/molecules/Card/VisionCard/VisionCard";
+import OurStartups from "../components/molecules/Card/OurStartups/OurStartups";
 
 const statsData = [
   { value: "20+", label: "Hackathon" },
@@ -235,6 +236,9 @@ const Home = () => {
         <Suspense fallback={null}>
           <Gallery />
         </Suspense>
+
+        <OurStartups /> 
+        
         {/* </div> */}
       </PageTemplate>
 
