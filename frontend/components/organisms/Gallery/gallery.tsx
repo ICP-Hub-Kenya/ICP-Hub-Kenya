@@ -8,7 +8,7 @@ interface GalleryImage {
 
 const images: GalleryImage[] = [
   { src: "/images/Gal13.jpg", alt: "Gallery image 13" },
-  { src: "/images/Gal14.jpg", alt: "Gallery image 14" },
+  // { src: "/images/Gal14.jpg", alt: "Gallery image 14" },
   { src: "/images/Gal12.jpg", alt: "Gallery image 12" },
   // { src: "/images/Gal11.jpg", alt: "Gallery image 11" },
   // { src: "/images/Gal10.jpg", alt: "Gallery image 10" },
@@ -22,6 +22,7 @@ const images: GalleryImage[] = [
   // { src: "/images/Gal4.jpg", alt: "Gallery image 4" },
   { src: "/images/Gal5.jpg", alt: "Gallery image 5" },
   { src: "/images/Gal6.jpg", alt: "Gallery image 6" },
+  { src: "/images/Gal18.jpg", alt: "Gallery image 12" }
   // { src: "/images/Gal2.jpg", alt: "Gallery image 2" },
 ];
 
