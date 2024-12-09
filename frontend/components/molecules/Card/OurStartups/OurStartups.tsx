@@ -8,6 +8,7 @@ const startups = [
     logo: "/images/FRYS.png",
     twitterLink: "https://x.com/FriesCoin",
     websiteLink: "https://friescoin.xyz/",
+    email: "info@icpkushite.com",
   },
   {
     title: "Investa Farm",
@@ -16,6 +17,7 @@ const startups = [
     logo: "/images/InvestaFarm.png",
     twitterLink: "https://x.com/Investa_farm",
     websiteLink: "https://investafarm.com/",
+    email: "info@icpkushite.com",
   },
   {
     title: "IThreeM",
@@ -24,6 +26,7 @@ const startups = [
     logo: "/images/I3M.png",
     twitterLink: "https://x.com/IThr3M",
     websiteLink: "https://ithreem.com/",
+    email: "info@icpkushite.com",
   },
   {
     title: "Chama DAO",
@@ -32,6 +35,7 @@ const startups = [
     logo: "/images/ChamaDAO.png",
     twitterLink: "https://x.com/TheChamaDAO",
     websiteLink: "https://thechamadao.xyz/",
+    email: "info@icpkushite.com",
   },
 ];
 
@@ -50,39 +54,47 @@ const OurStartups = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {startups.map((startup, index) => (
                 <div
-                    key={index}
-                    className="w-full max-w-md mx-auto p-6 bg-white rounded-lg shadow-md border border-gray-200"
+                key={index}
+                className="relative w-full max-w-md mx-auto p-6 bg-white rounded-2xl shadow-md border border-gray-200 group overflow-hidden"
                 >
                 <div className="flex items-center justify-between mb-4">
                     <div>
-                        <img
-                            src={startup.logo}
-                            alt={`${startup.title} Logo`}
-                            className="h-12 w-12 rounded-full"
-                        />
-                        <h3 className="text-xl font-bold text-gray-800">{startup.title}</h3>
+                    <img
+                        src={startup.logo}
+                        alt={`${startup.title} Logo`}
+                        className="h-12 w-12 rounded-full"
+                    />
+                    <h3 className="text-xl font-bold text-gray-800">{startup.title}</h3>
                     </div>
                     <div className="flex space-x-4">
-                        <a
-                          href={startup.twitterLink} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-gray-600 hover:text-gray-800" 
-                        >
-                            <img src="/images/x.png" alt="Twitter Link" className="h-6 w-6" />
-                        </a>
-                        <a
-                           href={startup.websiteLink} 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                        >
-                            <img src="/images/website.png" alt="Website Link" className="h-6 w-6" />
-                        </a>
+                    <a
+                        href={startup.twitterLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-gray-800"
+                    >
+                        <img src="/images/x.png" alt="Twitter Link" className="h-6 w-6" />
+                    </a>
+                    <a
+                        href={startup.websiteLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img src="/images/website.png" alt="Website Link" className="h-6 w-6" />
+                    </a>
                     </div>
-                {/* <div className="flex space-x-2">
-                </div> */}
                 </div>
                 <p className="text-sm text-gray-600 text-start">{startup.description}</p>
+
+                {/* Invest Button */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-yellow-500 to-yellow-600 text-center py-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <a
+                    href={`mailto:${startup.email}`} // Dynamically set the email
+                    className="text-white font-bold"
+                    >
+                    INVEST
+                    </a>
+                </div>
                 </div>
             ))}
             </div>
