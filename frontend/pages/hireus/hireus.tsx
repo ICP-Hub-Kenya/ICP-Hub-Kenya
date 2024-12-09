@@ -19,7 +19,7 @@ const teamMembers = [
   },
   {
     name: "Silas Wunda",
-    image: "/images/Profiles/silas-wunda.jpg",
+    image: "/images/HireSilas.png",
     linkedin: "https://www.linkedin.com/in/silas-wunda",
   },
 ];
