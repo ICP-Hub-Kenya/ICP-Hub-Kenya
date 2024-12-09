@@ -46,7 +46,7 @@ const OurStartups = () => {
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10">
           Our Startups
         </h2>
-        <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p className="text-2xl font-thin mb-8 sm:text-lg text-center lg:text-xl px-4 sm:px-0">
           ICPs vision is that most of the worlds software will be replaced by
           smart contracts. To realize that vision, ICP is designed to make
           smart contracts as powerful as traditional software.
@@ -84,7 +84,7 @@ const OurStartups = () => {
                     </a>
                     </div>
                 </div>
-                <p className="text-sm text-gray-600 text-start">{startup.description}</p>
+                <p className="font-thin text-sm mb-8 text-start px-4 sm:px-0">{startup.description}</p>
 
                 {/* Invest Button */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-yellow-500 to-yellow-600 text-center py-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
