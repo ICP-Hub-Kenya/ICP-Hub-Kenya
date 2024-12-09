@@ -47,53 +47,42 @@ const OurStartups = () => {
           smart contracts. To realize that vision, ICP is designed to make
           smart contracts as powerful as traditional software.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {startups.map((startup, index) => (
                 <div
                     key={index}
                     className="w-full max-w-md mx-auto p-6 bg-white rounded-lg shadow-md border border-gray-200"
                 >
                 <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-4">
-                        <div>
-                            <img
-                                src={startup.logo}
-                                alt={`${startup.title} Logo`}
-                                className="h-16 w-16 rounded-full object-cover"
-                            />
-                            <h3 className="text-xl font-bold text-gray-800">
-                                {startup.title}
-                            </h3>
-                        </div>
-                        <div className="flex justify-center space-x-4">
-                            <a href={startup.twitterLink} target="_blank" rel="noopener noreferrer">
-                                <img src="/images/x.png" alt="Twitter Link" className="h-6 w-6" />
-                            </a>
-                            <a href={startup.websiteLink} target="_blank" rel="noopener noreferrer">
-                                <img src="/images/website.png" alt="Website Link" className="h-6 w-6" />
-                            </a>
-                        </div>
+                    <div>
+                        <img
+                            src={startup.logo}
+                            alt={`${startup.title} Logo`}
+                            className="h-12 w-12 rounded-full"
+                        />
+                        <h3 className="text-xl font-bold text-gray-800">{startup.title}</h3>
                     </div>
-                    <div className="flex space-x-2">
-                    <a
-                        href={startup.twitterLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-500 hover:text-gray-700"
-                    >
-                        <i className="fab fa-twitter"></i>
-                    </a>
-                    <a
-                        href={startup.websiteLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-500 hover:text-gray-700"
-                    >
-                        <i className="fas fa-globe"></i>
-                    </a>
+                    <div className="flex space-x-4">
+                        <a
+                          href={startup.twitterLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-gray-600 hover:text-gray-800" 
+                        >
+                            <img src="/images/x.png" alt="Twitter Link" className="h-6 w-6" />
+                        </a>
+                        <a
+                           href={startup.websiteLink} 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                        >
+                            <img src="/images/website.png" alt="Website Link" className="h-6 w-6" />
+                        </a>
                     </div>
+                {/* <div className="flex space-x-2">
+                </div> */}
                 </div>
-                <p className="text-sm text-gray-600">{startup.description}</p>
+                <p className="text-sm text-gray-600 text-start">{startup.description}</p>
                 </div>
             ))}
             </div>
