@@ -3,79 +3,77 @@ import { FiInstagram, FiMail } from "react-icons/fi";
 import { BsTwitterX } from "react-icons/bs";
 import { TfiLinkedin } from "react-icons/tfi";
 import { BiLogoTelegram } from "react-icons/bi";
-import GradientButton from "../../../atoms/GradientButton/GradientButton";
 
 const ContactUs = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto my-10 px-6 md:px-12 py-8 md:py-16 rounded-2xl bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl">
-      <h2 className="text-white text-3xl md:text-5xl font-bold mb-6 text-center tracking-tighter">
+    <div className="w-full max-w-6xl mx-auto my-10 px-6 md:px-12 py-12 md:py-20 rounded-2xl bg-gradient-to-r from-[#6a1d1b] to-[#340a0a] shadow-xl">
+      <h2 className="text-white text-3xl md:text-5xl font-bold mb-10 text-center tracking-tighter">
         Contact Us
       </h2>
 
-      <div className="mx-auto max-w-4xl flex flex-col md:flex-row  justify-between space-y-8 md:space-y-0">
-        <div className="flex flex-col items-start space-y-6 w-full md:w-2/5">
-          <div className="flex items-center space-x-4">
-            <div className="p-2 bg-white rounded-lg">
-              <BsTwitterX size={25} />
-            </div>
-            <span className="text-white">@icphub_KE</span>
+      <div className="mx-auto max-w-4xl flex flex-col md:flex-row justify-between space-y-6 md:space-y-0 md:space-x-8">
+        {/* Twitter */}
+        <a
+          href="https://x.com/icphub_KE"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center space-x-4 hover:opacity-80 transition-opacity"
+        >
+          <div className="p-2 bg-white rounded-lg">
+            <BsTwitterX size={25} />
           </div>
+          <span className="text-white">@icphub_KE</span>
+        </a>
 
-          <div className="flex items-center space-x-4">
-            <div className="p-2 bg-white rounded-lg">
-              <FiInstagram size={25} />
-            </div>
-            <span className="text-white">icphub_ke</span>
+        {/* Instagram */}
+        <a
+          href="https://www.instagram.com/icphub_ke/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center space-x-4 hover:opacity-80 transition-opacity"
+        >
+          <div className="p-2 bg-white rounded-lg">
+            <FiInstagram size={25} />
           </div>
+          <span className="text-white">icphub_ke</span>
+        </a>
 
-          <div className="flex items-center space-x-4">
-            <div className="p-2 bg-white rounded-lg">
-              <TfiLinkedin size={25} />
-            </div>
-            <span className="text-white">ICP Hub Kenya</span>
+        {/* LinkedIn */}
+        <a
+          href="https://www.linkedin.com/company/icphub-ke/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center space-x-4 hover:opacity-80 transition-opacity"
+        >
+          <div className="p-2 bg-white rounded-lg">
+            <TfiLinkedin size={25} />
           </div>
+          <span className="text-white">ICP Hub Kenya</span>
+        </a>
 
-          <div className="flex items-center space-x-4">
-            <div className="p-2 bg-white rounded-lg">
-              <FiMail size={25} />
-            </div>
-            <span className="text-white">info@icpkushite.com</span>
+        {/* Email */}
+        <a
+          href="mailto:info@icpkushite.com"
+          className="flex items-center space-x-4 hover:opacity-80 transition-opacity"
+        >
+          <div className="p-2 bg-white rounded-lg">
+            <FiMail size={25} />
           </div>
-          <div className="flex items-center space-x-4">
-            <div className="p-2 bg-white rounded-lg">
-              <BiLogoTelegram size={25} />
-            </div>
-            <span className="text-white">ICP HUB Kenya</span>
-          </div>
-        </div>
+          <span className="text-white">info@icpkushite.com</span>
+        </a>
 
-        <div className="w-full md:w-3/5 ">
-          <form className="space-y-4">
-            <input
-              type="text"
-              placeholder="Name"
-              className="w-full p-3 rounded-sm bg-[#422225] border border-white text-white placeholder-gray-400"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full p-3 rounded-sm bg-[#422225] border border-white text-white placeholder-gray-400"
-            />
-            <textarea
-              placeholder="Message"
-              rows={4}
-              className="w-full p-3 rounded-sm bg-[#422225] border border-white text-white placeholder-gray-400"
-            />
-            <div>
-              <GradientButton
-                onClick={() => console.log("Form sent successfully")}
-                className="w-full"
-              >
-                Send
-              </GradientButton>
-            </div>
-          </form>
-        </div>
+        {/* Telegram */}
+        <a
+          href="https://t.me/icphub_KE"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center space-x-4 hover:opacity-80 transition-opacity"
+        >
+          <div className="p-2 bg-white rounded-lg">
+            <BiLogoTelegram size={25} />
+          </div>
+          <span className="text-white">ICP HUB Kenya</span>
+        </a>
       </div>
     </div>
   );
