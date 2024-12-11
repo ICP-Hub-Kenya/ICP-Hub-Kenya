@@ -92,7 +92,7 @@ const OurStartups = () => {
                     href={`mailto:${startup.email}`} // Dynamically set the email
                     className="text-white font-bold"
                     >
-                    INVEST
+                     Get an Intro
                     </a>
                 </div>
                 </div>
