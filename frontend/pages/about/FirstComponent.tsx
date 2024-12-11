@@ -25,7 +25,7 @@ const FirstComponent = () => {
         <h1 className="text-5xl sm:text-4xl sm:text-start text-center lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">
           About ICP Kenya Hub
         </h1>
-        <p className="text-gray-700 sm:text-start text-center text-2xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
+        <p className="text-gray-700 text-center sm:text-left text-lg sm:text-xl font-thin px-2 sm:px-0">
           Welcome to ICP Hub Kenya, a pioneering force dedicated to advancing blockchain technology across the region and beyond. 
           As one of the esteemed ICP Hubs worldwide, our mission is clear: to empower individuals and organizations through education, 
           collaboration, and innovation in the realm of blockchain. With a steadfast commitment to fostering a 
@@ -34,7 +34,7 @@ const FirstComponent = () => {
           landscape of tomorrow, one block at a time in Africa.
         </p>
 
-        <div className='sm:ml-0 ml-28'>
+        <div className='sm:ml-0 flex justify-center'>
           <GradientButton onClick={() => console.log("Contact!")}>
             Contact Us 
           </GradientButton>

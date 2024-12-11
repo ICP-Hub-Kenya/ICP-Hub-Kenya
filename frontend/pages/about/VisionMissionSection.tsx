@@ -3,27 +3,25 @@ import Image from 'next/image';
 
 const VisionMissionComponent = () => {
   return (
-    <div className="bg-[#212121] text-white p-8 sm:h-[100vh] h-[150vh] flex items-center">
-      <div className="max-w-6xl mx-auto">
+    <div className="bg-[#212121] text-white p-8 flex items-center">
+      <div className="max-w-6xl mx-auto w-full sm:h-[100vh] h-[150vh] flex flex-col">
         {/* Group Photo */}
-        <div className="relative mb-12 rounded-lg overflow-hidden">
+        <div className="relative mb-8 rounded-lg overflow-hidden w-full h-[200px] sm:h-[300px]">
           <Image
             src="/images/Mission.png"
             alt="Group photo of blockchain enthusiasts"
-            width={1200}
-            height={300}
-            layout="responsive"
+            layout="fill"
             objectFit="cover"
           />
         </div>
 
         {/* Vision and Mission */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 gap-8 flex-1 justify-center items-center">
           <div className="relative">
-            <h1 className="text-5xl sm:text-4xl text-center lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">
+            <h1 className="text-4xl sm:text-5xl text-center font-bold mb-4 tracking-[-0.08em]">
               Our Vision
             </h1>
-            <p className="sm:text-start text-center text-2xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
+            <p className="text-center sm:text-left text-lg sm:text-xl font-thin px-2 sm:px-0">
               We&apos;re dedicated to democratizing blockchain technology through
               accessible education and empowering developers to create real
               decentralized applications on the Internet Computer platform.
@@ -31,11 +29,11 @@ const VisionMissionComponent = () => {
               innovation and progress.
             </p>
           </div>
-          <div className="relative md:border-l md:border-gray-300 md:pl-8">
-            <h1 className="text-5xl sm:text-4xl text-center lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">
+          <div className="relative sm:border-l sm:border-gray-300 sm:pl-8">
+            <h1 className="text-4xl sm:text-5xl text-center font-bold mb-4 tracking-[-0.08em]">
               Our Mission
             </h1>
-            <p className="sm:text-start text-center text-2xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
+            <p className="text-center sm:text-left text-lg sm:text-xl font-thin px-2 sm:px-0">
               We envision a world where blockchain technology empowers
               individuals and organizations, enabling them to unlock their full
               potential. The Internet Computer is our chosen vessel for this
@@ -44,7 +42,6 @@ const VisionMissionComponent = () => {
             </p>
           </div>
         </div>
-
       </div>
     </div>
   );
