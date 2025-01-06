@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import GradientButton from '../../../atoms/GradientButton/GradientButton';
+import { useRouter } from 'next/router';
 
 const useMediaQuery = (query: any) => {
   const [matches, setMatches] = useState(false);
@@ -21,6 +22,8 @@ const useMediaQuery = (query: any) => {
 const BlockchainEducationBanner = () => {
   const isDesktop = useMediaQuery('(min-width: 640px)');
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  const router = useRouter();
   
   useEffect(() => {
     // Preload the background image
@@ -76,7 +79,7 @@ const BlockchainEducationBanner = () => {
           ecosystem.
         </p>
         <div className="flex justify-center sm:justify-start">
-          <GradientButton onClick={() => console.log('Explore')}>
+          <GradientButton onClick={() => router.push('/about')}>
             Explore ICP Hub Kenya
           </GradientButton>
         </div>
