@@ -140,7 +140,7 @@ const Home = () => {
               <div className="flex flex-col items-center">
                 <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
                   <img
-                    src="/images/Profiles/Mary.png"
+                    src="/images/Profiles/Mary3.png"
                     alt="Mary Usaji"
                     className="w-full h-full object-cover"
                   />
@@ -200,7 +200,7 @@ const Home = () => {
                 <p className="text-gray-300">SOCIAL MEDIA MANAGER</p>
               </div>
               {/* Team member 8 */}
-              <div className="flex flex-col items-center">
+              {/* <div className="flex flex-col items-center">
                 <div className="w-50 h-64 mb-4 overflow-hidden">
                   <img
                     src="/images/Profiles/Maic.png"
@@ -212,7 +212,7 @@ const Home = () => {
                   Maic Sebakara
                 </h3>
                 <p className="text-gray-300">ICP RWANDA SPOKE</p>
-              </div>
+              </div> */}
               {/* Team member 9 */}
               <div className="flex flex-col items-center">
                 <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
@@ -226,6 +226,20 @@ const Home = () => {
                   Charles Maina
                 </h3>
                 <p className="text-gray-300">TECHNICAL WRITER</p>
+              </div>
+              {/* Team member 10 */}
+              <div className="flex flex-col items-center">
+                <div className="w-50 h-64 rounded-md mb-4 overflow-hidden">
+                  <img
+                    src="/images/Profiles/Silas.png"
+                    alt="Charles Maina"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white text-lg font-semibold">
+                  Silas 
+                </h3>
+                <p className="text-gray-300">COMMUNITY STRATEGIST</p>
               </div>
             {/* </div> */}
           </div>
