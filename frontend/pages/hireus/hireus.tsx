@@ -6,21 +6,29 @@ const teamMembers = [
     name: "Tevin Isaac",
     image: "/images/HireTevin.png",
     linkedin: "https://www.linkedin.com/in/tevin-isaac",
+    details: "Blockchain Developer and Technical Lead with expertise in Internet Computer Protocol. Experienced in smart contract development, DeFi protocols, and Web3 infrastructure.",
+    languages: ["Motoko", "Rust", "JavaScript", "Solidity"]
   },
   {
     name: "Steve Kimoi",
     image: "/images/HireSteve.png",
     linkedin: "https://www.linkedin.com/in/steve-kimoi",
+    details: "Full Stack Developer specializing in Web3 technologies. Proficient in building decentralized applications and implementing blockchain solutions using ICP and other protocols.",
+    languages: ["TypeScript", "Motoko", "Python", "React"]
   },
   {
     name: "Mary Usaji",
     image: "/images/HireMary.png",
     linkedin: "https://www.linkedin.com/in/mary-usaji",
+    details: "Community Manager and Blockchain Educator with strong expertise in project management. Skilled in organizing blockchain workshops and fostering developer communities.",
+    languages: ["JavaScript", "Motoko", "HTML/CSS"]
   },
   {
     name: "Silas Wunda",
     image: "/images/HireSilas.png",
     linkedin: "https://www.linkedin.com/in/silas-wunda",
+    details: "Smart Contract Developer and Security Expert. Specialized in blockchain architecture, smart contract auditing, and developing secure decentralized solutions.",
+    languages: ["Rust", "Motoko", "C++", "Solidity"]
   },
 ];
 
@@ -68,15 +76,22 @@ const HireUs = () => {
                     <FaLinkedin size={20} />
                   </a>
                 </div>
-                <p className="text-md mb-4  w-[70%] mx-auto ">
-                  ICP Hub Kenya is dedicated to propelling the advancement of
-                  Blockchain Technology within our region and beyond. ICP Hub
-                  Kenya is dedicated to propelling the advancement of Blockchain
-                  Technology within our region and beyond.ICP Hub Kenya is
-                  dedicated to propelling the advancement of Blockchain
-                  Technology .
+                <p className="text-md mb-4 w-[70%] mx-auto">
+                  {member.details}
                 </p>
-                <a className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 border border-black">
+                <div className="flex flex-wrap gap-2 justify-center mb-4">
+                  {member.languages.map((language, idx) => (
+                    <span key={idx} className="bg-black/20 px-3 py-1 rounded-full text-sm">
+                      {language}
+                    </span>
+                  ))}
+                </div>
+                <a 
+                  href={`mailto:info@icpkushite.com?subject=Hiring Inquiry for ${member.name}&body=Hello ICP Hub Kenya,%0D%0A%0D%0AI am interested in working with ${member.name}. I would like to discuss potential collaboration opportunities.%0D%0A%0D%0ABest regards`}
+                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 border border-black"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Contact Us
                 </a>
               </div>
