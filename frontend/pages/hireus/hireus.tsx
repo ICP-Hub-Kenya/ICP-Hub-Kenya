@@ -43,7 +43,18 @@ const HireUs = () => {
                 alt={member.name}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6] flex flex-col justify-between text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-[90%]">
+              <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6] flex items-center justify-center space-x-2 p-2">
+                <h3 className="text-xl font-bold text-center">{member.name}</h3>
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black"
+                >
+                  <FaLinkedin size={20} />
+                </a>
+              </div>
+              <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6]/70 flex flex-col justify-between text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-[90%]">
                 <div className="flex items-center justify-center space-x-2 mb-2 mt-4">
                   <h3 className="text-xl font-bold text-center">
                     {member.name}
