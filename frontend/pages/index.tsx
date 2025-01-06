@@ -237,7 +237,7 @@ const Home = () => {
                   />
                 </div>
                 <h3 className="text-white text-lg font-semibold">
-                  Silas 
+                  Osezua Silas
                 </h3>
                 <p className="text-gray-300">COMMUNITY STRATEGIST</p>
               </div>
