@@ -1,62 +1,51 @@
 import React from "react";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const teamMembers = [
-  {
-    name: "Tevin Isaac",
-    image: "/images/HireTevin.png",
-    linkedin: "https://www.linkedin.com/in/tevin-isaac",
-    details: "Tevin is a blockchain developer and software engineer with four years of experience specializing in JavaScript, Solidity, and Rust. As the lead developer at ICP Hub Kenya, he co-leads the Olympus Accelerator Program and organizes hackathons to inspire innovation in dApps applications on ICP.",
-    languages: ["Motoko", "Rust", "JavaScript", "Solidity"],
-    github: "https://github.com/tevinisaac"
-  },
-  {
-    name: "Steve Kimoi",
-    image: "/images/HireSteve.png",
-    linkedin: "https://www.linkedin.com/in/steve-kimoi",
-    details: "Full Stack Developer specializing in Web3 technologies. Proficient in building decentralized applications and implementing blockchain solutions using ICP and other protocols.",
-    languages: ["TypeScript", "Motoko", "Python", "React"],
-    github: "https://github.com/Stephen-Kimoi"
-  },
   {
     name: "Christine Okoth",
     image: "/images/HireChris.png",
     linkedin: "https://www.linkedin.com/in/christine-okoth/",
-    details: "Backend and smart contract developer with experience in blockchain projects like icfootprint, Investafarm, and Fries Coin development. ALX software engineering graduate.",
+    github: "https://github.com/chriss1525",
+    portfolio: "https://drive.google.com/file/d/1taIKZWhDn0pB4aMdUtBtyGwby-hVQTuc/view?usp=drive_link",
+    details: "ALX software engineering graduate with expertise in backend and smart contract development. Notable projects include icfootprint by Carboncrowd, Investafarm, and Fries memecoin development. Certified in Rust 101 and TypeScript 101.",
     languages: ["Rust", "TypeScript"],
-    github: "github.com/chriss1525"
-  }, 
+  },
   {
     name: "Sylus Abel",
     image: "/images/HireSylus.jpeg",
     linkedin: "https://www.linkedin.com/in/sylus-abel/",
-    details: "BSc. Mechanical Engineering student with over two years of development experience. Specialized in ReactJS, React Native, and blockchain development using ICP's Toolkit Azle.",
+    github: "https://github.com/divin3circle",
+    portfolio: "https://drive.google.com/file/d/1yNFFMqF_Ht5YpODyK7xhKgALg1d3DCde/view?usp=sharing",
+    details: "BSc. Mechanical Engineering student with over two years of development experience. Graduate of ICP Hub Incubation program specializing in DeFi products. Experienced in ReactJS, React Native, and blockchain development using ICP's Toolkit Azle.",
     languages: ["TypeScript", "C", "Solidity", "GO"],
-    github: "https://github.com/divin3circle"
   },
   {
     name: "Eugene Karewa",
     image: "/images/HireEugene.jpg",
     linkedin: "https://www.linkedin.com/in/eugene-karewa-99616b1a2/",
-    details: "Blockchain developer with focus on beginner-friendly solutions. Based in Kilifi, Kenya.",
+    github: "https://github.com/Eugenekarewa",
+    portfolio: "https://drive.google.com/open?id=1k3y4EFJiV6VTbhPalVwu-CRRrC8g8gG6",
+    details: "Certified blockchain developer specializing in beginner-friendly solutions. Completed blockchain development certification in 2024. Based in Kilifi, Kenya, focusing on making blockchain technology accessible to newcomers.",
     languages: ["TypeScript", "Python"],
-    github: "https://github.com/Eugenekarewa"
   },
   {
     name: "Henry Kimani",
     image: "/images/HireKimani.jpg",
     linkedin: "https://www.linkedin.com/in/kimani-henry",
-    details: "Full stack developer with expertise in Rust and TypeScript. Passionate about advancing in the tech space.",
+    github: "https://github.com/h3nryk",
+    portfolio: "https://henry.jetbrainscollege.com/",
+    details: "Full stack developer with 3 years of experience, specializing in Rust and TypeScript. Certified in advanced development technologies. Passionate about advancing in the tech space with expertise in blockchain development.",
     languages: ["JavaScript", "Python", "Motoko"],
-    github: "https://github.com/h3nryk"
   },
   {
     name: "Hannah Mwangi",
     image: "/images/HireHannah.jpg",
     linkedin: "https://www.linkedin.com/in/hannah-mwangi-wamziss/",
-    details: "Web3 developer with 2 years of Web2 experience. Active participant in ICP hackathons and passionate about helping others in the development community.",
+    github: "https://github.com/Wamziss",
+    portfolio: "https://wamziss-portfolio.vercel.app/",
+    details: "Experienced Web3 developer with 2 years of Web2 background. Active participant in ICP hackathons and certified in Rust development. Passionate about mentoring and supporting others in the development community.",
     languages: ["JavaScript", "Motoko", "Python", "Rust"],
-    github: "https://github.com/Wamziss"
   },
   // {
   //   name: "Cheryl Owala",
@@ -78,22 +67,24 @@ const teamMembers = [
     name: "John Mokaya",
     image: "/images/HireJohn.jpg",
     linkedin: "www.linkedin.com/in/john-mokaya-3b926a261",
-    details: "Frontend developer with experience in blockchain development platforms.",
+    github: "https://github.com/mokayaj857",
+    portfolio: "https://john-mokaya.vercel.app/",
+    details: "Frontend developer with specialized experience in blockchain development platforms. Completed frontend development certification and actively applying decade course knowledge in platform development.",
     languages: ["Python", "Motoko", "Rust"],
-    github: "https://github.com/mokayaj857"
   }
 ];
 
 const HireUs = () => {
   return (
     <section className="px-5 md:px-0 py-12">
-      <div className="container mx-auto max-w-5xl  text-center">
+      <div className="container mx-auto max-w-5xl text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 tracking-tight">
-          Hire Us
+          Hire Our Certified Developers
         </h2>
-        <p className="text-2xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
-          At ICP Hub Kenya, we have the highly skilled and professional talents
-          available for hire.
+        <p className="text-xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
+          Our talented developers are graduates of intensive training programs including the ICP Hub Incubation Program, 
+          ALX Software Engineering, Hackathons and specialized courses in Rust, TypeScript, and blockchain development. Each developer 
+          brings certified expertise and practical experience in building real-world applications.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {teamMembers.map((member, index) => (
@@ -111,14 +102,34 @@ const HireUs = () => {
                   <h3 className="text-xl font-bold text-center">
                     {member.name}
                   </h3>
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-black"
-                  >
-                    <FaLinkedin size={20} />
-                  </a>
+                  <div className="flex space-x-2">
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-black hover:text-blue-600"
+                    >
+                      <FaLinkedin size={20} />
+                    </a>
+                    <a
+                      href={member.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-black hover:text-gray-700"
+                    >
+                      <FaGithub size={20} />
+                    </a>
+                    {member.portfolio && (
+                      <a
+                        href={member.portfolio}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium hover:text-blue-600"
+                      >
+                        Portfolio
+                      </a>
+                    )}
+                  </div>
                 </div>
                 <p className="text-md mb-4 w-[70%] mx-auto">
                   {member.details}

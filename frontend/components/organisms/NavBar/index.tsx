@@ -56,7 +56,7 @@ const NavBar = () => {
           <div className="hidden lg:flex items-center space-x-8">
             <NavLink href="/about" value="About" canActive={true} />
             <NavLink href="/education" value="Education" canActive={true} />
-            {/* <NavLink href="/hireus" value="Hire Us" canActive={true} /> */}
+            <NavLink href="/hireus" value="Hire Us" canActive={true} />
             <NavLink href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" value="Events" canActive={true} />
             <NavLink href="https://icphub-ke.medium.com/" value="Blog" canActive={true} />
             <NavLink href="/contact" value="Contact" canActive={true} />
