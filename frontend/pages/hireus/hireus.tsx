@@ -92,9 +92,9 @@ const HireUs = () => {
           ALX Software Engineering, Hackathons and specialized courses in Rust, TypeScript, and blockchain development. Each developer 
           brings certified expertise and practical experience in building real-world applications.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {teamMembers.map((member, index) => (
-            <div key={index} className="relative w-96 h-96 group">
+            <div key={index} className="relative w-80 h-80 group">
               <img
                 src={member.image}
                 alt={member.name}
@@ -106,7 +106,7 @@ const HireUs = () => {
               <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6]/70 flex flex-col justify-between text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-[90%] overflow-y-auto">
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-center space-x-2 mb-2 mt-4">
-                    <h3 className="text-xl font-bold text-center">
+                    <h3 className="text-lg font-bold text-center">
                       {member.name}
                     </h3>
                     <div className="flex space-x-2">
@@ -131,17 +131,17 @@ const HireUs = () => {
                           href={member.portfolio}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm font-medium hover:text-blue-600"
+                          className="text-xs font-medium hover:text-blue-600"
                         >
                           Portfolio
                         </a>
                       )}
                     </div>
                   </div>
-                  <p className="text-md px-6 flex-grow">
+                  <p className="text-sm px-4 flex-grow">
                     {member.details}
                   </p>
-                  <div className="flex flex-col items-center gap-4 p-4 mt-auto">
+                  <div className="flex flex-col items-center gap-2 p-2">
                     <div className="flex flex-wrap gap-2 justify-center">
                       {member.languages.map((language, idx) => (
                         <span key={idx} className="bg-black/20 px-3 py-1 rounded-full text-sm">
