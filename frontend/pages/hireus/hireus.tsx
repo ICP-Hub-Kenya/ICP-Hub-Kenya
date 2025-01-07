@@ -78,7 +78,13 @@ const HireUs = () => {
   return (
     <section className="px-5 md:px-0 py-12">
       <div className="container mx-auto max-w-5xl text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 tracking-tight">
+        <h2
+          onClick={() => {
+            const subject = encodeURIComponent(`Hiring Inquiry for Steve}`);
+            const body = encodeURIComponent(`Hello ICP Hub Kenya,\n\nI am interested in working with Steve. I would like to discuss potential collaboration opportunities.\n\nBest regards`);
+            window.location.href = `mailto:info@icpkushite.com?subject=${subject}&body=${body}`;
+          }}
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 tracking-tight">
           Hire Our Certified Developers
         </h2>
         <p className="text-xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
@@ -134,21 +140,25 @@ const HireUs = () => {
                 <p className="text-md mb-4 w-[70%] mx-auto">
                   {member.details}
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center mb-4">
-                  {member.languages.map((language, idx) => (
-                    <span key={idx} className="bg-black/20 px-3 py-1 rounded-full text-sm">
-                      {language}
-                    </span>
-                  ))}
+                <div className="flex flex-col items-center gap-4 mb-4">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {member.languages.map((language, idx) => (
+                      <span key={idx} className="bg-black/20 px-3 py-1 rounded-full text-sm">
+                        {language}
+                      </span>
+                    ))}
+                  </div>
+                  <a
+                    onClick={() => {
+                      const subject = encodeURIComponent(`Hiring Inquiry for ${member.name}`);
+                      const body = encodeURIComponent(`Hello ICP Hub Kenya,\n\nI am interested in working with ${member.name}. I would like to discuss potential collaboration opportunities.\n\nBest regards`);
+                      window.location.href = `mailto:info@icpkushite.com?subject=${subject}&body=${body}`;
+                    }}
+                    className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 border border-black cursor-pointer"
+                  >
+                    Contact Us
+                  </a>
                 </div>
-                <a 
-                  href={`mailto:info@icpkushite.com?subject=Hiring Inquiry for ${member.name}&body=Hello ICP Hub Kenya,%0D%0A%0D%0AI am interested in working with ${member.name}. I would like to discuss potential collaboration opportunities.%0D%0A%0D%0ABest regards`}
-                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 border border-black"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Contact Us
-                </a>
               </div>
             </div>
           ))}
