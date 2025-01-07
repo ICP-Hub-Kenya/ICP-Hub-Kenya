@@ -103,61 +103,63 @@ const HireUs = () => {
               <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6] flex items-center justify-center space-x-2 p-2 transition-opacity duration-300 group-hover:opacity-0 z-10">
                 <h3 className="text-xl font-bold text-center">{member.name}</h3>
               </div>
-              <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6]/70 flex flex-col justify-between text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-[90%]">
-                <div className="flex items-center justify-center space-x-2 mb-2 mt-4">
-                  <h3 className="text-xl font-bold text-center">
-                    {member.name}
-                  </h3>
-                  <div className="flex space-x-2">
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-black hover:text-blue-600"
-                    >
-                      <FaLinkedin size={20} />
-                    </a>
-                    <a
-                      href={member.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-black hover:text-gray-700"
-                    >
-                      <FaGithub size={20} />
-                    </a>
-                    {member.portfolio && (
+              <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6]/70 flex flex-col justify-between text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-[90%] overflow-y-auto">
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center justify-center space-x-2 mb-2 mt-4">
+                    <h3 className="text-xl font-bold text-center">
+                      {member.name}
+                    </h3>
+                    <div className="flex space-x-2">
                       <a
-                        href={member.portfolio}
+                        href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-medium hover:text-blue-600"
+                        className="text-black hover:text-blue-600"
                       >
-                        Portfolio
+                        <FaLinkedin size={20} />
                       </a>
-                    )}
+                      <a
+                        href={member.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-black hover:text-gray-700"
+                      >
+                        <FaGithub size={20} />
+                      </a>
+                      {member.portfolio && (
+                        <a
+                          href={member.portfolio}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-medium hover:text-blue-600"
+                        >
+                          Portfolio
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
-                <p className="text-md mb-4 w-[70%] mx-auto">
-                  {member.details}
-                </p>
-                <div className="flex flex-col items-center gap-4 mb-4">
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {member.languages.map((language, idx) => (
-                      <span key={idx} className="bg-black/20 px-3 py-1 rounded-full text-sm">
-                        {language}
-                      </span>
-                    ))}
+                  <p className="text-md px-6 flex-grow">
+                    {member.details}
+                  </p>
+                  <div className="flex flex-col items-center gap-4 p-4 mt-auto">
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {member.languages.map((language, idx) => (
+                        <span key={idx} className="bg-black/20 px-3 py-1 rounded-full text-sm">
+                          {language}
+                        </span>
+                      ))}
+                    </div>
+                    <button 
+                      onClick={() => {
+                        const subject = encodeURIComponent(`Hiring Inquiry for ${member.name}`);
+                        const body = encodeURIComponent(`Hello ICP Hub Kenya,\n\nI am interested in working with ${member.name}. I would like to discuss potential collaboration opportunities.\n\nBest regards`);
+                        window.location.href = `mailto:info@icpkushite.com?subject=${subject}&body=${body}`;
+                      }}
+                      className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 border border-black cursor-pointer w-fit"
+                    >
+                      Contact Us
+                    </button>
                   </div>
-                  <a
-                    onClick={() => {
-                      const subject = encodeURIComponent(`Hiring Inquiry for ${member.name}`);
-                      const body = encodeURIComponent(`Hello ICP Hub Kenya,\n\nI am interested in working with ${member.name}. I would like to discuss potential collaboration opportunities.\n\nBest regards`);
-                      window.location.href = `mailto:info@icpkushite.com?subject=${subject}&body=${body}`;
-                    }}
-                    className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 border border-black cursor-pointer"
-                  >
-                    Contact Us
-                  </a>
                 </div>
               </div>
             </div>
