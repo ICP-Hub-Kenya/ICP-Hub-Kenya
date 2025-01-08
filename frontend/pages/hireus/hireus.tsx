@@ -21,6 +21,24 @@ const teamMembers = [
     languages: ["TypeScript", "C", "Solidity", "GO"],
   },
   {
+    name: "Amschel Kariuki",
+    image: "/images/HireAmschel.png",
+    linkedin: "https://www.linkedin.com/in/amschel-kariuki-a83b9a230",
+    github: "https://github.com/amschel99",
+    portfolio: "https://drive.google.com/file/d/11QO46G-mAL_y5FkfJxVwt4v--2gp20D4/view?usp=sharing",
+    details: "Over 4 years of experience in React Native, with expertise in blockchain development, cryptography, and decentralized applications. Bitcoin Open Source Developer under BOSS Program. Works for PKMT. Also a Union Fellow contributing to Cosmos-based interoperability protocols.",
+    languages: ["Rust", "TypeScript", "Solidity", "JavaScript"],
+  },
+  {
+    name: "Dedan Okware",
+    image: "/images/HireOkware.png",
+    linkedin: "https://www.linkedin.com/in/softcysec-dedan-okware/",
+    github: "https://github.com/okwareddevnest",
+    portfolio: "https://drive.google.com/file/d/1-7hczBFcVkc5-rMI1Wr-hiSMUfx_Vj33/view?usp=sharing",
+    details: "ICP Hub Kenya Technical Ambassador with expertise in backend development. Created IThreeM, a Decentralized Gaming Engine on ICP. Experienced in high-profile hackathons and blockchain development with multiple programming languages.",
+    languages: ["Rust", "Python", "JavaScript", "TypeScript", "Motoko"],
+  },
+  {
     name: "Eugene Karewa",
     image: "/images/HireEugene.jpg",
     linkedin: "https://www.linkedin.com/in/eugene-karewa-99616b1a2/",
@@ -71,7 +89,16 @@ const teamMembers = [
     portfolio: "https://john-mokaya.vercel.app/",
     details: "Frontend developer with specialized experience in blockchain development platforms. Completed frontend development certification and actively applying decade course knowledge in platform development.",
     languages: ["Python", "Motoko", "Rust"],
-  }
+  }, 
+  {
+    name: "Isaack Odhiambo Odera",
+    image: "/images/HireIsaack.png",
+    linkedin: "https://www.linkedin.com/in/isaackodhiamboodera/",
+    github: "https://github.com/derak-isaack",
+    portfolio: "https://drive.google.com/file/d/1QdtxPTXRPOs_9IgtEZFRfzHyt3XwNjZv/view?usp=sharing",
+    details: "Specialized backend developer with expertise in Python Kybra and Rust for smart contract development. Experienced in ICP backend systems and ICRC1 ledger canisters for payments. Focus on maintaining clean, debuggable codebases for blockchain applications.",
+    languages: ["Python", "Rust"],
+  },
 ];
 
 const HireUs = () => {
@@ -110,14 +137,14 @@ const HireUs = () => {
                       {member.name}
                     </h3>
                     <div className="flex space-x-2">
-                      <a
+                      {/* <a
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-black hover:text-blue-600"
                       >
                         <FaLinkedin size={20} />
-                      </a>
+                      </a> */}
                       <a
                         href={member.github}
                         target="_blank"
@@ -142,23 +169,23 @@ const HireUs = () => {
                     {member.details}
                   </p>
                   <div className="flex flex-col items-center gap-2 p-2">
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <div className="flex flex-wrap gap-1 justify-center">
                       {member.languages.map((language, idx) => (
-                        <span key={idx} className="bg-black/20 px-3 py-1 rounded-full text-sm">
+                        <span key={idx} className="bg-black/20 px-2 py-0.5 rounded-full text-xs">
                           {language}
                         </span>
                       ))}
                     </div>
-                    <button 
+                    <div 
                       onClick={() => {
                         const subject = encodeURIComponent(`Hiring Inquiry for ${member.name}`);
                         const body = encodeURIComponent(`Hello ICP Hub Kenya,\n\nI am interested in working with ${member.name}. I would like to discuss potential collaboration opportunities.\n\nBest regards`);
                         window.location.href = `mailto:info@icpkushite.com?subject=${subject}&body=${body}`;
                       }}
-                      className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 border border-black cursor-pointer w-fit"
+                      className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 border border-black cursor-pointer w-fit inline-block text-center"
                     >
                       Contact Us
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
