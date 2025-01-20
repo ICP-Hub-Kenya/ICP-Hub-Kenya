@@ -9,8 +9,8 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   return (
     <Card className="overflow-hidden">
-      <CardContent className="p-0">
-        <div className="aspect-square relative">
+      <CardContent className="p-4">
+        <div className="aspect-square relative rounded-lg bg-muted">
           <Image src={product.imageUrl || "/placeholder.svg"} alt={product.title} fill className="object-cover" />
         </div>
         <div className="p-4 bg-rose-50">

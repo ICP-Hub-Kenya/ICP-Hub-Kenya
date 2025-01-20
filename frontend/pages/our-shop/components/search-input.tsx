@@ -1,5 +1,5 @@
 import { Search } from "lucide-react"
-import Input from "../../../components/atoms/Form/Input"
+import { Input } from "./ui/input"
 
 interface SearchInputProps {
   value: string

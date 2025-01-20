@@ -4,6 +4,7 @@ export type Product = {
     category: string
     imageUrl: string
     type: "Merch"
+    // price: number
   }
   
 export type Category = "Cups" | "Tshirts" | "Water bottles" | "Hoodies" | "All"
