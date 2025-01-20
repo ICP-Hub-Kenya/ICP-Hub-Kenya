@@ -53,8 +53,8 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/kimani-henry",
     github: "https://github.com/h3nryk",
     portfolio: "https://henry.jetbrainscollege.com/",
-    details: "Full stack developer with 3 years of experience, specializing in Rust and TypeScript. Certified in advanced development technologies. Passionate about advancing in the tech space with expertise in blockchain development.",
-    languages: ["JavaScript", "Python", "Motoko"],
+    details: "I am a full-stack and blockchain developer driven by a passion for continuous learning and innovation. I leverage creative problem-solving and technical expertise to design impactful, forward-thinking solutions that address real-world challenges.",
+    languages: ["JavaScript", "Python", "Motoko", "Rust", "Typescript"],
   },
   {
     name: "Hannah Mwangi",
