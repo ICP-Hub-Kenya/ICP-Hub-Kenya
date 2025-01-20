@@ -1,5 +1,5 @@
 import { Button } from "./ui/button"
-import { Category } from "../types/shop"
+import { Category } from "../../types/shop"
 
 interface CategoryFilterProps {
   selectedCategory: Category

@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { products } from "./data/products"
-import type { Category } from "./types/shop"
-import { SearchInput } from "./components/search-input"
-import { CategoryFilter } from "./components/category-filter"
-import { ProductCard } from "./components/product-card"
+import { products } from "../../data/products"
+import type { Category } from "../../types/shop"
+import { SearchInput } from "../../components/shop-components/search-input"
+import { CategoryFilter } from "../../components/shop-components/category-filter"
+import { ProductCard } from "../../components/shop-components/product-card"
 
 export default function ShopPage() {
   const [searchQuery, setSearchQuery] = useState("")

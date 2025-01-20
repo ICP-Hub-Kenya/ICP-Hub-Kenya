@@ -1,9 +1,9 @@
-import type { Product } from "../types/shop.tsx";
+import type { Product } from "../types/shop";
 
 export const products: Product[] = [
   {
     id: "1",
-    title: "SHIRT - ICP",
+    title: "BLACK SHIRT",
     category: "Tshirts",
     imageUrl:
       "/images/Merch/Shirt1.png",
@@ -50,16 +50,8 @@ export const products: Product[] = [
     type: "Merch",
   },
   {
-    id: "8",
-    title: "SHIRT",
-    category: "Tshirts",
-    imageUrl:
-      "images/Merch/Shirt1.png",
-    type: "Merch",
-  },
-  {
     id: "9",
-    title: "SHIRT2",
+    title: "WHITE SHIRT",
     category: "Tshirts",
     imageUrl:
       "images/Merch/Shirt2.png",
@@ -67,7 +59,7 @@ export const products: Product[] = [
   },
   {
     id: "10",
-    title: "SHIRT3",
+    title: "WHITE SHIRT 2",
     category: "Tshirts",
     imageUrl:
       "images/Merch/Shirt3.png",
@@ -76,7 +68,7 @@ export const products: Product[] = [
   {
     id: "11",
     title: "WATER BOTTLE1",
-    category: "Bottles",
+    category: "Water Bottles",
     imageUrl:
       "images/Merch/WaterBottle1.png",
     type: "Merch",
