@@ -99,6 +99,15 @@ const teamMembers = [
     details: "Specialized backend developer with expertise in Python Kybra and Rust for smart contract development. Experienced in ICP backend systems and ICRC1 ledger canisters for payments. Focus on maintaining clean, debuggable codebases for blockchain applications.",
     languages: ["Python", "Rust"],
   },
+  {
+    name: "Mutua Mirriam",
+    image: "/images/HireMirriam.jpg",
+    linkedin: "https://www.linkedin.com/in/mirriam-njeri-5928902a5",
+    github: "https://github.com/Mirriamnjeri",
+    portfolio: "https://docs.google.com/document/d/1Zxr2_XPJ9BQM_KDeN39zY6W_9pGfly3k/edit",
+    details: "Certified in Typescript Smart Contract 101. Passionate developer with expertise in Python, JavaScript and TypeScript. Enthusiastic about blockchain technology and committed to continuous learning in the space.",
+    languages: ["Python", "JavaScript", "TypeScript"],
+  },
 ];
 
 const HireUs = () => {
