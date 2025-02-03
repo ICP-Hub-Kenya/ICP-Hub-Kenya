@@ -1,5 +1,5 @@
-import Image from "next/image"
-import { Button } from "../../components/shop-components/ui/button"
+import Image from "next/image";
+import { Button } from "../../components/shop-components/ui/button";
 // import { Button } from "@/components/ui/button"
 
 export default function CryptoHero() {
@@ -11,18 +11,24 @@ export default function CryptoHero() {
             <h1 className="text-5xl sm:text-4xl sm:text-start text-center lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em] text-white">
               Buy and Sell Your Favorite Coins
             </h1>
-            <div className="flex justify-center sm:justify-end md:justify-start">
+            <div className="flex flex-col sm:flex-row justify-center sm:justify-end md:justify-start gap-4">
               <Button 
                 className="bg-gradient-to-r from-[#F0BC39] to-[#DA9443] px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold text-black hover:bg-[#d4a84e]" 
                 size="lg"
                 onClick={() => {
-                  const message = encodeURIComponent(
-                    `Hello, I would like to inquire about buying and selling coins on ICP Hub Kenya`
-                  );
-                  window.open(`https://wa.me/254707197333?text=${message}`, '_blank');
+                  window.open("https://www.binance.com/en/crypto/buy", '_blank');
                 }}
               >
-                Get Started
+                Buy ICP
+              </Button>
+              <Button 
+                className="bg-gradient-to-r from-[#F0BC39] to-[#DA9443] px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold text-black hover:bg-[#d4a84e]" 
+                size="lg"
+                onClick={() => {
+                  window.open("https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=ezu5v-7qaaa-aaaam-acpbq-cai", '_blank');
+                }}
+              >
+                Buy Friescoin
               </Button>
             </div>
           </div>
@@ -40,6 +46,5 @@ export default function CryptoHero() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

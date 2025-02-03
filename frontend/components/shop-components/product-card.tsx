@@ -19,7 +19,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 const message = encodeURIComponent(
                   `Hello, I would like to purchase this ${product.title} from ICP Hub Kenya Shop\n \nProduct Details:\n${product.title}\n ${window.location.origin}/${product.imageUrl}`
                 );
-                window.open(`https://wa.me/254707197333?text=${message}`, '_blank');
+                window.open(`https://wa.me/254793763043?text=${message}`, '_blank');
               }}              
             >
               Checkout
