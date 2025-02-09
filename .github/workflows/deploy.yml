@@ -1,9 +1,9 @@
-name: Build and Deploy canister
+name: Build and Deploy ICP Canister
 
 on:
   push:
     branches:
-      - master
+      - new-site-changes
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -26,11 +26,6 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-
-      - name: Install PocketIC server
-        uses: dfinity/pocketic@main
-      - name: Confirm successful installation
-        run: $POCKET_IC_BIN --version
 
       - name: Build
         uses: ./.github/actions/build
@@ -65,7 +60,7 @@ jobs:
           name: ${{ env.PACKAGE }}_${{ github.sha }}
           path: wasm
 
-      - name: Deploy
+      - name: Deploy to IC
         uses: ./.github/actions/deploy
         with:
           identity: ${{ secrets.IC_IDENTITY }}
