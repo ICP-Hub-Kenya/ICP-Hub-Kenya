@@ -6,7 +6,6 @@ import { FiMenu, FiX } from "react-icons/fi";
 import useMobileDeviceDetection from "../../../hooks/useMobileDetection";
 import useGetBrowserName from "../../../hooks/useGetBrowserName";
 import GradientButton from "../../atoms/GradientButton/GradientButton";
-import { IdentityKitProvider, ConnectWallet } from "@nfid/identitykit/react";
 import "@nfid/identitykit/react/styles.css";
 import DonateModal from "../../molecules/DonateModal";
 
@@ -104,6 +103,9 @@ const NavBar = () => {
             <NavLink href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" value="Events" canActive={true} />
             <NavLink href="https://icphub-ke.medium.com/" value="Blog" canActive={true} />
             <NavLink href="/contact" value="Contact" canActive={true} />
+            <GradientButton onClick={handleDonateClick}>
+              <span className="px-4">Donate</span>
+            </GradientButton>
             <GradientButton onClick={handleTelegramRedirect}>
               <span className="px-4">Join Us</span>
             </GradientButton>
