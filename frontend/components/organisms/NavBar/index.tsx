@@ -6,6 +6,8 @@ import { FiMenu, FiX } from "react-icons/fi";
 import useMobileDeviceDetection from "../../../hooks/useMobileDetection";
 import useGetBrowserName from "../../../hooks/useGetBrowserName";
 import GradientButton from "../../atoms/GradientButton/GradientButton";
+import "@nfid/identitykit/react/styles.css";
+import DonateModal from "../../molecules/DonateModal";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +15,11 @@ const NavBar = () => {
   const [isLightSectionVisible, setIsLightSectionVisible] = useState(false);
   const browserName = useGetBrowserName();
   const isMobile = useMobileDeviceDetection();
+  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
+
+  const handleDonateClick = () => {
+    setIsDonateModalOpen(true);
+  };
 
   const handleTelegramRedirect = () => {
     window.open('https://t.me/icphub_KE', '_blank', 'noopener,noreferrer');
@@ -53,14 +60,17 @@ const NavBar = () => {
           <NavBrand />
           
           {/* Desktop menu */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-4">  {/* Reduced space-x-8 to space-x-4 */}
             <NavLink href="/about" value="About" canActive={true} />
             <NavLink href="/education" value="Education" canActive={true} />
-            <NavLink href="/hireus" value="Hire Us" canActive={true} />
-            <NavLink href="/our-shop" value="Our Store" canActive={true} />
+            <NavLink href="/hireus" value="Hire Us" canActive={true} className="whitespace-nowrap" />
+            <NavLink href="/our-shop" value="Our Store" canActive={true} className="whitespace-nowrap" />
             <NavLink href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" value="Events" canActive={true} />
             <NavLink href="https://icphub-ke.medium.com/" value="Blog" canActive={true} />
             <NavLink href="/contact" value="Contact" canActive={true} />
+            <GradientButton onClick={handleDonateClick}>
+              <span className="px-4">Donate</span>
+            </GradientButton>
             <GradientButton onClick={handleTelegramRedirect}>
               <span className="px-4">Join Us</span>
             </GradientButton>
@@ -93,11 +103,21 @@ const NavBar = () => {
             <NavLink href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" value="Events" canActive={true} />
             <NavLink href="https://icphub-ke.medium.com/" value="Blog" canActive={true} />
             <NavLink href="/contact" value="Contact" canActive={true} />
+            <GradientButton onClick={handleDonateClick}>
+              <span className="px-4">Donate</span>
+            </GradientButton>
             <GradientButton onClick={handleTelegramRedirect}>
               <span className="px-4">Join Us</span>
             </GradientButton>
           </div>
         </div>
+      )}
+
+      {isDonateModalOpen && (
+        <DonateModal 
+          isOpen={isDonateModalOpen} 
+          onClose={() => setIsDonateModalOpen(false)}
+        />
       )}
     </nav>
   );
