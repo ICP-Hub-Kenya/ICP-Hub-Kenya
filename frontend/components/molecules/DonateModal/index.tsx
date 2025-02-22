@@ -51,7 +51,7 @@ const DonateModalContent = ({ onClose }: { onClose: () => void }) => {
   
       const transferParams = {
         to: {
-          owner: Principal.fromText("t46cj-rtfcm-xvipm-tkj5t-nhx4p-nc36h-flmbo-ikpn3-slqja-t4d7t-kae"),
+          owner: Principal.fromText("nrvio-ln3f4-w4gjy-wkrgl-llkdn-us6bp-u4dnf-lnquu-dqpog-hnhvd-tae"),
           subaccount: [] as [] | [Uint8Array]
         },
         amount: BigInt(amountInE8s),
