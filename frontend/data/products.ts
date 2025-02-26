@@ -72,5 +72,13 @@ export const products: Product[] = [
     imageUrl: "images/Merch/WaterBottle1.png",
     type: "Merch",
     price: 2000
+  }, 
+  {
+    id: "12",
+    title: "STANLEY CUP",
+    category: "Water Bottles",
+    imageUrl: "images/Merch/StanleyCup.jpeg",
+    type: "Merch",
+    price: 4000
   }
 ];
