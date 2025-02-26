@@ -63,7 +63,7 @@ const DonateModalContent = ({ onClose }: { onClose: () => void }) => {
       const blockHeight = await ledger.transfer(transferParams);
       setSuccess(`Transfer successful! Block height: ${blockHeight}`);
       setTimeout(() => {
-        onClose();
+        onClose(); 
       }, 2000);
     } catch (err: any) {
       setError(err.message || "Transfer failed. Please try again.");
