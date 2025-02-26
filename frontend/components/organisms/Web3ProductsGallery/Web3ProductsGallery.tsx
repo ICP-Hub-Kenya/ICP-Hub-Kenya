@@ -81,7 +81,7 @@ const Web3ProductsGallery: React.FC = () => {
   }, [isModalOpen, isMobile]);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight">
           Web3 Products
