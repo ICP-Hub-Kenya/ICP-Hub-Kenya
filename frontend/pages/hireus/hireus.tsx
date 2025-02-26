@@ -1,5 +1,7 @@
 import React from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import PreviousProjects from "../../components/molecules/Card/PreviousProjects/PreviousProjects";
+import Web3ProductsGallery from "../../components/organisms/Web3ProductsGallery/Web3ProductsGallery";
 
 const teamMembers = [
   {
@@ -112,97 +114,95 @@ const teamMembers = [
 
 const HireUs = () => {
   return (
-    <section className="px-5 md:px-0 py-12">
-      <div className="container mx-auto max-w-5xl text-center">
-        <h2
-          onClick={() => {
-            const subject = encodeURIComponent(`Hiring Inquiry for Steve}`);
-            const body = encodeURIComponent(`Hello ICP Hub Kenya,\n\nI am interested in working with Steve. I would like to discuss potential collaboration opportunities.\n\nBest regards`);
-            window.location.href = `mailto:info@icpkushite.com?subject=${subject}&body=${body}`;
-          }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 tracking-tight">
-          Hire Our Certified Developers
-        </h2>
-        <p className="text-xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
-          Our talented developers are graduates of intensive training programs including the ICP Hub Incubation Program, 
-          ALX Software Engineering, Hackathons and specialized courses in Rust, TypeScript, and blockchain development. Each developer 
-          brings certified expertise and practical experience in building real-world applications.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-          {teamMembers.map((member, index) => (
-            <div key={index} className="relative w-80 h-80 group">
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6] flex items-center justify-center space-x-2 p-2 transition-opacity duration-300 group-hover:opacity-0 z-10">
-                <h3 className="text-xl font-bold text-center">{member.name}</h3>
-              </div>
-              <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6]/70 flex flex-col justify-between text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-[90%] overflow-y-auto">
-                <div className="flex flex-col h-full">
-                  <div className="flex items-center justify-center space-x-2 mb-2 mt-4">
-                    <h3 className="text-lg font-bold text-center">
-                      {member.name}
-                    </h3>
-                    <div className="flex space-x-2">
-                      {/* <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-black hover:text-blue-600"
-                      >
-                        <FaLinkedin size={20} />
-                      </a> */}
-                      <a
-                        href={member.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-black hover:text-gray-700"
-                      >
-                        <FaGithub size={20} />
-                      </a>
-                      {member.portfolio && (
+    <>
+      <section className="px-5 md:px-0 py-12">
+        <div className="container mx-auto max-w-5xl text-center">
+          <h2
+            onClick={() => {
+              const subject = encodeURIComponent(`Hiring Inquiry for Steve}`);
+              const body = encodeURIComponent(`Hello ICP Hub Kenya,\n\nI am interested in working with Steve. I would like to discuss potential collaboration opportunities.\n\nBest regards`);
+              window.location.href = `mailto:info@icpkushite.com?subject=${subject}&body=${body}`;
+            }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 tracking-tight">
+            Hire Our Certified Developers
+          </h2>
+          <p className="text-xl font-thin mb-8 sm:text-lg lg:text-xl px-4 sm:px-0">
+            Our talented developers are graduates of intensive training programs including the ICP Hub Incubation Program, 
+            ALX Software Engineering, Hackathons and specialized courses in Rust, TypeScript, and blockchain development. Each developer 
+            brings certified expertise and practical experience in building real-world applications.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="relative w-80 h-80 group">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6] flex items-center justify-center space-x-2 p-2 transition-opacity duration-300 group-hover:opacity-0 z-10">
+                  <h3 className="text-xl font-bold text-center">{member.name}</h3>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 bg-[#ccc6c6]/70 flex flex-col justify-between text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-[90%] overflow-y-auto">
+                  <div className="flex flex-col h-full">
+                    <div className="flex items-center justify-center space-x-2 mb-2 mt-4">
+                      <h3 className="text-lg font-bold text-center">
+                        {member.name}
+                      </h3>
+                      <div className="flex space-x-2">
                         <a
-                          href={member.portfolio}
+                          href={member.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs font-medium hover:text-blue-600"
+                          className="text-black hover:text-gray-700"
                         >
-                          Portfolio
+                          <FaGithub size={20} />
                         </a>
-                      )}
+                        {member.portfolio && (
+                          <a
+                            href={member.portfolio}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs font-medium hover:text-blue-600"
+                          >
+                            Portfolio
+                          </a>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  <p className="text-sm px-4 flex-grow">
-                    {member.details}
-                  </p>
-                  <div className="flex flex-col items-center gap-2 p-2">
-                    <div className="flex flex-wrap gap-1 justify-center">
-                      {member.languages.map((language, idx) => (
-                        <span key={idx} className="bg-black/20 px-2 py-0.5 rounded-full text-xs">
-                          {language}
-                        </span>
-                      ))}
-                    </div>
-                    <div 
-                      onClick={() => {
-                        const subject = encodeURIComponent(`Hiring Inquiry for ${member.name}`);
-                        const body = encodeURIComponent(`Hello ICP Hub Kenya,\n\nI am interested in working with ${member.name}. I would like to discuss potential collaboration opportunities.\n\nBest regards`);
-                        window.location.href = `mailto:info@icpkushite.com?subject=${subject}&body=${body}`;
-                      }}
-                      className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 border border-black cursor-pointer w-fit inline-block text-center"
-                    >
-                      Contact Us
+                    <p className="text-sm px-4 flex-grow">
+                      {member.details}
+                    </p>
+                    <div className="flex flex-col items-center gap-2 p-2">
+                      <div className="flex flex-wrap gap-1 justify-center">
+                        {member.languages.map((language, idx) => (
+                          <span key={idx} className="bg-black/20 px-2 py-0.5 rounded-full text-xs">
+                            {language}
+                          </span>
+                        ))}
+                      </div>
+                      <div 
+                        onClick={() => {
+                          const subject = encodeURIComponent(`Hiring Inquiry for ${member.name}`);
+                          const body = encodeURIComponent(`Hello ICP Hub Kenya,\n\nI am interested in working with ${member.name}. I would like to discuss potential collaboration opportunities.\n\nBest regards`);
+                          window.location.href = `mailto:info@icpkushite.com?subject=${subject}&body=${body}`;
+                        }}
+                        className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 border border-black cursor-pointer w-fit inline-block text-center"
+                      >
+                        Contact Us
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      
+      <PreviousProjects />
+      
+      <Web3ProductsGallery />
+    </>
   );
 };
 
