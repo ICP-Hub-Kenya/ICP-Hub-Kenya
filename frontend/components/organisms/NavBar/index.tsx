@@ -64,7 +64,7 @@ const NavBar = () => {
             <NavLink href="/about" value="About" canActive={true} />
             <NavLink href="/education" value="Education" canActive={true} />
             <NavLink href="/hireus" value="Hire Us" canActive={true} className="whitespace-nowrap" />
-            <NavLink href="/our-shop" value="Our Store" canActive={true} className="whitespace-nowrap" />
+            <NavLink href="/our-shop" value="Shop" canActive={true} className="whitespace-nowrap" />
             <NavLink href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" value="Events" canActive={true} />
             <NavLink href="https://icphub-ke.medium.com/" value="Blog" canActive={true} />
             <NavLink href="/contact" value="Contact" canActive={true} />
@@ -99,7 +99,7 @@ const NavBar = () => {
             <NavLink href="/about" value="About" canActive={true} />
             <NavLink href="/education" value="Education" canActive={true} />
             <NavLink href="/hireus" value="Hire Us" canActive={true} />
-            <NavLink href="/our-shop" value="Our Store" canActive={true} />
+            <NavLink href="/our-shop" value="Shop" canActive={true} />
             <NavLink href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" value="Events" canActive={true} />
             <NavLink href="https://icphub-ke.medium.com/" value="Blog" canActive={true} />
             <NavLink href="/contact" value="Contact" canActive={true} />
