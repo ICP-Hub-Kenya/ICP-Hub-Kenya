@@ -10,7 +10,7 @@ const Document = () => {
           <meta name='tags' content='icp,blockchain,canisters' />
         <link
           rel="shortcut icon"
-          href="/images/favicon.svg"
+          href="/images/newlogo.jpeg"
           type="image/x-icon"
         />
       </Head>
