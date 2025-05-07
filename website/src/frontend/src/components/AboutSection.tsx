@@ -20,8 +20,9 @@ const features = [
 
 const AboutSection = () => (
   <section id="about" className="w-full bg-white py-20 px-4 md:px-0">
-    <div className="w-full px-4 flex flex-col md:flex-row items-center gap-12">
+    <div className="w-full px-4 flex flex-row md:flex-row items-center gap-12">
       {/* Left: Video/Image */}
+      <span className="inline-block bg-pink-100 text-pink-600 px-4 py-1 rounded-full font-semibold mb-4">About Us</span>
       <div className="flex-1 flex justify-center">
         <div className="relative w-80 h-56 md:w-96 md:h-64 rounded-2xl overflow-hidden shadow-lg">
           <img src="/about-video-placeholder.jpg" alt="About ICP Hub Kenya" className="w-full h-full object-cover" />
@@ -32,7 +33,6 @@ const AboutSection = () => (
       </div>
       {/* Right: Text & Features */}
       <div className="flex-1">
-        <span className="inline-block bg-pink-100 text-pink-600 px-4 py-1 rounded-full font-semibold mb-4">About Us</span>
         <h2 className="text-3xl md:text-4xl font-bold text-dark mb-4">We provide easy medium to get started in your tech journey</h2>
         <p className="text-lg text-gray-700 mb-8">Our grant services are designed to provide the financial support, education, and mentorship you need to thrive in the blockchain space.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
