@@ -1,52 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const features = [
   {
     title: 'Grant Application',
-    desc: 'Get support for your blockchain ideas through our grant program.',
-    icon: '💸',
+    desc: 'Our grant services are designed to provide the financial support and resources needed to turn your groundbreaking ideas into reality.',
+    img: '/images/grant.png',
   },
   {
     title: 'ICP Education',
-    desc: 'Access workshops and resources to grow your skills on the Internet Computer.',
-    icon: '🎓',
+    desc: 'Our educational programs are designed to empower individuals and organizations with the expertise needed to navigate the blockchain and ICP ecosystem.',
+    img: '/images/education.png',
   },
   {
     title: 'Innovation Incubator',
-    desc: 'Turn your ideas into reality with mentorship and technical support.',
-    icon: '🚀',
+    desc: 'Our Incubator Program is at the heart of our mission to inspire creativity and drive progress within the blockchain and Internet Computer community.',
+    img: '/images/innovator.png',
   },
 ];
 
-const AboutSection = () => (
-  <section id="about" className="w-full bg-white py-20 px-4 md:px-0">
-    <div className="w-full px-4 flex flex-row md:flex-row items-center gap-12">
-      {/* Left: Video/Image */}
-      <span className="inline-block bg-pink-100 text-pink-600 px-4 py-1 rounded-full font-semibold mb-4">About Us</span>
-      <div className="flex-1 flex justify-center">
-        <div className="relative w-80 h-56 md:w-96 md:h-64 rounded-2xl overflow-hidden shadow-lg">
-          <img src="/about-video-placeholder.jpg" alt="About ICP Hub Kenya" className="w-full h-full object-cover" />
-          <button className="absolute inset-0 flex items-center justify-center">
-            <span className="bg-white/80 rounded-full p-4 shadow-lg text-3xl text-primary">▶</span>
-          </button>
+const AboutSection = () => {
+  const [showVideo, setShowVideo] = useState(false);
+
+  return (
+    <section id="about" className="w-full bg-[#FCEBFF] py-20 px-4 md:px-0">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-12">
+        {/* Left: Badge, Heading, Image/Video */}
+        <div className="flex-1 flex flex-col items-start">
+          <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-4 text-sm">About Us</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{
+            background: 'linear-gradient(90deg, #192F70 0%, #192F70 20%, #2667C5 40%, #5E54B6 70%, #C53AA2 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            color: 'transparent',
+          }}>
+            We provide easy medium to get started in your tech journey
+          </h2>
+          <div className="relative w-full max-w-md rounded-2xl overflow-hidden mb-4">
+            {!showVideo ? (
+              <div className="relative">
+                <img
+                  src="/images/AboutImage.png"
+                  alt="About ICP Hub Kenya"
+                  className="w-full h-auto object-cover cursor-pointer"
+                  onClick={() => setShowVideo(true)}
+                />
+              </div>
+            ) : (
+              <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/mqLoCgpDotI?autoplay=1"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full aspect-video"
+              ></iframe>
+            )}
+          </div>
+        </div>
+        {/* Right: Description & Features */}
+        <div className="flex-1 flex flex-col gap-6 shadow-lg rounded-xl bg-white/70 p-6">
+          <p className="text-base text-gray-700 font-light mb-6" style={{fontFamily: 'Plus Jakarta Sans'}}>Our grant services are designed to provide the financial support, education, and mentorship you need to thrive in the blockchain space.</p>
+          <div className="flex flex-col gap-6">
+            {features.map((f, i) => (
+              <div key={i} className="flex flex-row items-start gap-4 rounded-xl p-4">
+                <div className="w-28 h-12 flex items-center justify-center rounded-md bg-pinkBadge p-2">
+                  <img src={f.img} alt={f.title} className="w-8 h-8 object-contain" />
+                </div>
+                <div>
+                  <h3 className="text-black font-semibold text-lg mb-1" style={{fontWeight: 600}}>{f.title}</h3>
+                  <p className="text-gray-700 text-sm font-light" style={{fontFamily: 'Plus Jakarta Sans'}}>{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-      {/* Right: Text & Features */}
-      <div className="flex-1">
-        <h2 className="text-3xl md:text-4xl font-bold text-dark mb-4">We provide easy medium to get started in your tech journey</h2>
-        <p className="text-lg text-gray-700 mb-8">Our grant services are designed to provide the financial support, education, and mentorship you need to thrive in the blockchain space.</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <div key={i} className="bg-primaryLight rounded-xl p-6 flex flex-col items-center text-center shadow">
-              <div className="text-4xl mb-2">{f.icon}</div>
-              <h3 className="font-bold text-lg mb-1 text-primary">{f.title}</h3>
-              <p className="text-gray-700 text-sm">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default AboutSection; 

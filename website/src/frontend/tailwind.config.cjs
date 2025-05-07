@@ -22,6 +22,7 @@ module.exports = {
         buttonLight: '#ffffff1a',
         borderLight: '#ffffff1a',
         primaryLight: '#6016FC1a',
+        pinkBadge: '#F5A7FF',
       },
     },
   },

@@ -15,6 +15,6 @@
     font-family: 'Plus Jakarta Sans', 'Inter', 'sans-serif';
   }
   body {
-    @apply bg-dark text-white;
+    @apply text-white;
   }
 } 
