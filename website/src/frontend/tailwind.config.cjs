@@ -26,6 +26,8 @@ module.exports = {
         purpleCustom: '#FAF6F9',
         deepPurple: '#2B007D',
         magenta: '#D606CE',
+        gradientFrom: '#43159B',
+        gradientTo: '#5D2BA9',
       },
     },
   },
