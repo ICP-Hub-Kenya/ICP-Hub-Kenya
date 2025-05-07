@@ -1,27 +1,76 @@
 import React from 'react';
 
 const milestones = [
-  { value: '1,200+', label: 'Developers', desc: 'Big, Talented Blockchain developer community thriving in Kenya.' },
-  { value: '$100k+', label: 'Grants Secured', desc: 'Funding innovation through various strategic ICP grants.' },
-  { value: '50+', label: 'Partnered Universities', desc: 'Driving Web3 adoption across academic institutions.' },
-  { value: '10+', label: 'Startups Incubated', desc: "Tomorrow's biggest blockchain ideas launched with support." },
+  {
+    value: '1,200+',
+    label: 'Developers Trained',
+    desc: "Building Africa's blockchain talent through immersive training.",
+    img: '/images/devstrained.png',
+    dark: true,
+  },
+  {
+    value: '$100k+',
+    label: 'Grants Secured',
+    desc: 'Funding innovative startups through strategic ICP grants.',
+    img: '/images/grants.png',
+    dark: false,
+  },
+  {
+    value: '50+',
+    label: 'Partnered Universities',
+    desc: 'Driving Web3 education across Kenyan higher institutions.',
+    img: '/images/universities.png',
+    dark: true,
+  },
+  {
+    value: '10+',
+    label: 'Startups Incubated',
+    desc: 'Empowering local founders with decentralized launch support.',
+    img: '/images/startups.png',
+    dark: false,
+  },
 ];
 
 const MilestonesSection = () => (
-  <section className="w-full bg-white py-16 px-4" id="milestones">
+  <section className="w-full bg-[#FAF6F9] py-16 px-4" id="milestones">
     <div className="max-w-6xl mx-auto text-center mb-12">
-      <span className="inline-block bg-purple-100 text-purple-600 px-4 py-1 rounded-full font-semibold mb-4">As Featured</span>
-      <h2 className="text-2xl md:text-3xl font-bold mb-2 text-dark">Milestones That Define Us</h2>
-      <p className="text-gray-700 max-w-2xl mx-auto">Every number tells a story of growth, innovation, and commitment to excellence in developing the next frontier.</p>
+      <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-4 text-sm">Achievement</span>
+      <h2
+        className="text-2xl md:text-3xl font-bold mb-2"
+        style={{
+          background: 'linear-gradient(90deg, #192F70 0%, #192F70 20%, #2667C5 40%, #5E54B6 70%, #C53AA2 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          color: 'transparent',
+        }}
+      >
+        Milestones That Define Us
+      </h2>
+      <p className="text-gray-700 max-w-2xl mx-auto mb-8">Every number tells a story of growth, innovation, and a commitment to decentralized progress in Africa</p>
     </div>
-    <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-      {milestones.map((m, i) => (
-        <div key={i} className="bg-white border-2 border-primary rounded-2xl p-8 flex flex-col items-center shadow-lg">
-          <div className="text-4xl font-extrabold text-primary mb-2">{m.value}</div>
-          <div className="font-bold text-lg mb-1 text-dark">{m.label}</div>
-          <div className="text-gray-600 text-sm text-center">{m.desc}</div>
-        </div>
-      ))}
+    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+      {milestones.map((m, i) => {
+        // Cards 1 & 3: number left, content right; Cards 2 & 4: number right, content left
+        const isReverse = i % 2 === 1;
+        const cardStyle = m.dark ? { backgroundColor: '#43159B' } : {};
+        return (
+          <div
+            key={i}
+            className={`rounded-2xl px-6 py-8 ${m.dark ? 'text-white' : 'bg-white text-black'} ${m.dark ? 'h-[374px]' : 'h-[371px]'} flex flex-col justify-between items-stretch gap-x-8 h-full`}
+            style={cardStyle}
+          >
+            {/* Number Section */}
+            <div className={`text-4xl font-extrabold ${m.dark ? 'text-white' : 'text-[#43159B]'} text-left`}>{m.value}</div>
+            {/* Image and Text Section */}
+            <div className="flex flex-col items-end">
+              <img src={m.img} alt={m.label} className="w-14 h-14 mb-4 object-contain" />
+              <div className={`font-semibold text-lg mb-1 ${m.dark ? 'text-white' : 'text-black'} text-right`}>{m.label}</div>
+              <div className={`text-sm ${m.dark ? 'text-white/80' : 'text-gray-700'} text-right`}>{m.desc}</div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   </section>
 );
