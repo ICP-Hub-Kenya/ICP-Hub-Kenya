@@ -17,7 +17,7 @@ const socialIcons: Record<'linkedin' | 'twitter', string> = {
 };
 
 const TeamSection = () => (
-  <section className="w-full bg-white py-20 px-4" id="team">
+  <section className="w-full bg-purpleCustom py-20 px-4" id="team">
     <div className="max-w-6xl mx-auto flex flex-col items-center mb-12">
       <span className="inline-block bg-[#F5A7FF] text-black px-6 py-2 rounded-full font-semibold mb-4 text-base text-center">Our Team</span>
       <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center" style={{
