@@ -30,13 +30,13 @@ const FeaturesSection = () => (
       <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-full font-semibold mb-4">Features</span>
       <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">Why Join ICP Hub Kenya?</h2>
     </div>
-    <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
       {features.map((f, i) => (
-        <div key={i} className="bg-white rounded-2xl p-8 pt-10 flex flex-col items-start shadow-lg border border-primary/20 relative min-h-[340px]">
-          <img src={f.img} alt="" className="absolute top-4 right-6 w-12 h-12 object-contain" />
-          <div className="font-bold text-lg mb-2 text-deepPurple mt-2 pr-12">{f.title}</div>
-          <div className="text-gray-600 text-sm mb-8 text-left pr-4">{f.desc}</div>
-          <button className="bg-magenta text-white px-5 py-2 rounded-lg font-semibold hover:bg-pinkBadge hover:text-black transition self-start">{f.cta}</button>
+        <div key={i} className="bg-white rounded-2xl p-4 pt-8 md:p-8 md:pt-10 flex flex-col items-start shadow-lg border border-primary/20 relative min-h-[280px] md:min-h-[340px]">
+          <img src={f.img} alt="" className="absolute top-3 right-4 w-10 h-10 md:top-4 md:right-6 md:w-12 md:h-12 object-contain" />
+          <div className="font-bold text-base md:text-lg mb-2 text-deepPurple mt-2 pr-10 md:pr-12">{f.title}</div>
+          <div className="text-gray-600 text-xs md:text-sm mb-6 md:mb-8 text-left pr-2 md:pr-4">{f.desc}</div>
+          <button className="bg-magenta text-white px-5 py-2 rounded-lg font-semibold hover:bg-pinkBadge hover:text-black transition w-full md:w-auto md:self-start">{f.cta}</button>
         </div>
       ))}
     </div>
