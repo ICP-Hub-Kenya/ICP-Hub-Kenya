@@ -24,6 +24,8 @@ module.exports = {
         primaryLight: '#6016FC1a',
         pinkBadge: '#F5A7FF',
         purpleCustom: '#FAF6F9',
+        deepPurple: '#2B007D',
+        magenta: '#D606CE',
       },
     },
   },

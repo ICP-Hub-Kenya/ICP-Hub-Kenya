@@ -1,39 +1,42 @@
 import React from 'react';
+import DeveloperTrainingImg from '/images/DeveloperTraining.png';
+import CommunityApproachImg from '/images/CommunityApproach.png';
+import GrantOpportunitiesImg from '/images/GrantOpportunities.png';
 
 const features = [
   {
     title: 'Hands-on Developer Training',
-    desc: 'Join bootcamps, skill challenges, and hackathons to accelerate your learning.',
-    icon: '🧑‍💻',
+    desc: "Learn to build full-stack decentralized applications and AI tools using ICP's unique canister smart contracts.",
+    img: DeveloperTrainingImg,
     cta: 'Begin Training',
   },
   {
     title: 'Community-Centric Approach',
-    desc: 'Engage in a vibrant, inclusive community of builders, mentors, and partners.',
-    icon: '🤝',
-    cta: 'Join our Community',
+    desc: 'We foster a vibrant, inclusive network of developers, educators, designers, and entrepreneurs.',
+    img: CommunityApproachImg,
+    cta: 'Join Our Community',
   },
   {
     title: 'Access to Grant Opportunities',
-    desc: 'Get support for your ideas and projects through our grant programs.',
-    icon: '💡',
-    cta: 'Explore Grants',
+    desc: 'Get funded to build your blockchain idea with support from the DFINITY Foundation and partner programs.',
+    img: GrantOpportunitiesImg,
+    cta: 'Get Started',
   },
 ];
 
 const FeaturesSection = () => (
-  <section className="w-full bg-primaryLight py-20 px-4" id="features">
-    <div className="max-w-6xl mx-auto text-center mb-12">
-      <span className="inline-block bg-pink-100 text-pink-600 px-4 py-1 rounded-full font-semibold mb-4">Features</span>
-      <h2 className="text-2xl md:text-3xl font-bold mb-2 text-dark">Why Join ICP Hub Kenya?</h2>
+  <section className="w-full bg-deepPurple py-20 px-4" id="features">
+    <div className="max-w-6xl mx-auto mb-12 flex flex-col items-start">
+      <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-full font-semibold mb-4">Features</span>
+      <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">Why Join ICP Hub Kenya?</h2>
     </div>
     <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
       {features.map((f, i) => (
-        <div key={i} className="bg-white rounded-2xl p-8 flex flex-col items-center shadow-lg border border-primary/20">
-          <div className="text-4xl mb-4">{f.icon}</div>
-          <div className="font-bold text-lg mb-2 text-primary">{f.title}</div>
-          <div className="text-gray-600 text-sm mb-4 text-center">{f.desc}</div>
-          <button className="bg-primary text-white px-5 py-2 rounded-lg font-semibold hover:bg-primaryLight hover:text-primary transition">{f.cta}</button>
+        <div key={i} className="bg-white rounded-2xl p-8 pt-10 flex flex-col items-start shadow-lg border border-primary/20 relative min-h-[340px]">
+          <img src={f.img} alt="" className="absolute top-4 right-6 w-12 h-12 object-contain" />
+          <div className="font-bold text-lg mb-2 text-deepPurple mt-2 pr-12">{f.title}</div>
+          <div className="text-gray-600 text-sm mb-8 text-left pr-4">{f.desc}</div>
+          <button className="bg-magenta text-white px-5 py-2 rounded-lg font-semibold hover:bg-pinkBadge hover:text-black transition self-start">{f.cta}</button>
         </div>
       ))}
     </div>

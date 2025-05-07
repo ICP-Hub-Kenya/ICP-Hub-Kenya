@@ -32,21 +32,24 @@ const milestones = [
 ];
 
 const MilestonesSection = () => (
-  <section className="w-full h-screen bg-purpleCustom py-16 px-4" id="milestones">
+  <section className="relative w-full h-screen bg-purpleCustom py-16 px-4" id="milestones">
+    <img
+      src="/images/MilestoneSideImage.png"
+      alt=""
+      className="absolute left-0 -top-16 md:-top-24 z-10 pointer-events-none select-none"
+      style={{ width: '150px', height: 'auto' }}
+    />
     <div className="max-w-6xl mx-auto text-center mb-12">
       <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-12 text-sm">Achievement</span>
-      <h2
-        className="text-2xl md:text-3xl font-bold mb-4"
-        style={{
-          background: 'linear-gradient(90deg, #192F70 0%, #192F70 20%, #2667C5 40%, #5E54B6 70%, #C53AA2 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
-          color: 'transparent',
-        }}
-      >
-        Milestones That Define Us
-      </h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{
+            background: 'linear-gradient(90deg, #192F70 0%, #192F70 20%, #2667C5 40%, #5E54B6 70%, #C53AA2 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            color: 'transparent',
+          }}>
+            Milestones That Define Us
+          </h2>
       <p className="text-gray-700 max-w-2xl mx-auto mb-16">Every number tells a story of growth, innovation, and a commitment to decentralized progress in Africa</p>
     </div>
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
