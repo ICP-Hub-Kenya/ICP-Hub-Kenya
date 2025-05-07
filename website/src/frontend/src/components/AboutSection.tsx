@@ -20,7 +20,7 @@ const features = [
 
 const AboutSection = () => (
   <section id="about" className="w-full bg-white py-20 px-4 md:px-0">
-    <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <div className="w-full px-4 flex flex-col md:flex-row items-center gap-12">
       {/* Left: Video/Image */}
       <div className="flex-1 flex justify-center">
         <div className="relative w-80 h-56 md:w-96 md:h-64 rounded-2xl overflow-hidden shadow-lg">

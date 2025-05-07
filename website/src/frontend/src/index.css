@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'CircularXX';
+  src: local('CircularXX'); /* TODO: Add src url if you have the font file */
+  font-weight: 400;
+  font-style: normal;
+}
+
 @layer base {
+  html, body, #root {
+    @apply h-full;
+    font-family: 'Plus Jakarta Sans', 'Inter', 'sans-serif';
+  }
   body {
     @apply bg-dark text-white;
   }
