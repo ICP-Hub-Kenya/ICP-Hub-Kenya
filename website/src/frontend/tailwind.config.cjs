@@ -23,6 +23,7 @@ module.exports = {
         borderLight: '#ffffff1a',
         primaryLight: '#6016FC1a',
         pinkBadge: '#F5A7FF',
+        purpleCustom: '#FAF6F9',
       },
     },
   },

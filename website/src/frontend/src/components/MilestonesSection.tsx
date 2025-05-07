@@ -32,11 +32,11 @@ const milestones = [
 ];
 
 const MilestonesSection = () => (
-  <section className="w-full bg-[#FAF6F9] py-16 px-4" id="milestones">
+  <section className="w-full h-screen bg-purpleCustom py-16 px-4" id="milestones">
     <div className="max-w-6xl mx-auto text-center mb-12">
-      <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-4 text-sm">Achievement</span>
+      <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-12 text-sm">Achievement</span>
       <h2
-        className="text-2xl md:text-3xl font-bold mb-2"
+        className="text-2xl md:text-3xl font-bold mb-4"
         style={{
           background: 'linear-gradient(90deg, #192F70 0%, #192F70 20%, #2667C5 40%, #5E54B6 70%, #C53AA2 100%)',
           WebkitBackgroundClip: 'text',
@@ -47,9 +47,9 @@ const MilestonesSection = () => (
       >
         Milestones That Define Us
       </h2>
-      <p className="text-gray-700 max-w-2xl mx-auto mb-8">Every number tells a story of growth, innovation, and a commitment to decentralized progress in Africa</p>
+      <p className="text-gray-700 max-w-2xl mx-auto mb-16">Every number tells a story of growth, innovation, and a commitment to decentralized progress in Africa</p>
     </div>
-    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
       {milestones.map((m, i) => {
         // Cards 1 & 3: number left, content right; Cards 2 & 4: number right, content left
         const isReverse = i % 2 === 1;
@@ -57,7 +57,7 @@ const MilestonesSection = () => (
         return (
           <div
             key={i}
-            className={`rounded-2xl px-6 py-8 ${m.dark ? 'text-white' : 'bg-white text-black'} ${m.dark ? 'h-[374px]' : 'h-[371px]'} flex flex-col justify-between items-stretch gap-x-8 h-full`}
+            className={`rounded-2xl px-6 py-8 ${m.dark ? 'text-white' : 'bg-white text-black'} flex-1 flex flex-col justify-between items-stretch gap-x-8`}
             style={cardStyle}
           >
             {/* Number Section */}
