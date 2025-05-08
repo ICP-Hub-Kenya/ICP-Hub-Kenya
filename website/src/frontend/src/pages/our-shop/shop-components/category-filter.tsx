@@ -10,7 +10,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
   const categories: Category[] = ["Cups", "Tshirts", "Water bottles", "Hoodies", "All"]
 
   return (
-    <div className="flex gap-2 flex-wrap">
+    <div className="flex gap-2 flex-wrap justify-center w-full">
       {categories.map((category) => (
         <Button
           key={category}

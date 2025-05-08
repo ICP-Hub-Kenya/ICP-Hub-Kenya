@@ -20,7 +20,15 @@ export default function ShopPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-[1200px] mx-auto">
-        <h1 className="text-4xl sm:text-4xl text-center lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]">
+        <h1 className="text-4xl sm:text-4xl text-center lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em]"
+            style={{
+              background: 'linear-gradient(90deg, #192F70 0%, #C53AA2 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent',
+            }}
+        >
             ICP Shop
         </h1>
 
