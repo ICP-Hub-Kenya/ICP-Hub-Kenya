@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -36,39 +37,142 @@ const socialIcons = {
   website: '/images/PinkWebsite.png',
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
+
 const ProjectsSection = () => (
-  <section className="w-full bg-white py-20 px-4" id="projects">
-    <div className="max-w-6xl mx-auto text-center mb-12">
-      <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-full font-semibold mb-4">Our Startups</span>
-      <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center text-[#43159B]">Projects We Power</h2>
-      <p className="text-gray-700 max-w-2xl mx-auto mb-8">A showcase of innovative ventures incubated through ICP Hub Kenya —<br/>solving local and global problems with blockchain and AI</p>
-    </div>
-    <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+  <motion.section 
+    className="w-full bg-white py-20 px-4" 
+    id="projects"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.2 }}
+    variants={containerVariants}
+  >
+    <motion.div 
+      className="max-w-6xl mx-auto text-center mb-12"
+      variants={itemVariants}
+    >
+      <motion.span 
+        className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-full font-semibold mb-4"
+        variants={itemVariants}
+      >
+        Our Startups
+      </motion.span>
+      <motion.h2 
+        className="text-2xl md:text-4xl font-bold mb-2 text-center text-[#43159B]"
+        variants={itemVariants}
+      >
+        Projects We Power
+      </motion.h2>
+      <motion.p 
+        className="text-gray-700 max-w-2xl mx-auto mb-8"
+        variants={itemVariants}
+      >
+        A showcase of innovative ventures incubated through ICP Hub Kenya —<br/>solving local and global problems with blockchain and AI
+      </motion.p>
+    </motion.div>
+    <motion.div 
+      className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
+      variants={containerVariants}
+    >
       {projects.map((p, i) => (
-        <div key={i} className="rounded-2xl p-6 md:p-8 flex flex-col bg-gradient-to-br from-gradientFrom to-gradientTo text-white relative min-h-[260px] shadow-lg transition-transform duration-200 hover:scale-105 hover:shadow-2xl">
-          <div className="flex items-start justify-between mb-2">
-            <img src={p.img} alt={p.title} className="w-14 h-14 rounded-full object-contain bg-white p-1" />
+        <motion.div 
+          key={i} 
+          className="rounded-2xl p-6 md:p-8 flex flex-col bg-gradient-to-br from-gradientFrom to-gradientTo text-white relative min-h-[260px] shadow-lg"
+          variants={itemVariants}
+          whileHover={{ 
+            scale: 1.05,
+            transition: { duration: 0.2 }
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.div 
+            className="flex items-start justify-between mb-2"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <motion.img 
+              src={p.img} 
+              alt={p.title} 
+              className="w-14 h-14 rounded-full object-contain bg-white p-1"
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.8 }}
+            />
             <div className="flex gap-2">
-              <a href={p.twitter} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+              <motion.a 
+                href={p.twitter} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              >
                 <img src={socialIcons.twitter} alt="Twitter" className="w-5 h-5" />
-              </a>
-              <a href={p.website} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+              </motion.a>
+              <motion.a 
+                href={p.website} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              >
                 <img src={socialIcons.website} alt="Website" className="w-5 h-5" />
-              </a>
+              </motion.a>
             </div>
-          </div>
-          <div className="font-bold text-xl mb-2 mt-2">{p.title}</div>
-          <a 
+          </motion.div>
+          <motion.div 
+            className="font-bold text-xl mb-2 mt-2"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            {p.title}
+          </motion.div>
+          <motion.a 
             href={`mailto:info@icpkushite.com?subject=Introduction Request for ${p.title}`}
             className="ml-auto mb-2 bg-white/10 hover:bg-white/30 text-white px-4 py-1 rounded-lg font-light border border-white hover:border-2 text-sm transition inline-block"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
             Get an Intro &rsaquo;
-          </a>
-          <div className="text-white/90 text-sm leading-relaxed">{p.desc}</div>
-        </div>
+          </motion.a>
+          <motion.div 
+            className="text-white/90 text-sm leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            {p.desc}
+          </motion.div>
+        </motion.div>
       ))}
-    </div>
-  </section>
+    </motion.div>
+  </motion.section>
 );
 
 export default ProjectsSection; 

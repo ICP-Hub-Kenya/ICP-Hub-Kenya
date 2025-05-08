@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const features = [
   {
@@ -21,22 +22,82 @@ const features = [
 const AboutSection = () => {
   const [showVideo, setShowVideo] = useState(false);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const featureVariants = {
+    hidden: { x: -20, opacity: 0 },
+    visible: (i: number) => ({
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
+  };
+
   return (
-    <section id="about" className="w-full bg-[#FCEBFF] py-20 px-4 md:px-0">
+    <motion.section 
+      id="about" 
+      className="w-full bg-[#FCEBFF] py-20 px-4 md:px-0"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
+    >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-12">
         {/* Left: Badge, Heading, Image/Video */}
-        <div className="flex-1 flex flex-col items-start">
-          <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-4 text-sm">About Us</span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{
-            background: 'linear-gradient(90deg, #192F70 0%, #192F70 20%, #2667C5 40%, #5E54B6 70%, #C53AA2 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            color: 'transparent',
-          }}>
+        <motion.div 
+          className="flex-1 flex flex-col items-start"
+          variants={itemVariants}
+        >
+          <motion.span 
+            className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-4 text-sm"
+            variants={itemVariants}
+          >
+            About Us
+          </motion.span>
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold mb-6" 
+            style={{
+              background: 'linear-gradient(90deg, #192F70 0%, #192F70 20%, #2667C5 40%, #5E54B6 70%, #C53AA2 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent',
+            }}
+            variants={itemVariants}
+          >
             We provide easy medium to get started in your tech journey
-          </h2>
-          <div className="relative w-full max-w-md rounded-2xl overflow-hidden mb-4">
+          </motion.h2>
+          <motion.div 
+            className="relative w-full max-w-md rounded-2xl overflow-hidden mb-4"
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
             {!showVideo ? (
               <div className="relative">
                 <img
@@ -58,27 +119,47 @@ const AboutSection = () => {
                 className="w-full aspect-video"
               ></iframe>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         {/* Right: Description & Features */}
-        <div className="flex-1 flex flex-col gap-6 shadow-lg rounded-xl bg-white/70 p-6">
-          <p className="text-base text-gray-700 font-light mb-6" style={{fontFamily: 'Plus Jakarta Sans'}}>Our grant services are designed to provide the financial support, education, and mentorship you need to thrive in the blockchain space.</p>
+        <motion.div 
+          className="flex-1 flex flex-col gap-6 shadow-lg rounded-xl bg-white/70 p-6"
+          variants={itemVariants}
+        >
+          <motion.p 
+            className="text-base text-gray-700 font-light mb-6" 
+            style={{fontFamily: 'Plus Jakarta Sans'}}
+            variants={itemVariants}
+          >
+            Our grant services are designed to provide the financial support, education, and mentorship you need to thrive in the blockchain space.
+          </motion.p>
           <div className="flex flex-col gap-6">
             {features.map((f, i) => (
-              <div key={i} className="flex flex-row items-start gap-4 rounded-xl p-4">
-                <div className="w-28 h-12 flex items-center justify-center rounded-md bg-pinkBadge p-2">
+              <motion.div 
+                key={i} 
+                className="flex flex-row items-start gap-4 rounded-xl p-4"
+                variants={featureVariants}
+                custom={i}
+                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
+                transition={{ duration: 0.2 }}
+              >
+                <motion.div 
+                  className="w-28 h-12 flex items-center justify-center rounded-md bg-pinkBadge p-2"
+                  whileHover={{ rotate: [0, -10, 10, 0] }}
+                  transition={{ duration: 0.5 }}
+                >
                   <img src={f.img} alt={f.title} className="w-8 h-8 object-contain" />
-                </div>
+                </motion.div>
                 <div>
                   <h3 className="text-black font-semibold text-lg mb-1" style={{fontWeight: 600}}>{f.title}</h3>
                   <p className="text-gray-700 text-sm font-light" style={{fontFamily: 'Plus Jakarta Sans'}}>{f.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

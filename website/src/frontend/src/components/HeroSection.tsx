@@ -1,16 +1,69 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const mascotVariants = {
+    float: {
+      y: [0, -20, 0],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
     <header className="relative min-h-screen flex flex-col justify-between items-center overflow-hidden">
       {/* Background image */}
-      <img src="/images/HeroBackground.png" alt="Background" className="absolute inset-0 w-full h-full object-cover z-0" />
+      <motion.img 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        src="/images/HeroBackground.png" 
+        alt="Background" 
+        className="absolute inset-0 w-full h-full object-cover z-0" 
+      />
       {/* Overlay for better text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-purple-700/60 to-blue-900/70 z-10" />
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="absolute inset-0 bg-gradient-to-br from-primary/80 via-purple-700/60 to-blue-900/70 z-10" 
+      />
       {/* Navigation */}
-      <nav className="mx-auto pt-6 md:pt-12 max-w-7xl w-full flex flex-row justify-between items-center px-4 md:px-8 py-4 md:py-6 z-20 font-light relative" style={{fontFamily: 'Plus Jakarta Sans', fontSize: 16}}>
+      <motion.nav 
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="mx-auto pt-6 md:pt-12 max-w-7xl w-full flex flex-row justify-between items-center px-4 md:px-8 py-4 md:py-6 z-20 font-light relative" 
+        style={{fontFamily: 'Plus Jakarta Sans', fontSize: 16}}
+      >
         <div className="flex items-center gap-2 mb-0">
           <img src="/images/logo.png" alt="ICP Kenya Logo" style={{width: 120, height: 20, objectFit: 'contain'}} />
         </div>
@@ -75,38 +128,71 @@ const HeroSection = () => {
             </button>
           </div>
         )}
-      </nav>
+      </motion.nav>
       {/* Main container for hero content and mascot */}
       {!menuOpen && (
-        <div className="mt-6 md:mt-12 relative flex flex-col flex-1 justify-center w-full z-20">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="mt-6 md:mt-12 relative flex flex-col flex-1 justify-center w-full z-20"
+        >
           <div className="max-w-7xl mx-auto w-full px-4 flex flex-col items-center justify-center text-center flex-1">
-            <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg leading-tight text-white">Revolutionizing Blockchain<br />Education with ICP</h1>
-            <p className="text-base md:text-[16px] mb-6 md:mb-10 max-w-xs sm:max-w-xl md:max-w-2xl mx-auto text-white/90 font-light" style={{fontFamily: 'Plus Jakarta Sans'}}>At the forefront of technology is ICP Hub Kenya dedicated to advancing the Internet Computer ecosystem.</p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 md:mb-10 w-full sm:w-auto">
-              <button 
+            <motion.h1 
+              variants={itemVariants}
+              className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg leading-tight text-white"
+            >
+              Revolutionizing Blockchain<br />Education with ICP
+            </motion.h1>
+            <motion.p 
+              variants={itemVariants}
+              className="text-base md:text-[16px] mb-6 md:mb-10 max-w-xs sm:max-w-xl md:max-w-2xl mx-auto text-white/90 font-light" 
+              style={{fontFamily: 'Plus Jakarta Sans'}}
+            >
+              At the forefront of technology is ICP Hub Kenya dedicated to advancing the Internet Computer ecosystem.
+            </motion.p>
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 md:mb-10 w-full sm:w-auto"
+            >
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => {
                   window.open("https://dacade.org/communities/icp", '_blank');
                 }}
-                className="px-7 py-3 rounded-lg text-white border border-white bg-transparent shadow-lg transition-transform duration-200 hover:bg-white/10 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-pink-400 text-[16px] font-bold" style={{fontFamily: 'Plus Jakarta Sans'}}>
-                  Start Building &rsaquo;
-              </button>
-              <button 
+                className="px-7 py-3 rounded-lg text-white border border-white bg-transparent shadow-lg transition-transform duration-200 hover:bg-white/10 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-pink-400 text-[16px] font-bold" 
+                style={{fontFamily: 'Plus Jakarta Sans'}}
+              >
+                Start Building &rsaquo;
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => {
                   window.open("https://t.me/icphub_KE", '_blank');
                 }}
-                className="px-7 py-3 rounded-lg bg-white text-black shadow-md transition hover:bg-primary hover:text-white hover:scale-105 hover:shadow-xl text-[16px] font-bold" style={{fontFamily: 'Plus Jakarta Sans'}}>Join Our Community</button>
-            </div>
+                className="px-7 py-3 rounded-lg bg-white text-black shadow-md transition hover:bg-primary hover:text-white hover:shadow-xl text-[16px] font-bold" 
+                style={{fontFamily: 'Plus Jakarta Sans'}}
+              >
+                Join Our Community
+              </motion.button>
+            </motion.div>
           </div>
           {/* Mascot Illustration */}
-          <div className="w-full flex justify-start items-end pointer-events-none pb-0 relative">
+          <motion.div 
+            variants={mascotVariants}
+            animate="float"
+            className="w-full flex justify-start items-end pointer-events-none pb-0 relative"
+          >
             <img
               src="/images/HeroImage.png"
               alt="ICP Mascot"
               className="w-[140vw] min-w-[100vw] h-auto object-contain object-left -translate-y-2 sm:-translate-y-6 md:-translate-y-10"
               style={{ left: 0, position: 'relative' }}
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
     </header>
   );

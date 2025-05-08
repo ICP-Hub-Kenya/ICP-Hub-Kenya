@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const team = [
   { 
@@ -40,45 +41,129 @@ const socialIcons: Record<'linkedin' | 'twitter', string> = {
   twitter: '/images/twitter.png',
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
+
 const TeamSection = () => (
-  <section className="w-full bg-purpleCustom py-20 px-4" id="team">
-    <div className="max-w-6xl mx-auto flex flex-col items-center mb-12">
-      <span className="inline-block  bg-pinkBadge text-black px-6 py-2 rounded-full font-semibold mb-4 text-base text-center">Our Team</span>
-      <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center" style={{
-        background: 'linear-gradient(90deg, #2B007D 0%, #D606CE 100%)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text',
-        color: 'transparent',
-      }}>
+  <motion.section 
+    className="w-full bg-purpleCustom py-20 px-4" 
+    id="team"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.2 }}
+    variants={containerVariants}
+  >
+    <motion.div 
+      className="max-w-6xl mx-auto flex flex-col items-center mb-12"
+      variants={itemVariants}
+    >
+      <motion.span 
+        className="inline-block bg-pinkBadge text-black px-6 py-2 rounded-full font-semibold mb-4 text-base text-center"
+        variants={itemVariants}
+        whileHover={{ scale: 1.05 }}
+      >
+        Our Team
+      </motion.span>
+      <motion.h2 
+        className="text-2xl md:text-4xl font-bold mb-2 text-center" 
+        style={{
+          background: 'linear-gradient(90deg, #2B007D 0%, #D606CE 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          color: 'transparent',
+        }}
+        variants={itemVariants}
+      >
         Meet the <span className="font-extrabold">Visionaries Driving the Future</span>
-      </h2>
-    </div>
-    <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      </motion.h2>
+    </motion.div>
+    <motion.div 
+      className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
+      variants={containerVariants}
+    >
       {team.map((member, i) => (
-        <div key={i} className="bg-white rounded-2xl flex flex-col items-center shadow-lg border border-[#F5A7FF] min-h-[340px] p-0 overflow-hidden transition-transform duration-200 hover:scale-105 hover:shadow-2xl">
-          <img src={member.img} alt={member.name} className="w-full h-56 object-cover object-top mb-0 rounded-b-2xl" />
-          <div className="flex gap-2 mb-3 mt-4">
+        <motion.div 
+          key={i} 
+          className="bg-white rounded-2xl flex flex-col items-center shadow-lg border border-[#F5A7FF] min-h-[340px] p-0 overflow-hidden"
+          variants={itemVariants}
+          whileHover={{ 
+            scale: 1.05,
+            transition: { duration: 0.2 }
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.img 
+            src={member.img} 
+            alt={member.name} 
+            className="w-full h-56 object-cover object-top mb-0 rounded-b-2xl"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+          />
+          <motion.div 
+            className="flex gap-2 mb-3 mt-4"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
             {Object.entries(member.socials).map(([platform, url]) => (
               url !== '#' && (
-                <a 
+                <motion.a 
                   key={platform} 
                   href={url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#2B007D] transition-all duration-200 hover:bg-[#D606CE] hover:scale-110"
+                  className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#2B007D] transition-all duration-200 hover:bg-[#D606CE]"
+                  whileHover={{ scale: 1.2, rotate: 360 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <img src={socialIcons[platform as keyof typeof socialIcons]} alt={platform} className="w-4 h-4" />
-                </a>
+                </motion.a>
               )
             ))}
-          </div>
-          <div className="font-bold text-lg text-deepPurple mb-1 text-center">{member.name}</div>
-          <div className="text-gray-500 text-xs font-semibold mb-3 text-center tracking-wide">{member.role.toUpperCase()}</div>
-        </div>
+          </motion.div>
+          <motion.div 
+            className="font-bold text-lg text-deepPurple mb-1 text-center"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            {member.name}
+          </motion.div>
+          <motion.div 
+            className="text-gray-500 text-xs font-semibold mb-3 text-center tracking-wide"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            {member.role.toUpperCase()}
+          </motion.div>
+        </motion.div>
       ))}
-    </div>
-  </section>
+    </motion.div>
+  </motion.section>
 );
 
 export default TeamSection; 
