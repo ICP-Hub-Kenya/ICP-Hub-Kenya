@@ -1,27 +1,9 @@
 {
   "canisters": {
-    "backend": {
-      "candid": "src/backend/backend.did",
-      "package": "backend",
-      "type": "rust"
-    },
-    "frontend": {
-      "dependencies": [
-        "backend"
-      ],
-      "source": [
-        "src/frontend/dist"
-      ],
-      "type": "assets",
-      "workspace": "frontend"
-    }
-  },
-  "defaults": {
-    "build": {
-      "args": "",
-      "packtool": ""
-    }
-  },
-  "output_env_file": ".env",
-  "version": 1
+      "frontend": {
+        "entrypoint": "src/frontend/dist/index.html", 
+        "source": ["src/frontend/dist"],
+        "type": "assets"
+      }
+  }
 }
