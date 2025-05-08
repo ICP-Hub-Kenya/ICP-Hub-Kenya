@@ -142,3 +142,468 @@ Would you like me to check your frontend's package.json to ensure the build scri
 
 ---
 
+_**User**_
+
+So I've accidentally deleted my .git folder, when doing file restructuring 
+
+And I need to push to git, how do I solve this, while avoiding the error unrelated histories
+
+---
+
+_**Assistant**_
+
+I understand you've accidentally deleted your `.git` folder and need to reinitialize your repository while avoiding the "unrelated histories" error when pushing. Here's how we can solve this:
+
+1. First, let's initialize a new git repository:
+
+
+---
+
+```bash
+git init
+```
+
+```
+Reinitialized existing Git repository in /Users/la/ICP-Hub-Kenya/ICP-Hub-Kenya/.
+git/
+
+```
+
+---
+
+2. Let's add all your files to git:
+
+
+---
+
+```bash
+git add .
+```
+
+```
+la@Steves-MacBook ICP-Hub-Kenya % 
+
+```
+
+---
+
+3. Let's commit these changes:
+
+
+---
+
+```bash
+git commit -m "Initial commit after repository reinitialization"
+```
+
+```
+la@Steves-MacBook ICP-Hub-Kenya % git commit -m "Initial commit after repository reinitialization"
+[new-site-changes d2cad46] Initial commit after repository reinitialization
+ 391 files changed, 14236 insertions(+), 42339 deletions(-)
+ create mode 100644 .cursorindexingignore
+ delete mode 100644 .dfx/ic/canisters/frontend/assetstorage.did
+ delete mode 100644 .dfx/ic/canisters/frontend/assetstorage.wasm.gz
+ delete mode 100644 .dfx/ic/canisters/frontend/constructor.did
+ delete mode 100644 .dfx/ic/canisters/frontend/constructor.old.did
+ delete mode 100644 .dfx/ic/canisters/frontend/frontend.wasm.gz
+ delete mode 100644 .dfx/ic/canisters/frontend/index.js
+ delete mode 100644 .dfx/ic/canisters/frontend/init_args.txt
+ delete mode 100644 .dfx/ic/canisters/frontend/service.did
+ delete mode 100644 .dfx/ic/canisters/frontend/service.did.d.ts
+ delete mode 100644 .dfx/ic/canisters/frontend/service.did.js
+ delete mode 100644 .dfx/ic/canisters/icp_hub_kenya/assetstorage.did
+ delete mode 100644 .dfx/ic/canisters/icp_hub_kenya/assetstorage.wasm.gz
+ delete mode 100644 .dfx/ic/canisters/icp_hub_kenya/constructor.did
+ delete mode 100644 .dfx/ic/canisters/icp_hub_kenya/constructor.old.did
+ delete mode 100644 .dfx/ic/canisters/icp_hub_kenya/icp_hub_kenya.wasm.gz
+ delete mode 100644 .dfx/ic/canisters/icp_hub_kenya/index.js
+ delete mode 100644 .dfx/ic/canisters/icp_hub_kenya/init_args.txt
+ delete mode 100644 .dfx/ic/canisters/icp_hub_kenya/service.did
+ delete mode 100644 .dfx/ic/canisters/icp_hub_kenya/service.did.d.ts
+ delete mode 100644 .dfx/ic/canisters/icp_hub_kenya/service.did.js
+ delete mode 100644 .dfx/ic/lsp/ascfp-qyaaa-aaaal-amrja-cai.did
+ delete mode 100644 .dfx/ic/lsp/avdd3-5aaaa-aaaal-amrjq-cai.did
+ delete mode 100644 .dfx/ic/lsp/h4te5-rqaaa-aaaal-qjfpa-cai.did
+ delete mode 100644 .dfx/ic/lsp/ucnis-pqaaa-aaaal-qjgla-cai.did
+ delete mode 100644 .dfx/local/canister_ids.json
+ delete mode 100644 .dfx/local/canisters/frontend/assetstorage.did
+ delete mode 100644 .dfx/local/canisters/frontend/assetstorage.wasm.gz
+ delete mode 100644 .dfx/local/canisters/frontend/constructor.did
+ delete mode 100644 .dfx/local/canisters/frontend/frontend.wasm.gz
+ delete mode 100644 .dfx/local/canisters/frontend/index.js
+ delete mode 100644 .dfx/local/canisters/frontend/init_args.txt
+ delete mode 100644 .dfx/local/canisters/frontend/service.did
+ delete mode 100644 .dfx/local/canisters/frontend/service.did.d.ts
+ delete mode 100644 .dfx/local/canisters/frontend/service.did.js
+ delete mode 100644 .dfx/local/lsp/bkyz2-fmaaa-aaaaa-qaaaq-cai.did
+ delete mode 100644 .dfx/local/network-id
+ rename website/.gitignore => .gitignore (82%)
+ rename backend/.gitignore => .gitignore copy (100%)
+ create mode 100644 .specstory/history/2025-05-06_10-08-change-background-color-to-#d606ce.md
+ create mode 100644 .specstory/history/2025-05-06_15-51-setting-up-typescript-and-tailwind-css.md
+ create mode 100644 .specstory/history/2025-05-06_16-11-testing-tailwind-css-styles.md
+ create mode 100644 .specstory/history/2025-05-07_08-05-hero-section-design-adjustments.md
+ create mode 100644 .specstory/history/2025-05-07_08-31-figma-design-adjustments-for-hero-section.md
+ create mode 100644 .specstory/history/2025-05-07_15-08-div-layout-and-background-color-issues.md
+ create mode 100644 .specstory/history/2025-05-07_17-46-component-design-to-match-figma.md
+ create mode 100644 .specstory/history/2025-05-08_10-13-mobile-navbar-link-updates.md
+ create mode 100644 .specstory/history/2025-05-08_10-54-animation-ideas-for-landing-page-components.md
+ create mode 100644 .specstory/history/2025-05-08_11-23-local-canister-deployment-error-troubleshooting.md
+ rename website/Cargo.lock => Cargo.lock (100%)
+ rename website/Cargo.toml => Cargo.toml (100%)
+ delete mode 100644 LICENSE.md
+ delete mode 100644 UI.png
+ delete mode 100644 backend/Cargo.lock
+ delete mode 100644 backend/Cargo.toml
+ delete mode 100644 backend/README.md
+ delete mode 100644 backend/canister_ids.json
+ delete mode 100644 backend/dfx.json
+ delete mode 100644 backend/src/backend_backend/Cargo.toml
+ delete mode 100644 backend/src/backend_backend/backend_backend.did
+ delete mode 100644 backend/src/backend_backend/src/donations.rs
+ delete mode 100644 backend/src/backend_backend/src/icrc_standards.rs
+ delete mode 100644 backend/src/backend_backend/src/lib.rs
+ delete mode 100644 frontend/.env
+ delete mode 100644 frontend/.eslintrc.json
+ delete mode 100644 frontend/.gitignore
+ delete mode 100644 frontend/components/atoms/Button/ButtonLink/index.tsx
+ delete mode 100644 frontend/components/atoms/Button/index.tsx
+ delete mode 100644 frontend/components/atoms/Form/Input/index.tsx
+ delete mode 100644 frontend/components/atoms/Form/Select/index.tsx
+ delete mode 100644 frontend/components/atoms/Form/Textarea/index.tsx
+ delete mode 100644 frontend/components/atoms/GradientButton/GradientButton.tsx
+ delete mode 100644 frontend/components/atoms/Label/index.tsx
+ delete mode 100644 frontend/components/atoms/LazyCard/index.tsx
+ delete mode 100644 frontend/components/atoms/LineDivider/index.tsx
+ delete mode 100644 frontend/components/atoms/NavBrand/FooterNavBrand.tsx
+ delete mode 100644 frontend/components/atoms/NavBrand/index.tsx
+ delete mode 100644 frontend/components/atoms/NavLink/index.tsx
+ delete mode 100644 frontend/components/atoms/Tag/index.tsx
+ delete mode 100644 frontend/components/atoms/Text/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/BlockchainEducationBanner/BlockchainEducationBanner.t
+sx
+ delete mode 100644 frontend/components/molecules/Card/BlogAuthorCard/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/BlogCard/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/BlogCommentCard/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/CardListIcon/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/ContactCard/ContactBanner.tsx
+ delete mode 100644 frontend/components/molecules/Card/EducationBanner/EducationBanner.tsx
+ delete mode 100644 frontend/components/molecules/Card/FeatureCard/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/GrantApplicationCard/GrantApplicationCard.tsx
+ delete mode 100644 frontend/components/molecules/Card/ICPEducationCard/ICPEducationCard.tsx
+ delete mode 100644 frontend/components/molecules/Card/InnovatorCard/InnovatorCard.tsx
+ delete mode 100644 frontend/components/molecules/Card/JourneyStarts/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/OurStartups/OurStartups.tsx
+ delete mode 100644 frontend/components/molecules/Card/PreviousProjects/PreviousProjects.tsx
+ delete mode 100644 frontend/components/molecules/Card/PricingCard/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/ProjectCard/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/SmallCardIcon/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/TeamCard/index.tsx
+ delete mode 100644 frontend/components/molecules/Card/VisionCard/VisionCard.tsx
+ delete mode 100644 frontend/components/molecules/DonateModal/index.tsx
+ delete mode 100644 frontend/components/molecules/FaqListItem/index.tsx
+ delete mode 100644 frontend/components/molecules/FaqTabbar/index.tsx
+ delete mode 100644 frontend/components/molecules/FormGroup/InputGroup/index.tsx
+ delete mode 100644 frontend/components/molecules/FormGroup/SelectGroup/index.tsx
+ delete mode 100644 frontend/components/molecules/FormGroup/TextAreaGroup/index.tsx
+ delete mode 100644 frontend/components/molecules/IconListItem/index.tsx
+ delete mode 100644 frontend/components/molecules/PageSentence/index.tsx
+ delete mode 100644 frontend/components/molecules/SectionSentence/index.tsx
+ delete mode 100644 frontend/components/molecules/StatisticListItem/index.tsx
+ delete mode 100644 frontend/components/molecules/TextArrowLink/index.tsx
+ delete mode 100644 frontend/components/organisms/CallOut/index.tsx
+ delete mode 100644 frontend/components/organisms/FaqList/index.tsx
+ delete mode 100644 frontend/components/organisms/Footer/index.tsx
+ delete mode 100644 frontend/components/organisms/Gallery/gallery.tsx
+ delete mode 100644 frontend/components/organisms/LogoList/index.tsx
+ delete mode 100644 frontend/components/organisms/NavBar/index.tsx
+ delete mode 100644 frontend/components/organisms/StatisticList/index.tsx
+ delete mode 100644 frontend/components/organisms/Web3ProductsGallery/Web3ProductsGallery.tsx
+ delete mode 100644 frontend/components/shop-components/category-filter.tsx
+ delete mode 100644 frontend/components/shop-components/product-card.tsx
+ delete mode 100644 frontend/components/shop-components/ui/button.tsx
+ delete mode 100644 frontend/components/shop-components/ui/card.tsx
+ delete mode 100644 frontend/components/shop-components/ui/input.tsx
+ delete mode 100644 frontend/components/templates/Container/index.tsx
+ delete mode 100644 frontend/components/templates/PageTemplate/index.tsx
+ delete mode 100644 frontend/components/ui/button.tsx
+ delete mode 100644 frontend/components/ui/dialog.tsx
+ delete mode 100644 frontend/components/ui/input.tsx
+ delete mode 100644 frontend/context/WalletContext.tsx
+ delete mode 100644 frontend/data/products.ts
+ delete mode 100644 frontend/hooks/useGetBrowserName.tsx
+ delete mode 100644 frontend/hooks/useMobileDetection.tsx
+ delete mode 100644 frontend/lib/truncateAddress.ts
+ delete mode 100644 frontend/lib/utils.ts
+ delete mode 100644 frontend/next-env.d.ts
+ delete mode 100644 frontend/next.config.js
+ delete mode 100644 frontend/package-lock.json
+ delete mode 100644 frontend/package.json
+ delete mode 100644 frontend/pages/404.tsx
+ delete mode 100644 frontend/pages/Loading.tsx
+ delete mode 100644 frontend/pages/_app.tsx
+ delete mode 100644 frontend/pages/_document.tsx
+ delete mode 100644 frontend/pages/about/FirstComponent.tsx
+ delete mode 100644 frontend/pages/about/VisionMissionSection.tsx
+ delete mode 100644 frontend/pages/about/index.tsx
+ delete mode 100644 frontend/pages/api/hello.ts
+ delete mode 100644 frontend/pages/blog/detail/index.tsx
+ delete mode 100644 frontend/pages/blog/index.tsx
+ delete mode 100644 frontend/pages/contact.tsx
+ delete mode 100644 frontend/pages/education/index.tsx
+ delete mode 100644 frontend/pages/education1/detail/index.tsx
+ delete mode 100644 frontend/pages/education1/index.tsx
+ delete mode 100644 frontend/pages/events.tsx
+ delete mode 100644 frontend/pages/faq.tsx
+ delete mode 100644 frontend/pages/hireus/hireus.tsx
+ delete mode 100644 frontend/pages/hireus/index.tsx
+ delete mode 100644 frontend/pages/index.tsx
+ delete mode 100644 frontend/pages/our-shop/index.tsx
+ delete mode 100644 frontend/pages/our-shop/purchase-coins.tsx
+ delete mode 100644 frontend/pages/our-shop/shop-page.tsx
+ delete mode 100644 frontend/pages/partners.tsx
+ delete mode 100644 frontend/pages/pricing.tsx
+ delete mode 100644 frontend/pages/project/detail/index.tsx
+ delete mode 100644 frontend/pages/project/index.tsx
+ delete mode 100644 frontend/pages/quote.tsx
+ delete mode 100644 frontend/pages/term-of-service.tsx
+ delete mode 100644 frontend/postcss.config.js
+ delete mode 100644 frontend/public/.ic-assets.json
+ delete mode 100644 frontend/public/favicon.ico
+ delete mode 100644 frontend/public/images/About.png
+ delete mode 100644 frontend/public/images/Astronaut.png
+ delete mode 100644 frontend/public/images/ChamaDAO.png
+ delete mode 100644 frontend/public/images/Educate.png
+ delete mode 100644 frontend/public/images/Education.svg
+ delete mode 100644 frontend/public/images/FRYS.png
+ delete mode 100644 frontend/public/images/Frame.png
+ delete mode 100644 frontend/public/images/Gal1.jpg
+ delete mode 100644 frontend/public/images/Gal10.jpg
+ delete mode 100644 frontend/public/images/Gal11.jpg
+ delete mode 100644 frontend/public/images/Gal12.jpg
+ delete mode 100644 frontend/public/images/Gal13.jpg
+ delete mode 100644 frontend/public/images/Gal14.jpg
+ delete mode 100644 frontend/public/images/Gal15.jpeg
+ delete mode 100644 frontend/public/images/Gal16.jpg
+ delete mode 100644 frontend/public/images/Gal17.jpg
+ delete mode 100644 frontend/public/images/Gal18.jpg
+ delete mode 100644 frontend/public/images/Gal2.jpg
+ delete mode 100644 frontend/public/images/Gal3.jpg
+ delete mode 100644 frontend/public/images/Gal4.jpg
+ delete mode 100644 frontend/public/images/Gal5.jpg
+ delete mode 100644 frontend/public/images/Gal6.jpg
+ delete mode 100644 frontend/public/images/Gal7.jpg
+ delete mode 100644 frontend/public/images/Gal8.jpg
+ delete mode 100644 frontend/public/images/Gal9.jpg
+ delete mode 100644 frontend/public/images/Grant.png
+ delete mode 100644 frontend/public/images/Hero.png
+ delete mode 100644 frontend/public/images/HeroImage.png
+ delete mode 100644 frontend/public/images/HeroImage.webp
+ delete mode 100644 frontend/public/images/HeroImage2.png
+ delete mode 100644 frontend/public/images/HireAmschel.jpg
+ delete mode 100644 frontend/public/images/HireAmschel.png
+ delete mode 100644 frontend/public/images/HireChris.png
+ delete mode 100644 frontend/public/images/HireEugene.jpg
+ delete mode 100644 frontend/public/images/HireHannah.jpg
+ delete mode 100644 frontend/public/images/HireIsaack.png
+ delete mode 100644 frontend/public/images/HireJohn.jpg
+ delete mode 100644 frontend/public/images/HireKimani.jpg
+ delete mode 100644 frontend/public/images/HireMary.png
+ delete mode 100644 frontend/public/images/HireMirriam.jpg
+ delete mode 100644 frontend/public/images/HireOkware.png
+ delete mode 100644 frontend/public/images/HireSilas.png
+ delete mode 100644 frontend/public/images/HireSteve.png
+ delete mode 100644 frontend/public/images/HireSylus.jpeg
+ delete mode 100644 frontend/public/images/HireTevin.png
+ delete mode 100644 frontend/public/images/I3M.png
+ delete mode 100644 frontend/public/images/Innovator.png
+ delete mode 100644 frontend/public/images/InvestaFarm.png
+ delete mode 100644 frontend/public/images/LinkedIn.png
+ delete mode 100644 frontend/public/images/Memethon.png
+ delete mode 100644 frontend/public/images/Mission.png
+ delete mode 100644 frontend/public/images/Profiles/Bellah.png
+ delete mode 100644 frontend/public/images/Profiles/Charles.png
+ delete mode 100644 frontend/public/images/Profiles/Maic.png
+ delete mode 100644 frontend/public/images/Profiles/Mary3.png
+ delete mode 100644 frontend/public/images/Profiles/Orlah.png
+ delete mode 100644 frontend/public/images/Profiles/Sammy.png
+ delete mode 100644 frontend/public/images/Profiles/Silas.png
+ delete mode 100644 frontend/public/images/Profiles/Steve.png
+ delete mode 100644 frontend/public/images/Profiles/Tevin.png
+ delete mode 100644 frontend/public/images/Profiles/Yvonne.png
+ delete mode 100644 frontend/public/images/Web3Products/Jua.png
+ delete mode 100644 frontend/public/images/Web3Products/Swypt.png
+ delete mode 100644 frontend/public/images/Web3Products/Utu.png
+ delete mode 100644 frontend/public/images/WhiteLogo.png
+ delete mode 100644 frontend/public/images/brand3.png
+ delete mode 100644 frontend/public/images/certificate.png
+ delete mode 100644 frontend/public/images/circle_icp.png
+ delete mode 100644 frontend/public/images/favicon.svg
+ delete mode 100644 frontend/public/images/icphubke_circle.jpg
+ delete mode 100644 frontend/public/images/logo.svg
+ delete mode 100644 frontend/public/images/map.png
+ delete mode 100644 frontend/public/images/microsoft-logo.svg
+ delete mode 100644 frontend/public/images/website.png
+ delete mode 100644 frontend/public/images/x.png
+ delete mode 100644 frontend/public/vercel.svg
+ delete mode 100644 frontend/src/declarations/icp_hub_kenya/icp_hub_kenya.did
+ delete mode 100644 frontend/src/declarations/icp_hub_kenya/icp_hub_kenya.did.d.ts
+ delete mode 100644 frontend/src/declarations/icp_hub_kenya/icp_hub_kenya.did.js
+ delete mode 100644 frontend/src/declarations/icp_hub_kenya/index.d.ts
+ delete mode 100644 frontend/src/declarations/icp_hub_kenya/index.js
+ delete mode 100644 frontend/styles/Home.module.css
+ delete mode 100644 frontend/styles/globals.css
+ delete mode 100644 frontend/tailwind.config.js
+ delete mode 100644 frontend/tsconfig.build.json
+ delete mode 100644 frontend/tsconfig.json
+ delete mode 100644 frontend/types/TextStyles.ts
+ delete mode 100644 frontend/types/nfid.d.ts
+ delete mode 100644 frontend/utils/getRandomItemsFromArray.ts
+ delete mode 100644 frontend/utils/randomString.ts
+ delete mode 100644 frontend/yarn.lock
+ delete mode 100644 identity_base64.txt
+ delete mode 100644 image.png
+ rename website/package.json => package.json (100%)
+ rename {website/src => src}/backend/Cargo.toml (100%)
+ rename {website/src => src}/backend/src/lib.rs (100%)
+ rename {website/src => src}/backend/website_backend.did (100%)
+ rename {website/src => src}/frontend/index.html (100%)
+ rename {website/src => src}/frontend/package-lock.json (100%)
+ rename {website/src => src}/frontend/package.json (100%)
+ rename {website/src => src}/frontend/postcss.config.cjs (100%)
+ rename {website/src => src}/frontend/public/.ic-assets.json5 (100%)
+ rename {frontend => src/frontend}/public/.well-known/ic-domains (100%)
+ rename {website/src => src}/frontend/public/favicon.ico (100%)
+ rename {website/src => src}/frontend/public/images/AboutImage.png (100%)
+ rename {website/src => src}/frontend/public/images/BlackLogo.png (100%)
+ rename {website/src => src}/frontend/public/images/CommunityApproach.png (100%)
+ rename {website/src => src}/frontend/public/images/DeveloperTraining.png (100%)
+ rename {website/src => src}/frontend/public/images/GrantOpportunities.png (100%)
+ rename {website/src => src}/frontend/public/images/HeroBackground.png (100%)
+ rename {website/src => src}/frontend/public/images/HeroImage.png (100%)
+ rename {website/src => src}/frontend/public/images/LinkedInWhite.png (100%)
+ rename {frontend => src/frontend}/public/images/Merch/Bag1.png (100%)
+ rename {frontend => src/frontend}/public/images/Merch/Cup1.png (100%)
+ rename {frontend => src/frontend}/public/images/Merch/Hat1.png (100%)
+ rename {frontend => src/frontend}/public/images/Merch/Hoodie1.png (100%)
+ rename {frontend => src/frontend}/public/images/Merch/Hoodie2.png (100%)
+ rename {frontend => src/frontend}/public/images/Merch/Shirt1.png (100%)
+ rename {frontend => src/frontend}/public/images/Merch/Shirt2.png (100%)
+ rename {frontend => src/frontend}/public/images/Merch/Shirt3.png (100%)
+ rename {frontend => src/frontend}/public/images/Merch/StanleyCup.jpeg (100%)
+ rename {frontend => src/frontend}/public/images/Merch/WaterBottle1.png (100%)
+ rename {website/src => src}/frontend/public/images/MilestoneSideImage.png (100%)
+ rename {website/src => src}/frontend/public/images/PinkTwitter.png (100%)
+ rename {website/src => src}/frontend/public/images/PinkWebsite.png (100%)
+ rename {website/src => src}/frontend/public/images/contact/location.png (100%)
+ rename {website/src => src}/frontend/public/images/contact/mail.png (100%)
+ rename {website/src => src}/frontend/public/images/contact/telegram.png (100%)
+ rename {website/src => src}/frontend/public/images/contact/telephone.png (100%)
+ rename {frontend => src/frontend}/public/images/crypto-icp.png (100%)
+ rename {website/src => src}/frontend/public/images/devstrained.png (100%)
+ rename {website/src => src}/frontend/public/images/education.png (100%)
+ rename {website/src => src}/frontend/public/images/gallery/gallery1.png (100%)
+ rename {website/src => src}/frontend/public/images/gallery/gallery2.png (100%)
+ rename {website/src => src}/frontend/public/images/gallery/gallery3.jpeg (100%)
+ rename {website/src => src}/frontend/public/images/gallery/gallery4.jpg (100%)
+ rename {website/src => src}/frontend/public/images/gallery/gallery5.jpg (100%)
+ rename {website/src => src}/frontend/public/images/gallery/gallery6.jpg (100%)
+ rename {website/src => src}/frontend/public/images/grant.png (100%)
+ rename {website/src => src}/frontend/public/images/grants.png (100%)
+ rename {website/src => src}/frontend/public/images/innovator.png (100%)
+ rename {website/src => src}/frontend/public/images/instagram.png (100%)
+ rename {website/src => src}/frontend/public/images/linkedin.png (100%)
+ rename {website/src => src}/frontend/public/images/location.png (100%)
+ rename {website/src => src}/frontend/public/images/logo.png (100%)
+ rename {website/src => src}/frontend/public/images/mail.png (100%)
+ rename {frontend => src/frontend}/public/images/newlogo.jpeg (100%)
+ rename {website/src => src}/frontend/public/images/projects/ChamaDAO.png (100%)
+ rename {website/src => src}/frontend/public/images/projects/Fries.png (100%)
+ rename {website/src => src}/frontend/public/images/projects/Investa.png (100%)
+ rename {website/src => src}/frontend/public/images/projects/iThreeM.png (100%)
+ rename {website/src => src}/frontend/public/images/startups.png (100%)
+ rename {website/src => src}/frontend/public/images/team/bellah.png (100%)
+ rename {website/src => src}/frontend/public/images/team/charles.png (100%)
+ rename {website/src => src}/frontend/public/images/team/orlah.png (100%)
+ rename {website/src => src}/frontend/public/images/team/sammy.png (100%)
+ rename {website/src => src}/frontend/public/images/team/silas.png (100%)
+ rename {website/src => src}/frontend/public/images/team/steve.png (100%)
+ rename {website/src => src}/frontend/public/images/team/tevin.png (100%)
+ rename {website/src => src}/frontend/public/images/team/yvonne.png (100%)
+ rename {website/src => src}/frontend/public/images/telegram.png (100%)
+ rename {website/src => src}/frontend/public/images/twitter.png (100%)
+ rename {website/src => src}/frontend/public/images/universities.png (100%)
+ rename {website/src => src}/frontend/public/images/x.png (100%)
+ rename {website/src => src}/frontend/public/logo2.svg (100%)
+ rename {website/src => src}/frontend/src/App.tsx (100%)
+ rename {website/src => src}/frontend/src/components/AboutSection.tsx (100%)
+ rename {website/src => src}/frontend/src/components/FeaturesSection.tsx (100%)
+ rename {website/src => src}/frontend/src/components/Footer.tsx (100%)
+ rename {website/src => src}/frontend/src/components/HeroSection.tsx (100%)
+ rename {website/src => src}/frontend/src/components/JoinSection.tsx (100%)
+ rename {website/src => src}/frontend/src/components/MainContact.tsx (100%)
+ rename {website/src => src}/frontend/src/components/MilestonesSection.tsx (100%)
+ rename {website/src => src}/frontend/src/components/Navbar.tsx (100%)
+ rename {website/src => src}/frontend/src/components/ProjectsSection.tsx (100%)
+ rename {website/src => src}/frontend/src/components/TeamSection.tsx (100%)
+ rename {website/src => src}/frontend/src/index.css (100%)
+ rename {website/src => src}/frontend/src/index.scss (100%)
+ rename {website/src => src}/frontend/src/main.jsx (100%)
+ rename {website/src => src}/frontend/src/main.tsx (100%)
+ rename {website/src => src}/frontend/src/pages/Contact.tsx (100%)
+ rename {website/src => src}/frontend/src/pages/Landing.tsx (100%)
+ rename {website/src => src}/frontend/src/pages/our-shop/data/products.ts (100%)
+ rename {website/src => src}/frontend/src/pages/our-shop/index.tsx (100%)
+ rename {website/src => src}/frontend/src/pages/our-shop/purchase-coins.tsx (100%)
+ rename {website/src => src}/frontend/src/pages/our-shop/shop-components/category-filter.tsx (100%)
+ rename {website/src => src}/frontend/src/pages/our-shop/shop-components/product-card.tsx (100%)
+ rename {frontend/components => src/frontend/src/pages/our-shop}/shop-components/search-input.tsx (100%)
+ rename {website/src => src}/frontend/src/pages/our-shop/shop-components/ui/button.tsx (100%)
+ rename {website/src => src}/frontend/src/pages/our-shop/shop-components/ui/card.tsx (100%)
+ rename {website/src => src}/frontend/src/pages/our-shop/shop-components/ui/input.tsx (100%)
+ rename {website/src => src}/frontend/src/pages/our-shop/shop-components/ui/utils.ts (100%)
+ rename {website/src => src}/frontend/src/pages/our-shop/shop-page.tsx (100%)
+ rename {frontend => src/frontend/src/pages/our-shop}/types/shop.ts (100%)
+ rename {website/src => src}/frontend/src/vite-env.d.ts (100%)
+ rename {website/src => src}/frontend/tailwind.config.cjs (100%)
+ rename {website/src => src}/frontend/tsconfig.json (100%)
+ rename {website/src => src}/frontend/vite.config.js (100%)
+ rename {website/src => src}/frontend/vite.config.ts (100%)
+ rename website/tsconfig.json => tsconfig.json (100%)
+ delete mode 100644 website/README.md
+ delete mode 100644 website/canister_ids.json
+ delete mode 100644 website/dfx.json
+ delete mode 100644 website/package-lock.json
+ delete mode 100644 website/src/frontend/public/.well-known/ic-domains
+ delete mode 100644 website/src/frontend/public/images/Merch/Bag1.png
+ delete mode 100644 website/src/frontend/public/images/Merch/Cup1.png
+ delete mode 100644 website/src/frontend/public/images/Merch/Hat1.png
+ delete mode 100644 website/src/frontend/public/images/Merch/Hoodie1.png
+ delete mode 100644 website/src/frontend/public/images/Merch/Hoodie2.png
+ delete mode 100644 website/src/frontend/public/images/Merch/Shirt1.png
+ delete mode 100644 website/src/frontend/public/images/Merch/Shirt2.png
+ delete mode 100644 website/src/frontend/public/images/Merch/Shirt3.png
+ delete mode 100644 website/src/frontend/public/images/Merch/StanleyCup.jpeg
+ delete mode 100644 website/src/frontend/public/images/Merch/WaterBottle1.png
+ delete mode 100644 website/src/frontend/public/images/crypto-icp.png
+ delete mode 100644 website/src/frontend/public/images/newlogo.jpeg
+ delete mode 100644 website/src/frontend/src/pages/our-shop/shop-components/search-input.tsx
+ delete mode 100644 website/src/frontend/src/pages/our-shop/types/shop.ts
+la@Steves-MacBook ICP-Hub-Kenya %
+```
+
+---
+
+4. Now, let's add your remote repository. You'll need to replace `<your-repo-url>` with your actual repository URL:
+
+
+---
+
+
+
+---
+
+
+
+---
+
