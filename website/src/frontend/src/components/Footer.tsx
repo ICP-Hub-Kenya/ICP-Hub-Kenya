@@ -17,7 +17,7 @@ const Footer = () => (
         <div className="font-semibold text-sm mb-1">Follow Us :</div>
         <div className="flex gap-3 items-center">
           {socials.map((s, i) => (
-            <a key={i} href={s.link} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-full bg-white">
+            <a key={i} href={s.link} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center">
               <img src={s.icon} alt={s.alt} className="w-5 h-5 object-contain" />
             </a>
           ))}

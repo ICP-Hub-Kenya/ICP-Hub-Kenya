@@ -1,8 +1,15 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
+import MainContact from '../components/MainContact';
+import JoinSection from '../components/JoinSection';
+import Footer from '../components/Footer';
 
 const Contact = () => (
-  <div className="min-h-screen flex items-center justify-center bg-white">
-    <h1 className="text-3xl font-bold text-primary">Contact Page Placeholder</h1>
+  <div className="bg-white min-h-screen w-full">
+    <Navbar />
+    <MainContact />
+    <JoinSection />
+    <Footer />
   </div>
 );
 
