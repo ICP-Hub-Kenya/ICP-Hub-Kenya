@@ -22,16 +22,19 @@ const Navbar = () => {
       <div className="hidden md:flex flex-row items-center gap-8 w-full md:w-auto">
         <ul className="flex flex-row gap-8 font-light items-center">
           <li><a href="#about" className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">About</a></li>
-          <li><a href="#education" className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Education</a></li>
-          <li><a href="#hire" className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Hire Us</a></li>
-          <li><a href="#shop" className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Shop</a></li>
-          <li><a href="#events" className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Events</a></li>
-          <li><a href="#blog" className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Blog</a></li>
-          <li><a href="#join" className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Join Us</a></li>
+          <li><a href="https://dacade.org/communities/icp" target='_blank' className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Education</a></li>
+          <li><a href="https://smart-devstudios.com/" target='_blank' className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Hire Us</a></li>
+          <li><a href="shop" className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Shop</a></li>
+          <li><a href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" target='_blank' className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Events</a></li>
+          <li><a href="https://icphub-ke.medium.com/" target='_blank' className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Blog</a></li>
+          <li><a href="https://t.me/icphub_KE" target='_blank' className="text-black hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Join Us</a></li>
         </ul>
         <button
           className="px-5 py-2 rounded-lg font-bold text-white shadow transition text-[16px] hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
           style={{ fontFamily: 'Plus Jakarta Sans', background: '#D606CE' }}
+          onClick={() => {
+            window.open("https://t.me/icphub_KE", '_blank');
+          }}
         >
           Get Started
         </button>
@@ -48,17 +51,19 @@ const Navbar = () => {
           </button>
           <ul className="flex flex-col gap-6 font-light items-center text-2xl text-black">
             <li><a href="#about" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>About</a></li>
-            <li><a href="#education" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Education</a></li>
-            <li><a href="#hire" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Hire Us</a></li>
-            <li><a href="#shop" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Shop</a></li>
-            <li><a href="#events" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Events</a></li>
-            <li><a href="#blog" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Blog</a></li>
-            <li><a href="#join" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Join Us</a></li>
+            <li><a href="https://dacade.org/communities/icp" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Education</a></li>
+            <li><a href="https://smart-devstudios.com/" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Hire Us</a></li>
+            <li><a href="shop" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Shop</a></li>
+            <li><a href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Events</a></li>
+            <li><a href="https://icphub-ke.medium.com/" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Blog</a></li>
+            <li><a href="https://t.me/icphub_KE" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Join Us</a></li>
           </ul>
           <button
             className="mt-8 px-7 py-3 rounded-lg font-bold text-white shadow transition text-[20px] hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
             style={{ fontFamily: 'Plus Jakarta Sans', background: '#D606CE' }}
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              window.open("https://t.me/icphub_KE", '_blank');
+            }}
           >
             Get Started
           </button>

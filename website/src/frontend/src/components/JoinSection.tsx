@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const images = [
   '/images/gallery/gallery1.png',
   '/images/gallery/gallery2.png',
-  '/images/gallery/gallery1.png',
-  '/images/gallery/gallery2.png',
+  '/images/gallery/gallery3.jpeg',
+  '/images/gallery/gallery4.jpg',
+  '/images/gallery/gallery5.jpg',
+  '/images/gallery/gallery6.jpg',
 ];
 
 const JoinSection = () => {
   const [current, setCurrent] = useState(0);
   const visibleImages = [images[current % images.length], images[(current + 1) % images.length]];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % (images.length / 2));
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="w-full py-16 px-2 md:px-0 flex justify-center items-center" id="join">
       <div className="w-full max-w-5xl rounded-3xl relative flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: 600 }}>
@@ -23,19 +34,20 @@ const JoinSection = () => {
             <a href="#contact" className="bg-white text-black font-semibold px-8 py-3 rounded-lg shadow hover:bg-gray-100 transition text-base text-center">Contact Us</a>
           </div>
           {/* Gallery scroll */}
-          <div className="flex gap-6 justify-center items-center mb-6 w-full">
-            <button onClick={() => setCurrent((current - 1 + images.length) % images.length)} className="text-3xl px-2 text-white/80 hover:text-white transition">&#8592;</button>
+          <div className="flex justify-center items-center mb-6 w-full">
             <div className="flex gap-6">
               {visibleImages.map((img, idx) => (
                 <img key={idx} src={img} alt="Gallery" className="w-80 h-56 object-cover rounded-xl shadow-lg bg-white" />
               ))}
             </div>
-            <button onClick={() => setCurrent((current + 1) % images.length)} className="text-3xl px-2 text-white/80 hover:text-white transition">&#8594;</button>
           </div>
           {/* Dots */}
           <div className="flex gap-2 justify-center">
-            {images.slice(0, images.length / 2).map((_, i) => (
-              <span key={i} className={`w-3 h-3 rounded-full ${i === current % (images.length / 2) ? 'bg-white' : 'bg-white/30'} inline-block`} />
+            {Array.from({ length: images.length / 2 }).map((_, i) => (
+              <span 
+                key={i} 
+                className={`w-3 h-3 rounded-full border-2 border-white ${i === current % (images.length / 2) ? 'bg-white' : 'bg-white/30'} inline-block transition-colors duration-300`} 
+              />
             ))}
           </div>
         </div>

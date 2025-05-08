@@ -1,10 +1,10 @@
 import React from 'react';
 
 const socials = [
-  { icon: '/images/telegram.png', alt: 'Telegram', link: '#' },
-  { icon: '/images/x.png', alt: 'X', link: '#' },
-  { icon: '/images/instagram.png', alt: 'Instagram', link: '#' },
-  { icon: '/images/LinkedInWhite.png', alt: 'LinkedIn', link: '#' },
+  { icon: '/images/telegram.png', alt: 'Telegram', link: 'https://t.me/icphub_KE' },
+  { icon: '/images/x.png', alt: 'X', link: 'https://x.com/icphub_KE' },
+  { icon: '/images/instagram.png', alt: 'Instagram', link: 'https://www.instagram.com/icphub_ke/' },
+  { icon: '/images/LinkedInWhite.png', alt: 'LinkedIn', link: 'http://linkedin.com/company/icphub-ke/' },
 ];
 
 const Footer = () => (
@@ -28,19 +28,19 @@ const Footer = () => (
         <div>
           <div className="font-semibold text-sm mb-3">Navigation</div>
           <ul className="space-y-2 text-white/90 text-sm">
-            <li><a href="#" className="hover:underline">Home</a></li>
+            <li><a href="/" className="hover:underline">Home</a></li>
             <li><a href="#about" className="hover:underline">About Us</a></li>
-            <li><a href="#services" className="hover:underline">Services</a></li>
-            <li><a href="#join" className="hover:underline">Join Us</a></li>
+            <li><a href="https://smart-devstudios.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">Services</a></li>
+            <li><a href="https://t.me/icphub_KE" target="_blank" rel="noopener noreferrer" className="hover:underline">Join Us</a></li>
           </ul>
         </div>
         <div>
           <div className="font-semibold text-sm mb-3">Quick Link</div>
           <ul className="space-y-2 text-white/90 text-sm">
-            <li><a href="#" className="hover:underline">Dacade Course</a></li>
-            <li><a href="#" className="hover:underline">About ICP</a></li>
-            <li><a href="#" className="hover:underline">Hackathons</a></li>
-            <li><a href="#" className="hover:underline">Blog</a></li>
+            <li><a href="https://dacade.org/communities/icp" target="_blank" rel="noopener noreferrer" className="hover:underline">Dacade Course</a></li>
+            <li><a href="https://internetcomputer.org/" target="_blank" rel="noopener noreferrer" className="hover:underline">About ICP</a></li>
+            <li><a href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" target="_blank" rel="noopener noreferrer" className="hover:underline">Hackathons</a></li>
+            <li><a href="https://icphub-ke.medium.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">Blog</a></li>
           </ul>
         </div>
       </div>

@@ -36,7 +36,11 @@ const FeaturesSection = () => (
           <img src={f.img} alt="" className="absolute top-3 right-4 w-10 h-10 md:top-4 md:right-6 md:w-12 md:h-12 object-contain" />
           <div className="font-bold text-base md:text-lg mb-2 text-deepPurple mt-2 pr-10 md:pr-12">{f.title}</div>
           <div className="text-gray-600 text-xs md:text-sm mb-6 md:mb-8 text-left pr-2 md:pr-4">{f.desc}</div>
-          <button className="bg-magenta text-white px-5 py-2 rounded-lg font-semibold hover:bg-pinkBadge hover:text-black transition w-full md:w-auto md:self-start">{f.cta}</button>
+          <button 
+            onClick={() => {
+              window.open("https://t.me/icphub_KE", '_blank');
+            }}
+            className="bg-magenta text-white px-5 py-2 rounded-lg font-semibold hover:bg-pinkBadge hover:text-black transition w-full md:w-auto md:self-start">{f.cta}</button>
         </div>
       ))}
     </div>

@@ -28,16 +28,19 @@ const HeroSection = () => {
         <div className="hidden md:flex flex-row items-center gap-8 w-full md:w-auto">
           <ul className="flex flex-row gap-8 font-light items-center">
             <li><a href="#about" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">About</a></li>
-            <li><a href="#education" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Education</a></li>
-            <li><a href="#hire" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Hire Us</a></li>
-            <li><a href="#shop" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Shop</a></li>
-            <li><a href="#events" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Events</a></li>
-            <li><a href="#blog" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Blog</a></li>
-            <li><a href="#join" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Join Us</a></li>
+            <li><a href="https://dacade.org/communities/icp" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Education</a></li>
+            <li><a href="https://smart-devstudios.com/" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Hire Us</a></li>
+            <li><a href="shop" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Shop</a></li>
+            <li><a href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Events</a></li>
+            <li><a href="https://icphub-ke.medium.com/" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Blog</a></li>
+            <li><a href="https://t.me/icphub_KE" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200">Join Us</a></li>
           </ul>
           <button
             className="px-5 py-2 rounded-lg font-bold text-white shadow transition text-[16px] hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
             style={{ fontFamily: 'Plus Jakarta Sans', background: '#D606CE' }}
+            onClick={() => {
+              window.open("https://t.me/icphub_KE", '_blank');
+            }}
           >
             Get Started
           </button>
@@ -54,17 +57,19 @@ const HeroSection = () => {
             </button>
             <ul className="flex flex-col gap-6 font-light items-center text-2xl text-black">
               <li><a href="#about" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>About</a></li>
-              <li><a href="#education" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Education</a></li>
-              <li><a href="#hire" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Hire Us</a></li>
-              <li><a href="#shop" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Shop</a></li>
-              <li><a href="#events" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Events</a></li>
-              <li><a href="#blog" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Blog</a></li>
-              <li><a href="#join" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Join Us</a></li>
+              <li><a href="https://dacade.org/communities/icp" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Education</a></li>
+              <li><a href="https://smart-devstudios.com/" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Hire Us</a></li>
+              <li><a href="shop" className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Shop</a></li>
+              <li><a href="https://lu.ma/user/usr-RgJYUVo8GJUSfXd" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Events</a></li>
+              <li><a href="https://icphub-ke.medium.com/" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Blog</a></li>
+              <li><a href="https://t.me/icphub_KE" target='_blank' className="hover:text-[#D606CE] hover:underline underline-offset-4 transition-colors duration-200" onClick={() => setMenuOpen(false)}>Join Us</a></li>
             </ul>
             <button
               className="mt-8 px-7 py-3 rounded-lg font-bold text-white shadow transition text-[20px] hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
               style={{ fontFamily: 'Plus Jakarta Sans', background: '#D606CE' }}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                window.open("https://t.me/icphub_KE", '_blank');
+              }}
             >
               Get Started
             </button>
@@ -78,8 +83,18 @@ const HeroSection = () => {
             <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg leading-tight text-white">Revolutionizing Blockchain<br />Education with ICP</h1>
             <p className="text-base md:text-[16px] mb-6 md:mb-10 max-w-xs sm:max-w-xl md:max-w-2xl mx-auto text-white/90 font-light" style={{fontFamily: 'Plus Jakarta Sans'}}>At the forefront of technology is ICP Hub Kenya dedicated to advancing the Internet Computer ecosystem.</p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 md:mb-10 w-full sm:w-auto">
-              <button className="px-7 py-3 rounded-lg text-white border border-white bg-transparent shadow-lg transition-transform duration-200 hover:bg-white/10 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-pink-400 text-[16px] font-bold" style={{fontFamily: 'Plus Jakarta Sans'}}>Start Building &rsaquo;</button>
-              <button className="px-7 py-3 rounded-lg bg-white text-black shadow-md transition hover:bg-primary hover:text-white hover:scale-105 hover:shadow-xl text-[16px] font-bold" style={{fontFamily: 'Plus Jakarta Sans'}}>Join Our Community</button>
+              <button 
+                onClick={() => {
+                  window.open("https://dacade.org/communities/icp", '_blank');
+                }}
+                className="px-7 py-3 rounded-lg text-white border border-white bg-transparent shadow-lg transition-transform duration-200 hover:bg-white/10 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-pink-400 text-[16px] font-bold" style={{fontFamily: 'Plus Jakarta Sans'}}>
+                  Start Building &rsaquo;
+              </button>
+              <button 
+                onClick={() => {
+                  window.open("https://t.me/icphub_KE", '_blank');
+                }}
+                className="px-7 py-3 rounded-lg bg-white text-black shadow-md transition hover:bg-primary hover:text-white hover:scale-105 hover:shadow-xl text-[16px] font-bold" style={{fontFamily: 'Plus Jakarta Sans'}}>Join Our Community</button>
             </div>
           </div>
           {/* Mascot Illustration */}
