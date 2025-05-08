@@ -1,4 +1,3 @@
-import { Button } from "./ui/button"
 import { Category } from "../types/shop"
 
 interface CategoryFilterProps {
@@ -11,15 +10,25 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
 
   return (
     <div className="flex gap-2 flex-wrap justify-center w-full">
-      {categories.map((category) => (
-        <Button
-          key={category}
-          onClick={() => onCategoryChange(category)}
-          className={selectedCategory === category ? "bg-amber-400 hover:bg-amber-500" : ""}
-        >
-          {category}
-        </Button>
-      ))}
+      {categories.map((category) => {
+        const isSelected = selectedCategory === category;
+        return (
+          <button
+            key={category}
+            type="button"
+            onClick={() => onCategoryChange(category)}
+            className={
+              `px-6 py-2 rounded-md border border-black font-medium transition-colors duration-150
+              ${isSelected
+                ? 'bg-magenta text-white'
+                : 'bg-white text-black hover:bg-magenta hover:text-white'}
+              `
+            }
+          >
+            {category}
+          </button>
+        )
+      })}
     </div>
   )
 }

@@ -43,7 +43,7 @@ export const products: Product[] = [
   },
   {
     id: "7",
-    title: "HAT1",
+    title: "HAT",
     category: "Hats",
     imageUrl: "images/Merch/Hat1.png",
     type: "Merch",
@@ -67,7 +67,7 @@ export const products: Product[] = [
   },
   {
     id: "11",
-    title: "WATER BOTTLE1",
+    title: "WATER BOTTLE",
     category: "Water Bottles",
     imageUrl: "images/Merch/WaterBottle1.png",
     type: "Merch",

@@ -3,11 +3,11 @@ import { Button } from "./shop-components/ui/button";
 
 export default function CryptoHero() {
   return (
-    <div className="mx-4 relative h-[500px] sm:h-[400px] mb-4 rounded-3xl w-[90%] sm:w-[800px] sm:mx-auto bg-gradient-to-r from-gradientFrom to-gradientTo px-6 py-8 sm:py-16 md:py-24">
+    <div className="mx-4 relative h-[500px] sm:h-[400px] mb-4 rounded-3xl w-[40%] sm:w-[800px] sm:mx-auto bg-gradient-to-r from-gradientFrom to-gradientTo px-6 py-8 sm:py-16 md:py-24">
       <div className="mx-auto max-w-6xl flex items-center justify-center h-full">
-        <div className="grid items-center gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2">
-          <div className="sm:ml-10 justify-center space-y-4 sm:space-y-6 text-center md:text-left px-4 sm:px-0">
-            <h1 className="text-5xl sm:text-4xl sm:text-start text-center lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em] text-white">
+        <div className="grid items-center gap-2 sm:gap-4 grid-cols-1 md:grid-cols-2">
+          <div className="sm:ml-6 justify-center space-y-4 sm:space-y-6 text-center md:text-left px-4 sm:px-0">
+            <h1 className="text-5xl sm:text-4xl sm:text-start lg:text-5xl font-bold mb-6 sm:mb-7 tracking-[-0.08em] text-white">
               Buy and Sell Your Favorite Coins
             </h1>
             <div className="flex flex-col sm:flex-row justify-center sm:justify-end md:justify-start gap-4">
@@ -31,8 +31,8 @@ export default function CryptoHero() {
               </Button>
             </div>
           </div>
-          <div className="relative flex justify-center sm:justify-end mt-6 sm:mt-0">
-            <div className="sm:pr-10 relative h-32 w-32 sm:h-48 sm:w-48 md:h-64 md:w-64">
+          <div className="relative flex justify-center sm:justify-end mt-4 sm:mt-0">
+            <div className="sm:pr-6 relative h-32 w-32 sm:h-48 sm:w-48 md:h-64 md:w-64">
               <img
                 src="/images/crypto-icp.png"
                 alt="Crypto trading platform logo"
