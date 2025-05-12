@@ -6,7 +6,9 @@ const Navbar = () => {
   return (
     <nav className="mx-auto pt-6 md:pt-12 max-w-7xl w-full flex flex-row justify-between items-center px-4 md:px-8 py-4 md:py-6 z-20 font-light relative" style={{fontFamily: 'Plus Jakarta Sans', fontSize: 16}}>
       <div className="flex items-center gap-2 mb-0">
-        <img src="/images/BlackLogo.png" alt="ICP Kenya Logo" style={{width: 120, height: 20, objectFit: 'contain'}} />
+        <a href="/">
+          <img src="/images/BlackLogo.png" alt="ICP Kenya Logo" style={{width: 120, height: 20, objectFit: 'contain'}} />
+        </a>
       </div>
       {/* Hamburger icon for mobile */}
       <button

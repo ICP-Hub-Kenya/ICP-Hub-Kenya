@@ -32,15 +32,15 @@ const milestones = [
 ];
 
 const MilestonesSection = () => (
-  <section className="relative w-full bg-purpleCustom py-16 px-4 lg:min-h-screen" id="milestones">
+  <section className="relative w-full bg-purpleCustom py-12 px-4" id="milestones">
     <img
       src="/images/MilestoneSideImage.png"
       alt=""
       className="absolute left-0 -top-10 md:-top-24 z-10 pointer-events-none select-none w-24 md:w-[150px] h-auto"
     />
-    <div className="max-w-6xl mx-auto text-center mb-12">
-      <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-12 text-xs md:text-sm">Achievement</span>
-      <h2 className="text-2xl md:text-4xl font-bold mb-6" style={{
+    <div className="max-w-6xl mx-auto text-center mb-8">
+      <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-8 text-xs md:text-sm">Achievement</span>
+      <h2 className="text-2xl md:text-4xl font-bold mb-4" style={{
             background: 'linear-gradient(90deg, #192F70 0%, #192F70 20%, #2667C5 40%, #5E54B6 70%, #C53AA2 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -49,9 +49,9 @@ const MilestonesSection = () => (
           }}>
             Milestones That Define Us
           </h2>
-      <p className="text-gray-700 max-w-2xl mx-auto mb-10 md:mb-16 text-sm md:text-base">Every number tells a story of growth, innovation, and a commitment to decentralized progress in Africa</p>
+      <p className="text-gray-700 max-w-2xl mx-auto mb-8 text-sm md:text-base">Every number tells a story of growth, innovation, and a commitment to decentralized progress in Africa</p>
     </div>
-    <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8 md:mt-12">
+    <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
       {milestones.map((m, i) => {
         const cardStyle = m.dark ? { backgroundColor: '#43159B' } : {};
         return (

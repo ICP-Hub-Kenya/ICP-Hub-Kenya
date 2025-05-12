@@ -7,7 +7,7 @@ export default function CryptoHero() {
         <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-8">Buy and Sell Your <br /> Favorite Coins</h1>
         <div className="flex gap-6 mb-2">
           <Button
-            className="bg-magenta text-black font-extrabold rounded-xl px-8 py-4 text-xl shadow-none border-none hover:bg-[#e47be6] hover:text-black transition-colors"
+            className="bg-white text-black font-extrabold rounded-xl px-8 py-4 text-xl shadow-none border-none hover:bg-[#e47be6] hover:text-black transition-colors transform hover:scale-105 hover:shadow-lg transition-transform duration-200"
             size="lg"
             onClick={() => {
               window.open("https://www.binance.com/en/crypto/buy", '_blank');
@@ -16,7 +16,7 @@ export default function CryptoHero() {
             Buy ICP
           </Button>
           <Button
-            className="bg-magenta text-black font-extrabold rounded-xl px-8 py-4 text-xl shadow-none border-none hover:bg-[#e47be6] hover:text-black transition-colors"
+            className="bg-white hover:bg-magenta hover:text-white text-black font-extrabold rounded-xl px-8 py-4 text-xl shadow-none border-none hover:bg-[#e47be6] hover:text-black transition-colors transform hover:scale-105 hover:shadow-lg transition-transform duration-200"
             size="lg"
             onClick={() => {
               window.open("https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=ezu5v-7qaaa-aaaam-acpbq-cai", '_blank');

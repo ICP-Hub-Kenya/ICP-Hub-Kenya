@@ -140,12 +140,10 @@ const AboutSection = () => {
                 className="flex flex-row items-start gap-4 rounded-xl p-4"
                 variants={featureVariants}
                 custom={i}
-                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
                 transition={{ duration: 0.2 }}
               >
                 <motion.div 
                   className="w-28 h-12 flex items-center justify-center rounded-md bg-pinkBadge p-2"
-                  whileHover={{ rotate: [0, -10, 10, 0] }}
                   transition={{ duration: 0.5 }}
                 >
                   <img src={f.img} alt={f.title} className="w-8 h-8 object-contain" />

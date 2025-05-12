@@ -29,6 +29,7 @@ module.exports = {
         gradientFrom: '#43159B',
         gradientTo: '#5D2BA9',
         purpleFigma: '#6C2BD7',
+        lightGray: '#F6F8FA',
       },
     },
   },

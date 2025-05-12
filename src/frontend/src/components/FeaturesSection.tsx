@@ -58,7 +58,7 @@ const FeaturesSection = () => (
     variants={containerVariants}
   >
     <motion.div 
-      className="max-w-6xl mx-auto mb-12 flex flex-col items-start"
+      className="max-w-5xl mx-auto mb-12 flex flex-col items-start"
       variants={itemVariants}
     >
       <motion.span 

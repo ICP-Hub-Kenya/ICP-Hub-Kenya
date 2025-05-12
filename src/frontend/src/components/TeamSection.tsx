@@ -106,7 +106,7 @@ const itemVariants = {
 
 const TeamSection = () => (
   <motion.section 
-    className="w-full bg-purpleCustom py-20 px-4" 
+    className="w-full bg-lightGray py-20 px-4" 
     id="team"
     initial="hidden"
     whileInView="visible"
@@ -145,7 +145,7 @@ const TeamSection = () => (
       {team.map((member, i) => (
         <motion.div 
           key={i} 
-          className="bg-white rounded-2xl flex flex-col items-center shadow-lg border border-[#F5A7FF] min-h-[340px] p-0 overflow-hidden"
+          className="bg-white rounded-2xl flex flex-col items-center border border-[#F5A7FF] min-h-[340px] p-0 overflow-hidden"
           variants={itemVariants}
           whileHover={{ 
             scale: 1.05,
@@ -155,13 +155,15 @@ const TeamSection = () => (
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <motion.img 
-            src={member.img} 
-            alt={member.name} 
-            className="w-full h-56 object-cover object-top mb-0 rounded-b-2xl"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
-          />
+          <motion.div className="w-full flex justify-center pt-2 pb-1 px-2">
+            <motion.img 
+              src={member.img} 
+              alt={member.name} 
+              className="w-[95%] h-52 object-cover object-top rounded-lg shadow-sm border border-[#F5A7FF] bg-white"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.div>
           <motion.div 
             className="flex gap-2 mb-3 mt-4"
             initial={{ opacity: 0, y: 10 }}

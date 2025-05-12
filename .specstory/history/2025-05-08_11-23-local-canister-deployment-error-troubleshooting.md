@@ -876,3 +876,384 @@ Let me know if you still encounter any issues after redeploying!
 
 ---
 
+_**User**_
+
+I want to edit this part, let's remove the hover effects - there shouldn't be any hover effects 
+
+---
+
+_**Assistant**_
+
+I'll help you remove the hover effects from the feature cards. I'll modify the code to remove both the scale effect on the card and the rotation effect on the icon.
+
+
+---
+
+```diff
+                  variants={featureVariants}
+                  custom={i}
+-                 whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.div 
+                    className="w-28 h-12 flex items-center justify-center rounded-md bg-pinkBadge p-2"
+-                   whileHover={{ rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 0.5 }}
+                  >
+```
+
+---
+
+I've removed:
+1. The `whileHover` effect that was scaling the card and changing its background color
+2. The `whileHover` effect that was rotating the icon
+
+The cards will now remain static when hovered over, while still maintaining their basic motion animations from the `featureVariants`. The transitions are kept in case they're used by other animations, but they won't affect the hover state anymore.
+
+Would you like me to make any other adjustments to the feature cards?
+
+---
+
+_**User**_
+
+for this milestones component section, seems on larger screens there's a big spacing at the bottom. Let's remove that bit, the spacing should be small between the milestones div and the next component at the bottom
+
+---
+
+_**Assistant**_
+
+I notice that the issue is coming from the `lg:min-h-screen` class on the section, which is forcing the section to be at least the height of the viewport on large screens. Let's remove that and adjust the padding to be more consistent.
+
+
+---
+
+```diff
+  
+  const MilestonesSection = () => (
+-   <section className="relative w-full bg-purpleCustom py-16 px-4 lg:min-h-screen" id="milestones">
++   <section className="relative w-full bg-purpleCustom py-12 px-4" id="milestones">
+      <img
+        src="/images/MilestoneSideImage.png"
+        alt=""
+        className="absolute left-0 -top-10 md:-top-24 z-10 pointer-events-none select-none w-24 md:w-[150px] h-auto"
+      />
+-     <div className="max-w-6xl mx-auto text-center mb-12">
+-       <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-12 text-xs md:text-sm">Achievement</span>
+-       <h2 className="text-2xl md:text-4xl font-bold mb-6" style={{
++     <div className="max-w-6xl mx-auto text-center mb-8">
++       <span className="inline-block bg-pinkBadge text-black px-4 py-1 rounded-md font-semibold mb-8 text-xs md:text-sm">Achievement</span>
++       <h2 className="text-2xl md:text-4xl font-bold mb-4" style={{
+              background: 'linear-gradient(90deg, #192F70 0%, #192F70 20%, #2667C5 40%, #5E54B6 70%, #C53AA2 100%)',
+              WebkitBackgroundClip: 'text',
+```
+
+```diff
+              Milestones That Define Us
+            </h2>
+-       <p className="text-gray-700 max-w-2xl mx-auto mb-10 md:mb-16 text-sm md:text-base">Every number tells a story of growth, innovation, and a commitment to decentralized progress in Africa</p>
++       <p className="text-gray-700 max-w-2xl mx-auto mb-8 text-sm md:text-base">Every number tells a story of growth, innovation, and a commitment to decentralized progress in Africa</p>
+      </div>
+-     <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8 md:mt-12">
++     <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        {milestones.map((m, i) => {
+          const cardStyle = m.dark ? { backgroundColor: '#43159B' } : {};
+```
+
+---
+
+I've made the following changes to reduce the spacing:
+
+1. Removed `lg:min-h-screen` which was forcing the section to be at least viewport height on large screens
+2. Reduced the overall section padding from `py-16` to `py-12`
+3. Reduced various margin spacings:
+   - Changed `mb-12` to `mb-8` for the main content container
+   - Changed `mb-12` to `mb-8` for the "Achievement" badge
+   - Changed `mb-6` to `mb-4` for the heading
+   - Changed `mb-10 md:mb-16` to `mb-8` for the description paragraph
+4. Removed the extra top margin `mt-8 md:mt-12` from the grid container
+
+These changes will make the section more compact and reduce the extra spacing at the bottom while maintaining a clean, readable layout. The spacing should now be more consistent with the rest of your components.
+
+Would you like me to make any other adjustments to the spacing?
+
+---
+
+_**User**_
+
+For this component 
+
+I want the "Why Join ICP Hub Kenya?" 
+
+and the divs to all start at the same width 
+
+---
+
+_**Assistant**_
+
+I notice that you're referring to a different component than what's currently shown. Let me search for the component that contains "Why Join ICP Hub Kenya?":
+
+
+---
+
+<details>
+            <summary>Searched codebase "Why Join ICP Hub Kenya" • **25** results</summary>
+        
+| File | Lines |
+|------|-------|
+| `src/frontend/src/components/MainContact.tsx` | L1-35 |
+| `src/frontend/src/components/HeroSection.tsx` | L132-153 |
+| `src/frontend/src/components/HeroSection.tsx` | L80-101 |
+| `src/frontend/src/components/Navbar.tsx` | L21-42 |
+| `src/frontend/src/components/FeaturesSection.tsx` | L49-81 |
+| `src/frontend/src/components/Navbar.tsx` | L58-74 |
+| `src/frontend/src/components/HeroSection.tsx` | L117-132 |
+| `src/frontend/public/.well-known/ic-domains` | L1-4 |
+| `src/frontend/src/components/HeroSection.tsx` | L153-196 |
+| `README.md` | L1-4 |
+| `src/frontend/src/components/Footer.tsx` | L1-26 |
+| `src/frontend/src/components/Footer.tsx` | L26-47 |
+| `src/frontend/index.html` | L1-23 |
+| `src/frontend/src/components/AboutSection.tsx` | L94-124 |
+| `src/frontend/src/pages/our-shop/shop-components/product-card.tsx` | L7-46 |
+| `src/frontend/src/components/HeroSection.tsx` | L101-117 |
+| `src/frontend/src/pages/our-shop/purchase-coins.tsx` | L1-38 |
+| `src/frontend/src/components/Navbar.tsx` | L1-21 |
+| `src/frontend/src/components/Navbar.tsx` | L42-58 |
+| `src/frontend/src/components/JoinSection.tsx` | L70-108 |
+| `src/frontend/src/components/HeroSection.tsx` | L59-80 |
+| `src/frontend/src/components/ProjectsSection.tsx` | L49-94 |
+| `src/frontend/src/components/AboutSection.tsx` | L1-22 |
+| `src/frontend/src/components/FeaturesSection.tsx` | L81-132 |
+| `src/frontend/src/components/MilestonesSection.tsx` | L1-34 |
+
+</details>
+
+---
+
+I found the component in `FeaturesSection.tsx`. Let me help you adjust the width of the heading and divs to be consistent. The issue is that the heading container has a different max-width than the features grid. Let's fix that:
+
+
+---
+
+```diff
+    >
+      <motion.div 
+-       className="max-w-6xl mx-auto mb-12 flex flex-col items-start"
++       className="max-w-5xl mx-auto mb-12 flex flex-col items-start"
+        variants={itemVariants}
+      >
+```
+
+---
+
+I've made the following changes:
+1. Changed the max-width of the heading container from `max-w-6xl` to `max-w-5xl` to match the features grid container
+2. Both containers now use the same `max-w-5xl` class, which will ensure they start at the same width and are properly aligned
+
+This change will make the heading and the feature cards align perfectly, starting at the same width. The heading "Why Join ICP Hub Kenya?" will now be aligned with the left edge of the feature cards grid.
+
+Would you like me to make any other adjustments to the alignment or spacing?
+
+---
+
+_**User**_
+
+for this team section bit, I want the images of the individual team cards to be inside the card, not outside 
+
+
+---
+
+_**Assistant**_
+
+Currently, the team member images use `w-full h-56 object-cover object-top mb-0 rounded-b-2xl`, which makes the image span the full width of the card and appear as if it's sitting on top, not inside the card.
+
+To make the image appear inside the card (with padding and rounded corners matching the card), you should:
+- Add padding around the image.
+- Remove `w-full` so the image doesn't stretch to the card's edges.
+- Use a class like `rounded-xl` or `rounded-lg` for the image, not just the bottom.
+- Optionally, set a max width for the image.
+
+Let's update the image styling accordingly.
+
+---
+
+```diff
+            viewport={{ once: true }}
+          >
+-           <motion.img 
+-             src={member.img} 
+-             alt={member.name} 
+-             className="w-full h-56 object-cover object-top mb-0 rounded-b-2xl"
+-             whileHover={{ scale: 1.1 }}
+-             transition={{ duration: 0.3 }}
+-           />
++           <motion.div className="w-full flex justify-center pt-6 pb-2 px-4">
++             <motion.img 
++               src={member.img} 
++               alt={member.name} 
++               className="w-32 h-32 object-cover object-top rounded-xl shadow-md border border-[#F5A7FF] bg-white"
++               whileHover={{ scale: 1.1 }}
++               transition={{ duration: 0.3 }}
++             />
++           </motion.div>
+            <motion.div 
+              className="flex gap-2 mb-3 mt-4"
+```
+
+---
+
+The team member images will now appear inside the card, centered, with padding and rounded corners, rather than spanning the full width and sitting on top. This gives a more contained and card-like appearance for each team member.
+
+Would you like any further adjustments to the card or image style?
+
+---
+
+_**User**_
+
+Not that small though, they need to be a bit big, only with some very very small margin
+
+---
+
+_**Assistant**_
+
+I'll adjust the image size to be larger and reduce the padding/margin around it. Let me update the styling:
+
+---
+
+```diff
+            viewport={{ once: true }}
+          >
+-           <motion.div className="w-full flex justify-center pt-6 pb-2 px-4">
++           <motion.div className="w-full flex justify-center pt-2 pb-1 px-2">
+              <motion.img 
+                src={member.img} 
+                alt={member.name} 
+-               className="w-32 h-32 object-cover object-top rounded-xl shadow-md border border-[#F5A7FF] bg-white"
+-               whileHover={{ scale: 1.1 }}
++               className="w-[95%] h-52 object-cover object-top rounded-lg shadow-sm border border-[#F5A7FF] bg-white"
++               whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              />
+```
+
+---
+
+I've made these changes:
+1. Increased image size to take up 95% of the card width (`w-[95%]`) and set a fixed height of 52 units (`h-52`)
+2. Reduced padding around the image container (`pt-2 pb-1 px-2`)
+3. Made the border radius slightly smaller (`rounded-lg` instead of `rounded-xl`)
+4. Reduced the shadow (`shadow-sm` instead of `shadow-md`)
+5. Made the hover effect more subtle (scale of 1.05 instead of 1.1)
+
+The images should now be much larger while still maintaining a small margin around them to preserve the card-like appearance. Would you like me to make any adjustments to these dimensions?
+
+---
+
+_**User**_
+
+this logo needs to lead back to the home page
+
+---
+
+_**Assistant**_
+
+To make the logo link back to the home page, you should wrap the `<img>` element in an anchor (`<a>`) tag that points to `/`.
+
+Here's how you should update that part of your code:  
+Replace:
+```jsx
+<div className="flex items-center gap-2 mb-0">
+  <img src="/images/BlackLogo.png" alt="ICP Kenya Logo" style={{width: 120, height: 20, objectFit: 'contain'}} />
+</div>
+```
+with:
+```jsx
+<div className="flex items-center gap-2 mb-0">
+  <a href="/">
+    <img src="/images/BlackLogo.png" alt="ICP Kenya Logo" style={{width: 120, height: 20, objectFit: 'contain'}} />
+  </a>
+</div>
+```
+
+I will make this change for you now.
+
+---
+
+```diff
+      <nav className="mx-auto pt-6 md:pt-12 max-w-7xl w-full flex flex-row justify-between items-center px-4 md:px-8 py-4 md:py-6 z-20 font-light relative" style={{fontFamily: 'Plus Jakarta Sans', fontSize: 16}}>
+        <div className="flex items-center gap-2 mb-0">
+-         <img src="/images/BlackLogo.png" alt="ICP Kenya Logo" style={{width: 120, height: 20, objectFit: 'contain'}} />
++         <a href="/">
++           <img src="/images/BlackLogo.png" alt="ICP Kenya Logo" style={{width: 120, height: 20, objectFit: 'contain'}} />
++         </a>
+        </div>
+        {/* Hamburger icon for mobile */}
+```
+
+---
+
+The logo in your navbar now links back to the home page. Users can click the logo to return to `/`.
+
+Let me know if you want this behavior for other logos or need any further tweaks!
+
+---
+
+_**User**_
+
+for the buttons here, we need to add an effect when someone hovers on them
+
+---
+
+_**Assistant**_
+
+To add a hover effect to the buttons in your `CryptoHero` component, you can use Tailwind's utility classes for transitions and transforms. For a modern effect, a slight scale-up and shadow on hover works well.
+
+Here's how you can update the button classes for a smooth hover effect:
+
+- Add `transform hover:scale-105 hover:shadow-lg transition-transform duration-200` to each button's className.
+
+I'll make this change for both buttons.
+
+---
+
+```diff
+          <div className="flex gap-6 mb-2">
+            <Button
+-             className="bg-white text-black font-extrabold rounded-xl px-8 py-4 text-xl shadow-none border-none hover:bg-[#e47be6] hover:text-black transition-colors"
++             className="bg-white text-black font-extrabold rounded-xl px-8 py-4 text-xl shadow-none border-none hover:bg-[#e47be6] hover:text-black transition-colors transform hover:scale-105 hover:shadow-lg transition-transform duration-200"
+              size="lg"
+              onClick={() => {
+```
+
+```diff
+            </Button>
+            <Button
+-             className="bg-white hover:bg-magenta hover:text-white text-black font-extrabold rounded-xl px-8 py-4 text-xl shadow-none border-none hover:bg-[#e47be6] hover:text-black transition-colors"
++             className="bg-white hover:bg-magenta hover:text-white text-black font-extrabold rounded-xl px-8 py-4 text-xl shadow-none border-none hover:bg-[#e47be6] hover:text-black transition-colors transform hover:scale-105 hover:shadow-lg transition-transform duration-200"
+              size="lg"
+              onClick={() => {
+```
+
+---
+
+Both "Buy ICP" and "Buy Friescoin" buttons now have a smooth hover effect: they will slightly scale up and show a shadow when hovered, making them feel more interactive and clickable.
+
+Let me know if you want a different style or more advanced animation!
+
+---
+
+_**User**_
+
+now the next bit we need to work on is this part for mascot illustration, let's remove the effect that's making it go up and down
+
+---
+
+_**Assistant**_
+
+To remove the up-and-down floating effect from the mascot illustration, you need to:
+
+- Remove the `animate="float"` prop from the `<motion.div>`.
+- If there are any animation variants (like `mascotVariants`) that apply a vertical movement, you can also remove or
+
+---
+

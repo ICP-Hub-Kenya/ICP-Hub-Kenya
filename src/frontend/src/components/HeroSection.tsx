@@ -181,8 +181,6 @@ const HeroSection = () => {
           </div>
           {/* Mascot Illustration */}
           <motion.div 
-            variants={mascotVariants}
-            animate="float"
             className="w-full flex justify-start items-end pointer-events-none pb-0 relative"
           >
             <img
