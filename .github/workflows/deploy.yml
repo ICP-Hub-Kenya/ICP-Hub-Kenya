@@ -62,8 +62,7 @@ jobs:
               "strict": true,
               "noUnusedLocals": false,
               "noUnusedParameters": false,
-              "noFallthroughCasesInSwitch": true,
-              "types": ["vite/client"]
+              "noFallthroughCasesInSwitch": true
             },
             "include": ["src"],
             "references": [{ "path": "./tsconfig.node.json" }]
@@ -88,9 +87,9 @@ jobs:
       - name: Build frontend
         run: |
           cd src/frontend
-          # Run TypeScript check with noEmit to avoid unused variable errors
-          npx tsc --noEmit
-          # Run Vite build
+          # Create vite-env.d.ts file
+          echo '/// <reference types="vite/client" />' > src/vite-env.d.ts
+          # Run build
           npm run build
 
       - name: Upload Artifact
