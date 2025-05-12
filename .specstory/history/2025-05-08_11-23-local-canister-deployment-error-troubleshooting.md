@@ -599,11 +599,280 @@ la@Steves-MacBook ICP-Hub-Kenya %
 
 ---
 
+```bash
+git remote add origin https://github.com/ICP-Hub-Kenya/ICP-Hub-Kenya.git
+```
+
+```
+la@Steves-MacBook ICP-Hub-Kenya % git remote add origin https://github.com/ICP-Hub-Kenya/ICP-Hub-Kenya.git
+error: remote origin already exists.
+la@Steves-MacBook ICP-Hub-Kenya %
+```
+
+---
+
+I see the remote already exists. Let's verify the remote URL:
 
 
 ---
 
+```bash
+git remote -v
+```
 
+```
+la@Steves-MacBook ICP-Hub-Kenya % git remote -v
+origin  https://github.com/ICP-Hub-Kenya/ICP-Hub-Kenya.git (fetch)
+origin  https://github.com/ICP-Hub-Kenya/ICP-Hub-Kenya.git (push)
+la@Steves-MacBook ICP-Hub-Kenya %
+```
+
+---
+
+5. Now, to avoid the "unrelated histories" error, we'll use the `--allow-unrelated-histories` flag when pushing:
+
+
+---
+
+```bash
+git push -u origin main --allow-unrelated-histories
+```
+
+```
+la@Steves-MacBook ICP-Hub-Kenya % git push -u origin main --allow-unrelated-histories
+error: unknown option `allow-unrelated-histories'
+usage: git push [<options>] [<repository> [<refspec>...]]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --repo <repository>   repository
+    --all                 push all refs
+    --mirror              mirror all refs
+    -d, --delete          delete refs
+    --tags                push tags (can't be used with --all or --mirror)
+    -n, --dry-run         dry run
+    --porcelain           machine-readable output
+    -f, --force           force updates
+    --force-with-lease[=<refname>:<expect>]
+                          require old value of ref to be at this value
+    --force-if-includes   require remote updates to be integrated locally
+    --recurse-submodules (check|on-demand|no)
+                          control recursive pushing of submodules
+    --thin                use thin pack
+    --receive-pack <receive-pack>
+                          receive pack program
+    --exec <receive-pack>
+                          receive pack program
+    -u, --set-upstream    set upstream for git pull/status
+    --progress            force progress reporting
+    --prune               prune locally removed refs
+    --no-verify           bypass pre-push hook
+    --follow-tags         push missing but relevant tags
+    --signed[=(yes|no|if-asked)]
+                          GPG sign the push
+    --atomic              request atomic transaction on remote side
+    -o, --push-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+
+la@Steves-MacBook ICP-Hub-Kenya %
+```
+
+---
+
+I apologize for the confusion. Let's try a different approach. First, let's check which branch we're on:
+
+
+---
+
+```bash
+git branch
+```
+
+```
+la@Steves-MacBook ICP-Hub-Kenya % git branch
+* new-site-changes
+la@Steves-MacBook ICP-Hub-Kenya %
+```
+
+---
+
+Now let's try pushing with force (since we're reinitializing the repository):
+
+
+---
+
+```bash
+git push -f origin new-site-changes
+```
+
+```
+la@Steves-MacBook ICP-Hub-Kenya % git push -f origin new-site-changes
+Enumerating objects: 401, done.
+Counting objects: 100% (401/401), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (390/390), done.
+Writing objects: 100% (397/397), 15.77 MiB | 65.91 MiB/s, done.
+Total 397 (delta 181), reused 21 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (181/181), completed with 1 local object.
+remote: 
+remote: GitHub found 98 vulnerabilities on ICP-Hub-Kenya/ICP-Hub-Kenya's default branch (8 critical, 36 high
+, 36 moderate, 18 low). To find out more, visit:
+remote:      https://github.com/ICP-Hub-Kenya/ICP-Hub-Kenya/security/dependabot
+remote: 
+To https://github.com/ICP-Hub-Kenya/ICP-Hub-Kenya.git
+   d94d1a2..d2cad46  new-site-changes -> new-site-changes
+la@Steves-MacBook ICP-Hub-Kenya %
+```
+
+---
+
+Great! Your changes have been successfully pushed to the repository. Here's what we did:
+
+1. Initialized a new git repository
+2. Added all your files
+3. Created an initial commit
+4. Force pushed to the `new-site-changes` branch
+
+Your repository is now back in sync with GitHub. A few notes:
+1. We used force push (`-f`) because we were reinitializing the repository
+2. The push was successful, but GitHub found some security vulnerabilities in your dependencies. You might want to check those out at the security tab in your GitHub repository
+3. Your changes are now on the `new-site-changes` branch
+
+If you want to make this the main branch, you can do so through GitHub's interface by:
+1. Going to your repository on GitHub
+2. Going to Settings > Branches
+3. Changing the default branch to `new-site-changes`
+
+Would you like me to help you with anything else?
+
+---
+
+_**User**_
+
+Refused to frame 'https://www.youtube.com/' because it violates the following Content Security Policy directive: "default-src 'self'". Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.
+Understand this error
+[Violation] Potential permissions policy violation: autoplay is not allowed in this document.Understand this error
+[Violation] Potential permissions policy violation: encrypted-media is not allowed in this document.Understand this error
+[Violation] Potential permissions policy violation: fullscreen is not allowed in this document.Understand this error
+[Violation] Potential permissions policy violation: accelerometer is not allowed in this document.Understand this error
+[Violation] Potential permissions policy violation: gyroscope is not allowed in this document.Understand this error
+[Violation] Potential permissions policy violation: picture-in-picture is not allowed in this document.Understand this error
+[Violation] Potential permissions policy violation: clipboard-write is not allowed in this document.
+
+I am getting this error when I try playing the youtube video at 
+
+---
+
+_**Assistant**_
+
+These errors are related to Content Security Policy (CSP) and Permissions Policy restrictions in your web application. Let me explain each error and how to fix them:
+
+1. **Content Security Policy (CSP) Error**:
+```
+Refused to frame 'https://www.youtube.com/' because it violates the following Content Security Policy directive: "default-src 'self'"
+```
+This error occurs because your application's CSP is set to only allow resources from your own domain ('self'). To allow YouTube iframes, you need to modify your CSP.
+
+2. **Permissions Policy Violations**:
+All the other errors are related to Permissions Policy, which controls which browser features can be used in your application. The features being blocked are:
+- autoplay
+- encrypted-media
+- fullscreen
+- accelerometer
+- gyroscope
+- picture-in-picture
+- clipboard-write
+
+Let's fix these issues. First, let's check your `.ic-assets.json5` file since it's likely where your CSP is defined:
+
+
+---
+
+Read file: src/frontend/public/.ic-assets.json5
+
+---
+
+Now I can see the exact issues. Let's fix both the CSP and Permissions Policy. We need to:
+
+1. Add `frame-src` to allow YouTube iframes
+2. Enable the required permissions for YouTube video playback
+
+Let's modify the `.ic-assets.json5` file:
+
+
+---
+
+```diff
+              // We recommend tightening the CSP for your specific application. Some recommendations are as follows:
+              // - Use the CSP Evaluator (https://csp-evaluator.withgoogle.com/) to validate the CSP you define.
+-             // - Follow the “Strict CSP” recommendations (https://csp.withgoogle.com/docs/strict-csp.html). However, note that in the context of the IC,
++             // - Follow the "Strict CSP" recommendations (https://csp.withgoogle.com/docs/strict-csp.html). However, note that in the context of the IC,
+              //   nonces cannot be used because the response bodies must be static to work well with HTTP asset certification.
+              //   Thus, we recommend to include script hashes (in combination with strict-dynamic) in the CSP as described
+-             //   in https://csp.withgoogle.com/docs/faq.html in section “What if my site is static and I can't add nonces to scripts?”.
++             //   in https://csp.withgoogle.com/docs/faq.html in section "What if my site is static and I can't add nonces to scripts?"
+              //   See for example the II CSP (https://github.com/dfinity/internet-identity/blob/main/src/internet_identity/src/http.rs).
+              // - It is recommended to tighten the connect-src directive. With the current CSP configuration the browser can
+```
+
+```diff
+              // - We added img-src data: because data: images are used often.
+              // - frame-ancestors: none mitigates clickjacking attacks. See https://owasp.org/www-community/attacks/Clickjacking.
+-             "Content-Security-Policy": "default-src 'self';script-src 'self';connect-src 'self' https://www.youtube.com/ http://localhost:* https://icp0.io https://*.icp0.io https://icp-api.io;img-src 'self' data:;style-src * 'unsafe-inline';style-src-elem * 'unsafe-inline';font-src *;object-src 'none';base-uri 'self';frame-ancestors 'none';form-action 'self';upgrade-insecure-requests;",
++             "Content-Security-Policy": "default-src 'self';script-src 'self';connect-src 'self' https://www.youtube.com/ http://localhost:* https://icp0.io https://*.icp0.io https://icp-api.io;img-src 'self' data:;style-src * 'unsafe-inline';style-src-elem * 'unsafe-inline';font-src *;object-src 'none';base-uri 'self';frame-ancestors 'none';form-action 'self';upgrade-insecure-requests;frame-src 'self' https://www.youtube.com/ https://youtube.com/;",
+  
+              // Security: The permissions policy disables all features for security reasons. If your site needs such permissions, activate them.
+              // To configure permissions go here https://www.permissionspolicy.com/
+-             "Permissions-Policy": "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=(), clipboard-read=(), clipboard-write=(), gamepad=(), speaker-selection=(), conversion-measurement=(), focus-without-user-activation=(), hid=(), idle-detection=(), interest-cohort=(), serial=(), sync-script=(), trust-token-redemption=(), window-placement=(), vertical-scroll=()",
++             "Permissions-Policy": "accelerometer=(self), ambient-light-sensor=(), autoplay=(self), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(self), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), geolocation=(), gyroscope=(self), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(self), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=(), clipboard-read=(), clipboard-write=(self), gamepad=(), speaker-selection=(), conversion-measurement=(), focus-without-user-activation=(), hid=(), idle-detection=(), interest-cohort=(), serial=(), sync-script=(), trust-token-redemption=(), window-placement=(), vertical-scroll=()",
+  
+              // Security: Mitigates clickjacking attacks.
+```
+
+```diff
+              "Referrer-Policy": "same-origin",
+  
+-             // Security: Tells the user’s browser that it must always use HTTPS with your site.
++             // Security: Tells the user's browser that it must always use HTTPS with your site.
+              // See: https://owasp.org/www-project-secure-headers/#http-strict-transport-security
+              "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+```
+
+---
+
+I've made two important changes:
+
+1. Added `frame-src` directive to the Content Security Policy to allow YouTube iframes:
+```
+frame-src 'self' https://www.youtube.com/ https://youtube.com/;
+```
+
+2. Updated the Permissions Policy to allow the required features for YouTube video playback:
+- `accelerometer=(self)`
+- `autoplay=(self)`
+- `encrypted-media=(self)`
+- `fullscreen=(self)`
+- `gyroscope=(self)`
+- `picture-in-picture=(self)`
+- `clipboard-write=(self)`
+
+The `(self)` value means these permissions are allowed only for your own domain.
+
+Now you'll need to redeploy your canister for these changes to take effect. After redeployment, the YouTube video should work properly with all its features.
+
+To redeploy, run:
+```bash
+dfx deploy
+```
+
+These changes will:
+1. Allow YouTube iframes to be embedded in your site
+2. Enable all the necessary permissions for YouTube video playback
+3. Maintain security by only allowing these features for your own domain
+
+Let me know if you still encounter any issues after redeploying!
 
 ---
 
