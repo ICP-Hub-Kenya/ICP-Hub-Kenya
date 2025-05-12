@@ -61,7 +61,7 @@ jobs:
           echo '/// <reference types="vite/client" />' > src/vite-env.d.ts
           # Update package.json build script
           npm pkg set scripts.build="vite build"
-          # Update tsconfig.json
+          # Create tsconfig.json
           echo '{
             "compilerOptions": {
               "target": "ES2020",
@@ -83,6 +83,17 @@ jobs:
             "include": ["src"],
             "references": [{ "path": "./tsconfig.node.json" }]
           }' > tsconfig.json
+          # Create tsconfig.node.json
+          echo '{
+            "compilerOptions": {
+              "composite": true,
+              "skipLibCheck": true,
+              "module": "ESNext",
+              "moduleResolution": "bundler",
+              "allowSyntheticDefaultImports": true
+            },
+            "include": ["vite.config.ts"]
+          }' > tsconfig.node.json
 
       - name: Build Frontend
         run: |

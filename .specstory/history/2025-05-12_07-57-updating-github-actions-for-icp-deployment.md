@@ -2134,3 +2134,330 @@ Try running the workflow again. The TypeScript error should be resolved, and the
 
 ---
 
+_**User**_
+
+NOw it's failing here: 
+Run actions/jekyll-build-pages@v1
+/usr/bin/docker run --name ghcrioactionsjekyllbuildpagesv1013_6cdb30 --label 2a97c5 --workdir /github/workspace --rm -e "INPUT_SOURCE" -e "INPUT_DESTINATION" -e "INPUT_FUTURE" -e "INPUT_BUILD_REVISION" -e "INPUT_VERBOSE" -e "INPUT_TOKEN" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_ID_TOKEN_REQUEST_URL" -e "ACTIONS_ID_TOKEN_REQUEST_TOKEN" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya":"/github/workspace" ghcr.io/actions/jekyll-build-pages:v1.0.13
+Configuration file: none
+To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+  Conversion error: Jekyll::Converters::Scss encountered an error while converting 'assets/css/style.scss':
+                    No such file or directory @ dir_chdir0 - /github/workspace/docs
+/usr/local/bundle/gems/jekyll-sass-converter-1.5.2/lib/jekyll/converters/scss.rb:86:in `chdir': No such file or directory @ dir_chdir0 - /github/workspace/docs (Errno::ENOENT)
+	from /usr/local/bundle/gems/jekyll-sass-converter-1.5.2/lib/jekyll/converters/scss.rb:86:in `sass_load_paths'
+	from /usr/local/bundle/gems/jekyll-sass-converter-1.5.2/lib/jekyll/converters/scss.rb:114:in `sass_configs'
+	from /usr/local/bundle/gems/jekyll-sass-converter-1.5.2/lib/jekyll/converters/scss.rb:119:in `convert'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:101:in `block in convert'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:99:in `each'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:99:in `reduce'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:99:in `convert'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:83:in `render_document'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:62:in `run'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:479:in `render_regenerated'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:472:in `block in render_pages'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:471:in `each'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:471:in `render_pages'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:192:in `render'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:71:in `process'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/command.rb:28:in `process_site'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/commands/build.rb:65:in `build'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/commands/build.rb:36:in `process'
+	from /usr/local/bundle/gems/github-pages-232/bin/github-pages:70:in `block (3 levels) in <top (required)>'
+	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `block in execute'
+	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `each'
+	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `execute'
+	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/program.rb:42:in `go'
+	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary.rb:19:in `program'
+	from /usr/local/bundle/gems/github-pages-232/bin/github-pages:6:in `<top (required)>'
+	from /usr/local/bundle/bin/github-pages:25:in `load'
+	from /usr/local/bundle/bin/github-pages:25:in `<main>'
+Error:  Logging at level: debug GitHub Pages: github-pages v232 GitHub Pages: jekyll v3.10.0 Theme: jekyll-theme-primer Theme source: /usr/local/bundle/gems/jekyll-theme-primer-0.6.0 Requiring: jekyll-github-metadata Requiring: jekyll-seo-tag Requiring: jekyll-coffeescript Requiring: jekyll-commonmark-ghpages Requiring: jekyll-gist Requiring: jekyll-github-metadata Requiring: jekyll-paginate Requiring: jekyll-relative-links Requiring: jekyll-optional-front-matter Requiring: jekyll-readme-index Requiring: jekyll-default-layout Requiring: jekyll-titles-from-headings GitHub Metadata: Initializing... Source: /github/workspace/./docs Destination: /github/workspace/./docs/_site Incremental build: disabled. Enable with --incremental Generating... Generating: JekyllOptionalFrontMatter::Generator finished in 1.1642e-05 seconds. Generating: JekyllReadmeIndex::Generator finished in 5.36e-06 seconds. Generating: Jekyll::Paginate::Pagination finished in 3.166e-06 seconds. Generating: JekyllRelativeLinks::Generator finished in 2.2001e-05 seconds. Generating: JekyllDefaultLayout::Generator finished in 1.052e-05 seconds. Generating: JekyllTitlesFromHeadings::Generator finished in 6.602e-06 seconds. Rendering: assets/css/style.scss Pre-Render Hooks: assets/css/style.scss Rendering Markup: assets/css/style.scss github-pages 232 | Error: No such file or directory @ dir_chdir0 - /github/workspace/docs 
+
+
+I don't think we need this section "Build with jekyll"
+
+---
+
+_**Assistant**_
+
+I see the issue. The workflow is trying to build with Jekyll, which is not needed for your ICP frontend deployment. Let's remove the Jekyll build step and focus only on the ICP deployment.
+
+
+---
+
+
+
+---
+
+I see that the file content is already correct and doesn't contain any Jekyll build steps. The error you're seeing might be coming from a different workflow file or GitHub Pages configuration. Let's check if there are any other workflow files that might be triggering the Jekyll build.
+
+
+---
+
+<details>
+            <summary>Listed directory .github/workflows • **1** results</summary>
+        
+| Name |
+|-------|
+| 📄 `deploy.yml` |
+
+</details>
+
+---
+
+Let me also check if there's a GitHub Pages configuration file that might be triggering the Jekyll build.
+
+
+---
+
+<details>
+            <summary>Searched codebase "_config.yml" • **0** results</summary>
+        
+No results found
+</details>
+
+---
+
+The error you're seeing suggests that GitHub Pages is trying to build your site using Jekyll, but this shouldn't be happening with your current workflow. This could be happening because:
+
+1. GitHub Pages might be enabled for your repository
+2. There might be a default GitHub Pages workflow running
+
+To fix this, you should:
+
+1. Go to your repository settings on GitHub
+2. Navigate to the "Pages" section
+3. If GitHub Pages is enabled, you can either:
+   - Disable it completely if you don't need it
+   - Or change the source to "GitHub Actions" and make sure it's using your ICP deployment workflow
+
+The current workflow file looks correct and doesn't include any Jekyll build steps. The error you're seeing is likely coming from GitHub's default Pages build process rather than your ICP deployment workflow.
+
+Would you like me to help you modify the workflow further, or would you prefer to check your repository's GitHub Pages settings first?
+
+---
+
+_**User**_
+
+Are you sure? 
+
+There's no section like taht at all? 
+
+---
+
+_**Assistant**_
+
+Let me check the current content of the workflow file again to be absolutely certain.
+
+
+---
+
+Read file: .github/workflows/deploy.yml
+
+---
+
+You're right - I apologize for my confusion earlier. Looking at the actual file content, there is no Jekyll build section at all. The error you're seeing about Jekyll must be coming from somewhere else, possibly:
+
+1. Another workflow file in your repository
+2. GitHub Pages settings in your repository
+3. A default GitHub Pages workflow
+
+Let me check if there are any other workflow files in your repository:
+
+
+---
+
+<details>
+            <summary>Listed directory .github • **2** results</summary>
+        
+| Name |
+|-------|
+| 📁 `workflows` |
+| 📁 `actions` |
+
+</details>
+
+---
+
+The error you're seeing about Jekyll is definitely not coming from your `deploy.yml` file. This file only contains the ICP deployment workflow with two jobs:
+1. `build` - which builds your frontend and prepares the canister
+2. `deploy` - which deploys the canister to the Internet Computer
+
+The Jekyll error must be coming from somewhere else. Could you:
+1. Check your repository's GitHub Pages settings (Settings > Pages)
+2. Look for any other workflow files in your repository
+3. Or share the complete error log so I can see where exactly this Jekyll build is being triggered?
+
+---
+
+_**User**_
+
+1s
+Run actions/jekyll-build-pages@v1
+/usr/bin/docker run --name ghcrioactionsjekyllbuildpagesv1013_6cdb30 --label 2a97c5 --workdir /github/workspace --rm -e "INPUT_SOURCE" -e "INPUT_DESTINATION" -e "INPUT_FUTURE" -e "INPUT_BUILD_REVISION" -e "INPUT_VERBOSE" -e "INPUT_TOKEN" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_ID_TOKEN_REQUEST_URL" -e "ACTIONS_ID_TOKEN_REQUEST_TOKEN" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya":"/github/workspace" ghcr.io/actions/jekyll-build-pages:v1.0.13
+Configuration file: none
+To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+  Conversion error: Jekyll::Converters::Scss encountered an error while converting 'assets/css/style.scss':
+                    No such file or directory @ dir_chdir0 - /github/workspace/docs
+/usr/local/bundle/gems/jekyll-sass-converter-1.5.2/lib/jekyll/converters/scss.rb:86:in `chdir': No such file or directory @ dir_chdir0 - /github/workspace/docs (Errno::ENOENT)
+	from /usr/local/bundle/gems/jekyll-sass-converter-1.5.2/lib/jekyll/converters/scss.rb:86:in `sass_load_paths'
+	from /usr/local/bundle/gems/jekyll-sass-converter-1.5.2/lib/jekyll/converters/scss.rb:114:in `sass_configs'
+	from /usr/local/bundle/gems/jekyll-sass-converter-1.5.2/lib/jekyll/converters/scss.rb:119:in `convert'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:101:in `block in convert'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:99:in `each'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:99:in `reduce'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:99:in `convert'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:83:in `render_document'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:62:in `run'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:479:in `render_regenerated'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:472:in `block in render_pages'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:471:in `each'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:471:in `render_pages'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:192:in `render'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:71:in `process'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/command.rb:28:in `process_site'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/commands/build.rb:65:in `build'
+	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/commands/build.rb:36:in `process'
+	from /usr/local/bundle/gems/github-pages-232/bin/github-pages:70:in `block (3 levels) in <top (required)>'
+	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `block in execute'
+	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `each'
+	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `execute'
+	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/program.rb:42:in `go'
+	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary.rb:19:in `program'
+	from /usr/local/bundle/gems/github-pages-232/bin/github-pages:6:in `<top (required)>'
+	from /usr/local/bundle/bin/github-pages:25:in `load'
+	from /usr/local/bundle/bin/github-pages:25:in `<main>'
+Error:  Logging at level: debug GitHub Pages: github-pages v232 GitHub Pages: jekyll v3.10.0 Theme: jekyll-theme-primer Theme source: /usr/local/bundle/gems/jekyll-theme-primer-0.6.0 Requiring: jekyll-github-metadata Requiring: jekyll-seo-tag Requiring: jekyll-coffeescript Requiring: jekyll-commonmark-ghpages Requiring: jekyll-gist Requiring: jekyll-github-metadata Requiring: jekyll-paginate Requiring: jekyll-relative-links Requiring: jekyll-optional-front-matter Requiring: jekyll-readme-index Requiring: jekyll-default-layout Requiring: jekyll-titles-from-headings GitHub Metadata: Initializing... Source: /github/workspace/./docs Destination: /github/workspace/./docs/_site Incremental build: disabled. Enable with --incremental Generating... Generating: JekyllOptionalFrontMatter::Generator finished in 1.1642e-05 seconds. Generating: JekyllReadmeIndex::Generator finished in 5.36e-06 seconds. Generating: Jekyll::Paginate::Pagination finished in 3.166e-06 seconds. Generating: JekyllRelativeLinks::Generator finished in 2.2001e-05 seconds. Generating: JekyllDefaultLayout::Generator finished in 1.052e-05 seconds. Generating: JekyllTitlesFromHeadings::Generator finished in 6.602e-06 seconds. Rendering: assets/css/style.scss Pre-Render Hooks: assets/css/style.scss Rendering Markup: assets/css/style.scss github-pages 232 | Error: No such file or directory @ dir_chdir0 - /github/workspace/docs 
+
+
+---
+
+_**Assistant**_
+
+Ah, now I see the issue. This error is coming from GitHub Pages trying to build your site using Jekyll. This is happening because GitHub Pages is enabled for your repository and it's trying to build from the `/docs` directory.
+
+To fix this, you need to:
+
+1. Go to your repository settings on GitHub
+2. Navigate to "Settings" > "Pages"
+3. Under "Build and deployment":
+   - Either disable GitHub Pages completely if you don't need it
+   - Or change the source to "GitHub Actions" and make sure it's using your ICP deployment workflow
+
+The error occurs because GitHub Pages is looking for a `/docs` directory with Jekyll files, but your project is a Vite/React application that doesn't use Jekyll.
+
+You can also add a `.nojekyll` file to your repository to tell GitHub Pages not to process your site with Jekyll. Let me help you create that:
+
+
+---
+
+```bash
+touch .nojekyll
+```
+
+```
+la@Steves-MacBook ICP-Hub-Kenya % 
+
+```
+
+---
+
+Now let's commit this file:
+
+
+---
+
+```bash
+git add .nojekyll && git commit -m "Add .nojekyll to disable Jekyll processing"
+```
+
+```
+<mmit -m "Add .nojekyll to disable Jekyll processing"
+[main b855932] Add .nojekyll to disable Jekyll processing
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 .nojekyll
+la@Steves-MacBook ICP-Hub-Kenya %
+```
+
+---
+
+I've added a `.nojekyll` file to your repository and committed it. This should prevent GitHub Pages from trying to process your site with Jekyll.
+
+However, for a complete solution, I recommend:
+
+1. Push the `.nojekyll` file to your repository:
+```bash
+git push origin main
+```
+
+2. Go to your repository settings on GitHub:
+   - Navigate to Settings > Pages
+   - Under "Build and deployment":
+     - Change the source to "GitHub Actions"
+     - Or disable GitHub Pages if you don't need it
+
+This should resolve the Jekyll build error you're seeing. The error was not related to your ICP deployment workflow but rather to GitHub Pages trying to build your site using Jekyll, which isn't appropriate for your Vite/React application.
+
+Would you like me to help you with any of these steps or do you have any questions about the solution?
+
+---
+
+_**User**_
+
+Now I am getting this error: 
+2s
+Run source "$HOME/.local/share/dfx/env"
+
+> website_frontend@0.0.0 prebuild
+> dfx generate
+
+Creating the "default" identity.
+WARNING: The "default" identity is not stored securely. Do not use it to control a lot of cycles/ICP.
+To create a more secure identity, create and use an identity that is protected by a password using the following commands:
+    dfx identity new <my-secure-identity-name> # creates a password protected identity
+    dfx identity use <my-secure-identity-name> # uses this identity by default
+
+  - generating new key at /home/runner/.config/dfx/identity/default/identity.pem
+Your seed phrase: trim scorpion veteran wolf kingdom bonus snow fine book stomach dish cabbage hockey jewel cancel amused dizzy fiber effort onion warfare category surprise guard
+This can be used to reconstruct your key in case of emergency, so write it down in a safe place.
+Created the "default" identity.
+Generated type declarations for canister 'frontend' to '/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/declarations/frontend'
+
+> website_frontend@0.0.0 build
+> vite build
+
+vite v4.5.14 building for production...
+transforming...
+✓ 15 modules transformed.
+✓ built in 132ms
+[vite:esbuild] parsing /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend/tsconfig.node.json failed: Error: ENOENT: no such file or directory, open '/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend/tsconfig.node.json'
+file: /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend/src/App.tsx
+error during build:
+_TSConfckParseError: parsing /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend/tsconfig.node.json failed: Error: ENOENT: no such file or directory, open '/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend/tsconfig.node.json'
+    at parseFile$1 (file:///home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/node_modules/vite/dist/node/chunks/dep-827b23df.js:13574:11)
+    at async Promise.all (index 0)
+    at async parseReferences (file:///home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/node_modules/vite/dist/node/chunks/dep-827b23df.js:13594:22)
+    at async Promise.all (index 1)
+    at async parse$f (file:///home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/node_modules/vite/dist/node/chunks/dep-827b23df.js:13553:5)
+    at async loadTsconfigJsonForFile (file:///home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/node_modules/vite/dist/node/chunks/dep-827b23df.js:14200:24)
+    at async transformWithEsbuild (file:///home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/node_modules/vite/dist/node/chunks/dep-827b23df.js:13867:36)
+    at async Object.transform (file:///home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/node_modules/vite/dist/node/chunks/dep-827b23df.js:14010:32)
+    at async transform (file:///home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/node_modules/rollup/dist/es/shared/node-entry.js:24449:16)
+    at async ModuleLoader.addModuleSource (file:///home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/node_modules/rollup/dist/es/shared/node-entry.js:24649:30)
+npm error Lifecycle script `build` failed with error:
+npm error code 1
+npm error path /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error workspace website_frontend@0.0.0
+npm error location /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error command failed
+npm error command sh -c vite build
+Error: Process completed with exit code 1.
+
+---
+
+_**Assistant**_
+
+
+
+---
+
