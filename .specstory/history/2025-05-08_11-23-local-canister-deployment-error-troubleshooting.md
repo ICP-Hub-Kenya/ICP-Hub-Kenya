@@ -1253,7 +1253,58 @@ _**Assistant**_
 To remove the up-and-down floating effect from the mascot illustration, you need to:
 
 - Remove the `animate="float"` prop from the `<motion.div>`.
-- If there are any animation variants (like `mascotVariants`) that apply a vertical movement, you can also remove or
+- If there are any animation variants (like `mascotVariants`) that apply a vertical movement, you can also remove or ignore them for this element.
+
+Here’s how you should update that part of your code:
+
+**Replace:**
+```jsx
+<motion.div 
+  variants={mascotVariants}
+  animate="float"
+  className="w-full flex justify-start items-end pointer-events-none pb-0 relative"
+>
+  <img
+    src="/images/HeroImage.png"
+    alt="ICP Mascot"
+    className="w-[140vw] min-w-[100vw] h-auto object-contain object-left -translate-y-2 sm:-translate-y-6 md:-translate-y-10"
+    style={{ left: 0, position: 'relative' }}
+  />
+</motion.div>
+```
+
+**With:**
+```jsx
+<motion.div 
+  className="w-full flex justify-start items-end pointer-events-none pb-0 relative"
+>
+  <img
+    src="/images/HeroImage.png"
+    alt="ICP Mascot"
+    className="w-[140vw] min-w-[100vw] h-auto object-contain object-left -translate-y-2 sm:-translate-y-6 md:-translate-y-10"
+    style={{ left: 0, position: 'relative' }}
+  />
+</motion.div>
+```
+
+I will make this change for you now.
+
+---
+
+```diff
+            {/* Mascot Illustration */}
+            <motion.div 
+-             variants={mascotVariants}
+-             animate="float"
+              className="w-full flex justify-start items-end pointer-events-none pb-0 relative"
+            >
+```
+
+---
+
+The floating (up-and-down) effect for the mascot illustration has been removed. The mascot image will now remain static in its position.
+
+If you want to further adjust its size, position, or any other style, just let me know!
 
 ---
 

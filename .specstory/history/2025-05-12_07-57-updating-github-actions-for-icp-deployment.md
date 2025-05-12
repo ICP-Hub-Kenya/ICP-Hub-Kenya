@@ -2727,23 +2727,131 @@ Error: Process completed with exit code 2.
 
 _**Assistant**_
 
+Ah, I see the issue. The heredoc syntax in the shell script is not properly formatted. Let me fix that:
 
 
 ---
 
+```diff
+            npm pkg set scripts.build="vite build"
+            # Create tsconfig.json
+-           cat > tsconfig.json << 'EOF'
++           cat > tsconfig.json << 'EOL'
+  {
+    "compilerOptions": {
+```
+
+```diff
+    "references": [{ "path": "./tsconfig.node.json" }]
+  }
+-           EOF
++ EOL
+            # Create tsconfig.node.json
+-           cat > tsconfig.node.json << 'EOF'
++           cat > tsconfig.node.json << 'EOL'
+  {
+    "compilerOptions": {
+```
+
+```diff
+    "include": ["vite.config.ts"]
+  }
+-           EOF
++ EOL
+            # Create vite.config.ts if it doesn't exist
+            if [ ! -f vite.config.ts ]; then
+-             cat > vite.config.ts << 'EOF'
++             cat > vite.config.ts << 'EOL'
+  import { defineConfig } from "vite";
+  import react from "@vitejs/plugin-react";
+```
+
+```diff
+    }
+  });
+-             EOF
++ EOL
+            fi
+  
+```
+
+---
+
+Let me try a different approach to handle the multi-line content:
 
 
 ---
 
-
+```diff
+            npm pkg set scripts.build="vite build"
+            # Create tsconfig.json
+-           cat > tsconfig.json << 'EOL'
+- {
+-   "compilerOptions": {
+-     "target": "ES2020",
+-     "useDefineForClassFields": true,
+-     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+-     "module": "ESNext",
+-     "skipLibCheck": true,
+-     "moduleResolution": "bundler",
+-     "allowImportingTsExtensions": true,
+-     "resolveJsonModule": true,
+-     "isolatedModules": true,
+-     "noEmit": true,
+-     "jsx": "react-jsx",
+-     "strict": true,
+-     "noUnusedLocals": false,
+-     "noUnusedParameters": false,
+-     "noFallthroughCasesInSwitch": true,
+-     "types": ["vite/client"]
+-   },
+-   "include": ["src"],
+-   "references": [{ "path": "./tsconfig.node.json" }]
+- }
+- EOL
++           echo '{"compilerOptions":{"target":"ES2020","useDefineForClassFields":true,"lib":["ES2020","DOM","DOM.Iterable"],"module":"ESNext","skipLibCheck":true,"moduleResolution":"bundler","allowImportingTsExtensions":true,"resolveJsonModule":true,"isolatedModules":true,"noEmit":true,"jsx":"react-jsx","strict":true,"noUnusedLocals":false,"noUnusedParameters":false,"noFallthroughCasesInSwitch":true,"types":["vite/client"]},"include":["src"],"references":[{"path":"./tsconfig.node.json"}]}' > tsconfig.json
+            # Create tsconfig.node.json
+-           cat > tsconfig.node.json << 'EOL'
+- {
+-   "compilerOptions": {
+-     "composite": true,
+-     "skipLibCheck": true,
+-     "module": "ESNext",
+-     "moduleResolution": "bundler",
+-     "allowSyntheticDefaultImports": true
+-   },
+-   "include": ["vite.config.ts"]
+- }
+- EOL
++           echo '{"compilerOptions":{"composite":true,"skipLibCheck":true,"module":"ESNext","moduleResolution":"bundler","allowSyntheticDefaultImports":true},"include":["vite.config.ts"]}' > tsconfig.node.json
+            # Create vite.config.ts if it doesn't exist
+            if [ ! -f vite.config.ts ]; then
+-             cat > vite.config.ts << 'EOL'
+- import { defineConfig } from "vite";
+- import react from "@vitejs/plugin-react";
+- 
+- export default defineConfig({
+-   plugins: [react()],
+-   build: {
+-     outDir: "dist",
+-     emptyOutDir: true
+-   }
+- });
+- EOL
++             echo 'import { defineConfig } from "vite";import react from "@vitejs/plugin-react";export default defineConfig({plugins:[react()],build:{outDir:"dist",emptyOutDir:true}});' > vite.config.ts
+            fi
+  
+```
 
 ---
 
+I've updated the workflow to use `echo` with single-line JSON/TypeScript content instead of heredoc syntax. This should resolve the YAML formatting issues while still creating the necessary configuration files. The key changes are:
 
+1. Replaced all heredoc (`<< 'EOL'`) blocks with single-line `echo` commands
+2. Minified the JSON and TypeScript content to avoid multi-line issues
+3. Maintained the same configuration but in a more YAML-friendly format
 
----
-
-
+The workflow should now run without any YAML syntax errors. Try running it again and let me know if you encounter any other issues.
 
 ---
 

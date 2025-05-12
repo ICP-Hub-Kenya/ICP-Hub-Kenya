@@ -180,16 +180,39 @@ const HeroSection = () => {
             </motion.div>
           </div>
           {/* Mascot Illustration */}
-          <motion.div 
-            className="w-full flex justify-start items-end pointer-events-none pb-0 relative"
+          <div
+            className="w-full flex justify-center items-end pointer-events-none pb-0 relative overflow-hidden"
+            style={{ height: '220px' }}
           >
-            <img
-              src="/images/HeroImage.png"
+            {/* Scrolling Banner */}
+            <div className="absolute left-0 bottom-0 w-full z-10" style={{ height: '56px' }}>
+              <div className="relative w-full h-full overflow-hidden">
+                <div className="animate-marquee flex w-[200%]">
+                  <img
+                    src="/images/HeroHover.png"
+                    alt="Scrolling Banner"
+                    className="h-full w-full object-contain"
+                    style={{ maxHeight: '56px' }}
+                  />
+                  <img
+                    src="/images/HeroHover.png"
+                    alt="Scrolling Banner"
+                    className="h-full w-full object-contain"
+                    style={{ maxHeight: '56px' }}
+                  />
+                </div>
+              </div>
+            </div>
+            {/* Mascot on top */}
+            <motion.img
+              src="/images/HeroMascot.png"
               alt="ICP Mascot"
-              className="w-[140vw] min-w-[100vw] h-auto object-contain object-left -translate-y-2 sm:-translate-y-6 md:-translate-y-10"
-              style={{ left: 0, position: 'relative' }}
+              className="z-20 mx-auto object-contain"
+              style={{ height: '180px', width: 'auto', position: 'relative' }}
+              variants={mascotVariants}
+              // animate="float"
             />
-          </motion.div>
+          </div>
         </motion.div>
       )}
     </header>
