@@ -134,3 +134,146 @@ Would you like me to generate the full, updated `.github/workflows/deploy.yml` f
 
 ---
 
+_**User**_
+
+yes kindly proceed 
+
+it's npm run build and the manager is npm
+
+---
+
+_**Assistant**_
+
+
+
+
+---
+
+```diff
+    push:
+      branches:
+-       - new-site-changes
++       - main
+  
+  concurrency:
+```
+
+```diff
+          uses: actions/checkout@v4
+  
+-       - name: Setup Rust
+-         uses: actions-rs/toolchain@v1
++       - name: Set up Node.js
++         uses: actions/setup-node@v4
+          with:
+-           profile: minimal
+-           toolchain: stable
+-           override: true
++           node-version: '20'
+  
+-       - name: Build
+-         uses: ./.github/actions/build
+-         with:
+-           lint: "true"
+-           test: "true"
+-           gzip: "true"
+-           version: ${{ env.VERSION }}
+-           package: ${{ env.PACKAGE }}
+-           build_args: ""
++       - name: Install dependencies
++         run: npm install
++         working-directory: src/frontend
++ 
++       - name: Build frontend
++         run: npm run build
++         working-directory: src/frontend
+  
+        - name: Upload Artifact
+          uses: actions/upload-artifact@v4
+          with:
+-           name: ${{ env.PACKAGE }}_${{ github.sha }}
+-           path: wasm/${{ env.PACKAGE }}_${{ env.VERSION }}.wasm.gz
++           name: frontend_dist
++           path: src/frontend/dist
+            if-no-files-found: error
+  
+```
+
+```diff
+          uses: actions/checkout@v4
+  
+-       - name: Prepare Wasm Directory
+-         run: mkdir -p wasm
+- 
+        - name: Download Artifact
+          uses: actions/download-artifact@v4
+          with:
+-           name: ${{ env.PACKAGE }}_${{ github.sha }}
+-           path: wasm
++           name: frontend_dist
++           path: src/frontend/dist
+  
+-       - name: Deploy to IC
+-         uses: ./.github/actions/deploy
+-         with:
+-           identity: ${{ secrets.IC_IDENTITY }}
+-           canister_name: ${{ env.PACKAGE }}
+-           network: ic
+-           wasm_file: wasm/${{ env.PACKAGE }}_${{ github.sha }}.wasm.gz
++       - name: Install dfx
++         uses: dfinity/setup-dfx@main
++ 
++       - name: Authenticate dfx
++         shell: bash
++         run: |
++           echo ${{ secrets.IC_IDENTITY }} | base64 --decode > deploy_identity.pem
++           dfx identity import --storage-mode=plaintext deploy_identity deploy_identity.pem
++           dfx identity use deploy_identity
++ 
++       - name: Deploy frontend assets canister
++         shell: bash
++         run: |
++           dfx deploy frontend --network ic
+  
+```
+
+---
+
+I've updated your GitHub Actions workflow in `.github/workflows/deploy.yml` to deploy your frontend assets canister on the `main` branch. The workflow now:
+
+- Triggers on pushes to the `main` branch.
+- Sets up Node.js, installs dependencies, and builds your frontend using `npm run build`.
+- Uploads the built frontend assets (`src/frontend/dist`) as an artifact.
+- Downloads the artifact and deploys the frontend canister using `dfx deploy frontend --network ic`.
+
+You can now push these changes to your repository, and the workflow will automatically deploy your frontend site to the Internet Computer. Let me know if you need any further adjustments!
+
+---
+
+_**User**_
+
+It's failing here 
+
+Run npm run build
+
+> website_frontend@0.0.0 prebuild
+> dfx generate
+
+sh: 1: dfx: not found
+npm error Lifecycle script `build` failed with error:
+npm error code 127
+npm error path /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error workspace website_frontend@0.0.0
+npm error location /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error command failed
+npm error command sh -c dfx generate
+Error: Process completed with exit code 127.
+
+---
+
+_**Assistant**_
+
+
+
+---
+
