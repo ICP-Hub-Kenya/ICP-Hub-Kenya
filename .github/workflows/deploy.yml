@@ -58,11 +58,13 @@ jobs:
         run: |
           cd src/frontend
           # Create vite-env.d.ts
+          mkdir -p src
           echo '/// <reference types="vite/client" />' > src/vite-env.d.ts
-          # Update package.json build script
+          # Update package.json build script to skip TypeScript check
           npm pkg set scripts.build="vite build"
           # Create tsconfig.json
-          echo '{
+          cat > tsconfig.json << 'EOF'
+          {
             "compilerOptions": {
               "target": "ES2020",
               "useDefineForClassFields": true,
@@ -78,13 +80,16 @@ jobs:
               "strict": true,
               "noUnusedLocals": false,
               "noUnusedParameters": false,
-              "noFallthroughCasesInSwitch": true
+              "noFallthroughCasesInSwitch": true,
+              "types": ["vite/client"]
             },
             "include": ["src"],
             "references": [{ "path": "./tsconfig.node.json" }]
-          }' > tsconfig.json
+          }
+          EOF
           # Create tsconfig.node.json
-          echo '{
+          cat > tsconfig.node.json << 'EOF'
+          {
             "compilerOptions": {
               "composite": true,
               "skipLibCheck": true,
@@ -93,7 +98,23 @@ jobs:
               "allowSyntheticDefaultImports": true
             },
             "include": ["vite.config.ts"]
-          }' > tsconfig.node.json
+          }
+          EOF
+          # Create vite.config.ts if it doesn't exist
+          if [ ! -f vite.config.ts ]; then
+            cat > vite.config.ts << 'EOF'
+            import { defineConfig } from "vite";
+            import react from "@vitejs/plugin-react";
+
+            export default defineConfig({
+              plugins: [react()],
+              build: {
+                outDir: "dist",
+                emptyOutDir: true
+              }
+            });
+            EOF
+          fi
 
       - name: Build Frontend
         run: |
