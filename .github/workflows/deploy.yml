@@ -63,57 +63,12 @@ jobs:
           # Update package.json build script to skip TypeScript check
           npm pkg set scripts.build="vite build"
           # Create tsconfig.json
-          cat > tsconfig.json << 'EOF'
-          {
-            "compilerOptions": {
-              "target": "ES2020",
-              "useDefineForClassFields": true,
-              "lib": ["ES2020", "DOM", "DOM.Iterable"],
-              "module": "ESNext",
-              "skipLibCheck": true,
-              "moduleResolution": "bundler",
-              "allowImportingTsExtensions": true,
-              "resolveJsonModule": true,
-              "isolatedModules": true,
-              "noEmit": true,
-              "jsx": "react-jsx",
-              "strict": true,
-              "noUnusedLocals": false,
-              "noUnusedParameters": false,
-              "noFallthroughCasesInSwitch": true,
-              "types": ["vite/client"]
-            },
-            "include": ["src"],
-            "references": [{ "path": "./tsconfig.node.json" }]
-          }
-          EOF
+          echo '{"compilerOptions":{"target":"ES2020","useDefineForClassFields":true,"lib":["ES2020","DOM","DOM.Iterable"],"module":"ESNext","skipLibCheck":true,"moduleResolution":"bundler","allowImportingTsExtensions":true,"resolveJsonModule":true,"isolatedModules":true,"noEmit":true,"jsx":"react-jsx","strict":true,"noUnusedLocals":false,"noUnusedParameters":false,"noFallthroughCasesInSwitch":true,"types":["vite/client"]},"include":["src"],"references":[{"path":"./tsconfig.node.json"}]}' > tsconfig.json
           # Create tsconfig.node.json
-          cat > tsconfig.node.json << 'EOF'
-          {
-            "compilerOptions": {
-              "composite": true,
-              "skipLibCheck": true,
-              "module": "ESNext",
-              "moduleResolution": "bundler",
-              "allowSyntheticDefaultImports": true
-            },
-            "include": ["vite.config.ts"]
-          }
-          EOF
+          echo '{"compilerOptions":{"composite":true,"skipLibCheck":true,"module":"ESNext","moduleResolution":"bundler","allowSyntheticDefaultImports":true},"include":["vite.config.ts"]}' > tsconfig.node.json
           # Create vite.config.ts if it doesn't exist
           if [ ! -f vite.config.ts ]; then
-            cat > vite.config.ts << 'EOF'
-            import { defineConfig } from "vite";
-            import react from "@vitejs/plugin-react";
-
-            export default defineConfig({
-              plugins: [react()],
-              build: {
-                outDir: "dist",
-                emptyOutDir: true
-              }
-            });
-            EOF
+            echo 'import { defineConfig } from "vite";import react from "@vitejs/plugin-react";export default defineConfig({plugins:[react()],build:{outDir:"dist",emptyOutDir:true}});' > vite.config.ts
           fi
 
       - name: Build Frontend

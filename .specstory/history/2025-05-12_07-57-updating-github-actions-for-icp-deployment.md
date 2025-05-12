@@ -2715,3 +2715,35 @@ This should resolve all the YAML linting errors. The workflow should now be prop
 
 ---
 
+_**User**_
+
+I am getting this error: 
+Run cd src/frontend
+/home/runner/work/_temp/1e9ef224-c761-46cf-b90f-8ad2796075e6.sh: line 59: warning: here-document at line 47 delimited by end-of-file (wanted `EOF')
+/home/runner/work/_temp/1e9ef224-c761-46cf-b90f-8ad2796075e6.sh: line 60: syntax error: unexpected end of file
+Error: Process completed with exit code 2.
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
