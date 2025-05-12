@@ -923,3 +923,392 @@ I apologize for the confusion. The `@types/vite` package doesn't exist because V
 
 ---
 
+```diff
+            npm install
+            npm install --save-dev typescript @types/node vite @vitejs/plugin-react @types/react @types/react-dom
+-           npm install --save-dev @types/vite
+  
+        - name: Setup dfx directories
+```
+
+---
+
+I've removed the non-existent `@types/vite` package since Vite includes its own type definitions. The workflow now installs:
+1. All regular dependencies
+2. TypeScript and its configuration
+3. Vite and its React plugin
+4. React type definitions
+
+The warnings about deprecated packages and vulnerabilities are not critical for the build process, but you might want to address them later by:
+1. Running `npm audit fix` locally
+2. Updating to newer versions of the packages
+3. Reviewing the dependencies that need attention
+
+Try running the workflow again and let me know if you encounter any other issues!
+
+---
+
+_**User**_
+
+4s
+Run dfx deploy frontend --network ic
+Deploying: frontend
+All canisters have already been created.
+Building canister 'frontend'.
+Error: Failed while trying to deploy canisters.
+Caused by: Failed to build all canisters.
+Caused by: Failed while trying to build all canisters.
+Caused by: The post-build step failed for canister 'avdd3-5aaaa-aaaal-amrjq-cai' (frontend)
+Caused by: Failed to build frontend for network 'ic'.
+Caused by: The command 'cd "/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya" && CANISTER_CANDID_PATH="/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/.dfx/ic/canisters/frontend/assetstorage.did" CANISTER_ID="avdd3-5aaaa-aaaal-amrjq-cai" CANISTER_ID_FRONTEND="avdd3-5aaaa-aaaal-amrjq-cai" DFX_NETWORK="ic" DFX_VERSION="0.26.1" NODE_ENV="production" "npm" "run" "build"' failed with exit status 'exit status: 2'.
+Stdout:
+
+> prebuild
+> npm run prebuild --workspaces --if-present
+
+
+> website_frontend@0.0.0 prebuild
+> dfx generate
+
+
+> build
+> npm run build --workspaces --if-present
+
+
+> website_frontend@0.0.0 prebuild
+> dfx generate
+
+
+> website_frontend@0.0.0 build
+> tsc && vite build
+
+error TS2688: Cannot find type definition file for 'vite/client'.
+  The file is in the program because:
+    Entry point of type library 'vite/client' specified in compilerOptions
+
+Stderr:
+Generated type declarations for canister 'frontend' to '/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/declarations/frontend'
+Generated type declarations for canister 'frontend' to '/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/declarations/frontend'
+npm error Lifecycle script `build` failed with error:
+npm error code 2
+npm error path /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error workspace website_frontend@0.0.0
+npm error location /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error command failed
+npm error command sh -c tsc && vite build
+
+Error: Process completed with exit code 255.
+
+ Now I am getting this error, why so? 
+
+Here's how one of my deploy yaml files looks like: 
+name: Build and Deploy to ICP
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DFX_VERSION: "0.25.1-beta.0"  # dfx version
+  BACKEND_PACKAGE: "backend"  # Backend canister name
+  FRONTEND_PACKAGE: "frontend"  # Frontend canister name
+  VERSION: ${{ github.sha }}  
+  DFX_WARNING: "-mainnet_plaintext_identity"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          targets: wasm32-unknown-unknown
+          override: true
+
+      - name: Install PocketIC server
+        uses: dfinity/pocketic@main
+      - name: Confirm successful installation
+        run: $POCKET_IC_BIN --version
+
+      - name: Install dfx
+        uses: dfinity/setup-dfx@main
+        with:
+          version: ${{ env.DFX_VERSION }}
+          install-dfxvm: true
+          install-dfx: true
+
+      - name: Setup dfx environment
+        run: |
+          source "$HOME/.local/share/dfx/env"
+          dfxvm install ${{ env.DFX_VERSION }}
+          dfxvm default ${{ env.DFX_VERSION }}
+          dfx --version
+
+      - name: Build Backend
+        uses: ./.github/actions/build
+        with:
+          lint: "false"  # Disable linting temporarily
+          test: "true"
+          gzip: "true"
+          version: ${{ env.VERSION }}
+          package: ${{ env.BACKEND_PACKAGE }}
+          build_args: "--no-default-features"  # Skip some checks
+
+      - name: Update Mock Data
+        run: |
+          # Update mockData.ts if it exists
+          if [ -f "src/frontend/src/mocks/mockData.ts" ]; then
+            # Use sed to replace the DEV_MODE line while preserving the rest of the file
+            sed -i 's/export const DEV_MODE = true;/export const DEV_MODE = false;/' src/frontend/src/mocks/mockData.ts
+            # Verify the change was made
+            if ! grep -q "export const DEV_MODE = false;" src/frontend/src/mocks/mockData.ts; then
+              echo "Error: Failed to update DEV_MODE"
+              exit 1
+            fi
+          fi
+
+      - name: Prepare Frontend Build
+        run: |
+          source "$HOME/.local/share/dfx/env"
+          mkdir -p .dfx/local/canisters/frontend
+          cp src/frontend/assetstorage.did .dfx/local/canisters/frontend/
+
+      - name: Build Frontend
+        run: |
+          source "$HOME/.local/share/dfx/env"
+          # Create necessary directories
+          mkdir -p $GITHUB_WORKSPACE/wasm
+          cd $GITHUB_WORKSPACE/src/frontend
+          npm install
+          # Build the frontend assets
+          npm run build
+          # Create the frontend canister
+          cd $GITHUB_WORKSPACE
+          dfx canister create frontend --network ic || true
+          # Build the frontend canister
+          dfx build frontend --network ic
+          # Copy the wasm file to the wasm directory
+          cp .dfx/ic/canisters/frontend/frontend.wasm.gz $GITHUB_WORKSPACE/wasm/frontend.wasm.gz
+
+      - name: Upload Backend Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.BACKEND_PACKAGE }}_${{ github.sha }}
+          path: wasm/${{ env.BACKEND_PACKAGE }}_${{ env.VERSION }}.wasm.gz
+          if-no-files-found: error
+
+      - name: Upload Frontend Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.FRONTEND_PACKAGE }}_${{ github.sha }}
+          path: wasm/frontend.wasm.gz
+          if-no-files-found: error
+
+      - name: Prepare Deployment
+        run: |
+          mkdir -p wasm
+          mkdir -p src/frontend/dist
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.BACKEND_PACKAGE }}_${{ github.sha }}
+          path: wasm
+
+      - name: Download Frontend Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.FRONTEND_PACKAGE }}_${{ github.sha }}
+          path: wasm
+
+      - name: Deploy Backend
+        uses: ./.github/actions/deploy
+        with:
+          identity: ${{ secrets.IC_IDENTITY }}
+          canister_name: ${{ env.BACKEND_PACKAGE }}
+          network: ic
+          wasm_file: wasm/${{ env.BACKEND_PACKAGE }}_${{ env.VERSION }}.wasm.gz
+
+      - name: Deploy Frontend
+        uses: ./.github/actions/deploy
+        with:
+          identity: ${{ secrets.IC_IDENTITY }}
+          canister_name: ${{ env.FRONTEND_PACKAGE }}
+          network: ic
+          wasm_file: wasm/frontend.wasm.gz
+
+      - name: Update Configuration
+        run: |
+          source "$HOME/.local/share/dfx/env"
+          # Get the mainnet canister ID
+          CANISTER_ID=$(dfx canister --network ic id backend)
+          
+          # Create mainnet environment configuration
+          mkdir -p src/frontend
+          cat > src/frontend/.env << EOL
+          VITE_DFX_NETWORK=ic
+          VITE_IC_HOST=https://icp0.io
+          VITE_CANISTER_ID=$CANISTER_ID
+          VITE_AUTH_MODE=backend
+          VITE_ENV_MODE=mainnet
+          EOL
+          
+          # Update config.ts if it exists
+          if [ -f "src/frontend/src/config.ts" ]; then
+            # Update MAINNET_CANISTER_ID
+            if grep -q "MAINNET_CANISTER_ID" src/frontend/src/config.ts; then
+              sed -i "s|export const MAINNET_CANISTER_ID = \".*\";|export const MAINNET_CANISTER_ID = \"$CANISTER_ID\";|" src/frontend/src/config.ts
+            else
+              echo "export const MAINNET_CANISTER_ID = \"$CANISTER_ID\";" >> src/frontend/src/config.ts
+            fi
+            
+            # Update mode
+            if grep -q "mode:" src/frontend/src/config.ts; then
+              sed -i "s|mode: import.meta.env.VITE_ENV_MODE || 'local'|mode: 'mainnet'|" src/frontend/src/config.ts
+            else
+              echo "mode: 'mainnet'," >> src/frontend/src/config.ts
+            fi
+            
+            # Update authMode
+            if grep -q "authMode:" src/frontend/src/config.ts; then
+              sed -i "s|authMode: import.meta.env.VITE_AUTH_MODE || 'backend'|authMode: 'backend'|" src/frontend/src/config.ts
+            else
+              echo "authMode: 'backend'," >> src/frontend/src/config.ts
+            fi
+          fi
+
+---
+
+_**Assistant**_
+
+I see the issue. The error is occurring because we need to properly set up the TypeScript configuration for Vite. Let's update the workflow to include the necessary TypeScript configuration and build steps, similar to your working example but adapted for your current setup.
+
+
+---
+
+```diff
+    VERSION: ${{ github.sha }}
+    PACKAGE: "frontend"
++   DFX_VERSION: "0.26.1"
+  
+  jobs:
+```
+
+```diff
+          with:
+            node-version: '20'
++           cache: 'npm'
+  
+        - name: Install dfx
+          uses: dfinity/setup-dfx@main
++         with:
++           version: ${{ env.DFX_VERSION }}
++ 
++       - name: Setup dfx environment
++         run: |
++           source "$HOME/.local/share/dfx/env"
++           dfx --version
+  
+        - name: Install dependencies
+```
+
+```diff
+            npm install --save-dev typescript @types/node vite @vitejs/plugin-react @types/react @types/react-dom
+  
++       - name: Create TypeScript configuration
++         run: |
++           cd src/frontend
++           echo '{
++             "compilerOptions": {
++               "target": "ES2020",
++               "useDefineForClassFields": true,
++               "lib": ["ES2020", "DOM", "DOM.Iterable"],
++               "module": "ESNext",
++               "skipLibCheck": true,
++               "moduleResolution": "bundler",
++               "allowImportingTsExtensions": true,
++               "resolveJsonModule": true,
++               "isolatedModules": true,
++               "noEmit": true,
++               "jsx": "react-jsx",
++               "strict": true,
++               "noUnusedLocals": true,
++               "noUnusedParameters": true,
++               "noFallthroughCasesInSwitch": true,
++               "types": ["vite/client"]
++             },
++             "include": ["src"],
++             "references": [{ "path": "./tsconfig.node.json" }]
++           }' > tsconfig.json
++           
++           echo '{
++             "compilerOptions": {
++               "composite": true,
++               "skipLibCheck": true,
++               "module": "ESNext",
++               "moduleResolution": "bundler",
++               "allowSyntheticDefaultImports": true
++             },
++             "include": ["vite.config.ts"]
++           }' > tsconfig.node.json
++ 
+        - name: Setup dfx directories
+          run: |
+```
+
+```diff
+        - name: Install dfx
+          uses: dfinity/setup-dfx@main
++         with:
++           version: ${{ env.DFX_VERSION }}
+  
+        - name: Authenticate dfx
+```
+
+---
+
+I've made several important changes to fix the TypeScript and Vite configuration issues:
+
+1. Added proper TypeScript configuration:
+   - Created `tsconfig.json` with the correct settings for Vite and React
+   - Added `tsconfig.node.json` for Vite configuration
+   - Included the necessary type definitions
+
+2. Improved the build environment:
+   - Added npm caching for faster builds
+   - Specified the dfx version explicitly
+   - Added proper dfx environment setup
+
+3. Added proper module resolution and type definitions:
+   - Set up proper module resolution for Vite
+   - Added necessary type definitions for React and Vite
+   - Configured the TypeScript compiler options correctly
+
+The key changes that should fix your error are:
+1. The proper TypeScript configuration with `"types": ["vite/client"]`
+2. The correct module resolution settings
+3. The proper environment setup for dfx
+
+Try running the workflow again. The TypeScript error about missing Vite type definitions should be resolved. Let me know if you encounter any other issues!
+
+---
+
