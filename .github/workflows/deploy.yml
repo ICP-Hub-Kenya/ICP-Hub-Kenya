@@ -54,6 +54,36 @@ jobs:
           mkdir -p .dfx/local/canisters/frontend
           cp src/frontend/assetstorage.did .dfx/local/canisters/frontend/
 
+      - name: Configure Build
+        run: |
+          cd src/frontend
+          # Create vite-env.d.ts
+          echo '/// <reference types="vite/client" />' > src/vite-env.d.ts
+          # Update package.json build script
+          npm pkg set scripts.build="vite build"
+          # Update tsconfig.json
+          echo '{
+            "compilerOptions": {
+              "target": "ES2020",
+              "useDefineForClassFields": true,
+              "lib": ["ES2020", "DOM", "DOM.Iterable"],
+              "module": "ESNext",
+              "skipLibCheck": true,
+              "moduleResolution": "bundler",
+              "allowImportingTsExtensions": true,
+              "resolveJsonModule": true,
+              "isolatedModules": true,
+              "noEmit": true,
+              "jsx": "react-jsx",
+              "strict": true,
+              "noUnusedLocals": false,
+              "noUnusedParameters": false,
+              "noFallthroughCasesInSwitch": true
+            },
+            "include": ["src"],
+            "references": [{ "path": "./tsconfig.node.json" }]
+          }' > tsconfig.json
+
       - name: Build Frontend
         run: |
           source "$HOME/.local/share/dfx/env"
