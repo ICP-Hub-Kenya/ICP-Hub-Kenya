@@ -16,17 +16,33 @@ env:
   DFX_WARNING: "-mainnet_plaintext_identity"
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          targets: wasm32-unknown-unknown
+          override: true
+
+      - name: Install PocketIC server
+        uses: dfinity/pocketic@main
+      - name: Confirm successful installation
+        run: $POCKET_IC_BIN --version
 
       - name: Install dfx
         uses: dfinity/setup-dfx@main
@@ -42,102 +58,57 @@ jobs:
           dfxvm default ${{ env.DFX_VERSION }}
           dfx --version
 
-      - name: Install dependencies
-        run: |
-          cd src/frontend
-          npm install
-          npm install --save-dev typescript @types/node vite @vitejs/plugin-react @types/react @types/react-dom
-
       - name: Prepare Frontend Build
         run: |
           source "$HOME/.local/share/dfx/env"
           mkdir -p .dfx/local/canisters/frontend
           cp src/frontend/assetstorage.did .dfx/local/canisters/frontend/
 
-      - name: Configure Build
-        run: |
-          cd src/frontend
-          # Create vite-env.d.ts
-          mkdir -p src
-          echo '/// <reference types="vite/client" />' > src/vite-env.d.ts
-          # Update package.json build script to skip TypeScript check
-          npm pkg set scripts.build="vite build"
-          # Create tsconfig.json
-          echo '{"compilerOptions":{"target":"ES2020","useDefineForClassFields":true,"lib":["ES2020","DOM","DOM.Iterable"],"module":"ESNext","skipLibCheck":true,"moduleResolution":"bundler","allowImportingTsExtensions":true,"resolveJsonModule":true,"isolatedModules":true,"noEmit":true,"jsx":"react-jsx","strict":true,"noUnusedLocals":false,"noUnusedParameters":false,"noFallthroughCasesInSwitch":true,"types":["vite/client"]},"include":["src"],"references":[{"path":"./tsconfig.node.json"}]}' > tsconfig.json
-          # Create tsconfig.node.json
-          echo '{"compilerOptions":{"composite":true,"skipLibCheck":true,"module":"ESNext","moduleResolution":"bundler","allowSyntheticDefaultImports":true},"include":["vite.config.ts"]}' > tsconfig.node.json
-          # Create vite.config.ts if it doesn't exist
-          if [ ! -f vite.config.ts ]; then
-            echo 'import { defineConfig } from "vite";import react from "@vitejs/plugin-react";export default defineConfig({plugins:[react()],build:{outDir:"dist",emptyOutDir:true}});' > vite.config.ts
-          fi
-
       - name: Build Frontend
         run: |
           source "$HOME/.local/share/dfx/env"
-          # Create necessary directories
-          mkdir -p $GITHUB_WORKSPACE/wasm
-          cd $GITHUB_WORKSPACE/src/frontend
-          # Build the frontend assets
-          npm run build
-          # Create the frontend canister
-          cd $GITHUB_WORKSPACE
-          dfx canister create frontend --network ic || true
-          # Build the frontend canister
-          dfx build frontend --network ic
-          # Copy the wasm file to the wasm directory
-          cp .dfx/ic/canisters/frontend/frontend.wasm.gz $GITHUB_WORKSPACE/wasm/frontend.wasm.gz
+            # Create necessary directories
+            mkdir -p $GITHUB_WORKSPACE/wasm
+            cd $GITHUB_WORKSPACE/src/frontend
+            npm install
+            # Build the frontend assets
+            npm run build
+            # Create the frontend canister
+            cd $GITHUB_WORKSPACE
+            dfx canister create frontend --network ic || true
+            # Build the frontend canister
+            dfx build frontend --network ic
+            # Copy the wasm file to the wasm directory
+            cp .dfx/ic/canisters/frontend/frontend.wasm.gz $GITHUB_WORKSPACE/wasm/frontend.wasm.gz
 
-      - name: Upload Artifact
+      - name: Upload Frontend Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: frontend_dist
-          path: src/frontend/dist
+          name: ${{ env.FRONTEND_PACKAGE }}_${{ github.sha }}
+          path: wasm/frontend.wasm.gz
           if-no-files-found: error
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Prepare Deployment
+        run: |
+          mkdir -p wasm
+          mkdir -p src/frontend/dist
 
-      - name: Download Artifact
+      - name: Download Frontend Artifact
         uses: actions/download-artifact@v4
         with:
-          name: frontend_dist
-          path: src/frontend/dist
+          name: ${{ env.FRONTEND_PACKAGE }}_${{ github.sha }}
+          path: wasm
 
-      - name: Install dfx
-        uses: dfinity/setup-dfx@main
+      - name: Deploy Frontend
+        uses: ./.github/actions/deploy
         with:
-          version: ${{ env.DFX_VERSION }}
-          install-dfxvm: true
-          install-dfx: true
+          identity: ${{ secrets.IC_IDENTITY }}
+          canister_name: ${{ env.FRONTEND_PACKAGE }}
+          network: ic
+          wasm_file: wasm/frontend.wasm.gz
 
-      - name: Setup dfx environment
-        run: |
-          source "$HOME/.local/share/dfx/env"
-          dfxvm install ${{ env.DFX_VERSION }}
-          dfxvm default ${{ env.DFX_VERSION }}
+      
+          
 
-      - name: Authenticate dfx
-        shell: bash
-        run: |
-          if [ -z "${{ secrets.IC_IDENTITY }}" ]; then
-            echo "Error: IC_IDENTITY secret is not set"
-            exit 1
-          fi
-          echo "${{ secrets.IC_IDENTITY }}" | base64 --decode > deploy_identity.pem
-          if [ ! -s deploy_identity.pem ]; then
-            echo "Error: Failed to decode IC_IDENTITY"
-            exit 1
-          fi
-          dfx identity import --storage-mode=plaintext deploy_identity deploy_identity.pem
-          dfx identity use deploy_identity
 
-      - name: Deploy frontend assets canister
-        shell: bash
-        env:
-          DFX_WARNING: -mainnet_plaintext_identity
-        run: |
-          dfx deploy frontend --network ic
+      
