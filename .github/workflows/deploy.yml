@@ -13,6 +13,7 @@ env:
   VERSION: ${{ github.sha }}
   PACKAGE: "frontend"
   DFX_VERSION: "0.26.1"
+  DFX_WARNING: "-mainnet_plaintext_identity"
 
 jobs:
   build:
@@ -31,10 +32,14 @@ jobs:
         uses: dfinity/setup-dfx@main
         with:
           version: ${{ env.DFX_VERSION }}
+          install-dfxvm: true
+          install-dfx: true
 
       - name: Setup dfx environment
         run: |
           source "$HOME/.local/share/dfx/env"
+          dfxvm install ${{ env.DFX_VERSION }}
+          dfxvm default ${{ env.DFX_VERSION }}
           dfx --version
 
       - name: Install dependencies
@@ -43,54 +48,27 @@ jobs:
           npm install
           npm install --save-dev typescript @types/node vite @vitejs/plugin-react @types/react @types/react-dom
 
-      - name: Create TypeScript configuration
+      - name: Prepare Frontend Build
         run: |
-          cd src/frontend
-          echo '{
-            "compilerOptions": {
-              "target": "ES2020",
-              "useDefineForClassFields": true,
-              "lib": ["ES2020", "DOM", "DOM.Iterable"],
-              "module": "ESNext",
-              "skipLibCheck": true,
-              "moduleResolution": "bundler",
-              "allowImportingTsExtensions": true,
-              "resolveJsonModule": true,
-              "isolatedModules": true,
-              "noEmit": true,
-              "jsx": "react-jsx",
-              "strict": true,
-              "noUnusedLocals": false,
-              "noUnusedParameters": false,
-              "noFallthroughCasesInSwitch": true
-            },
-            "include": ["src"],
-            "references": [{ "path": "./tsconfig.node.json" }]
-          }' > tsconfig.json
-          
-          echo '{
-            "compilerOptions": {
-              "composite": true,
-              "skipLibCheck": true,
-              "module": "ESNext",
-              "moduleResolution": "bundler",
-              "allowSyntheticDefaultImports": true
-            },
-            "include": ["vite.config.ts"]
-          }' > tsconfig.node.json
-
-      - name: Setup dfx directories
-        run: |
+          source "$HOME/.local/share/dfx/env"
           mkdir -p .dfx/local/canisters/frontend
-          cp src/frontend/assetstorage.did .dfx/local/canisters/frontend/ || true
+          cp src/frontend/assetstorage.did .dfx/local/canisters/frontend/
 
-      - name: Build frontend
+      - name: Build Frontend
         run: |
-          cd src/frontend
-          # Override the build script to skip TypeScript checking
-          npm pkg set scripts.build="vite build"
-          # Run the build
+          source "$HOME/.local/share/dfx/env"
+          # Create necessary directories
+          mkdir -p $GITHUB_WORKSPACE/wasm
+          cd $GITHUB_WORKSPACE/src/frontend
+          # Build the frontend assets
           npm run build
+          # Create the frontend canister
+          cd $GITHUB_WORKSPACE
+          dfx canister create frontend --network ic || true
+          # Build the frontend canister
+          dfx build frontend --network ic
+          # Copy the wasm file to the wasm directory
+          cp .dfx/ic/canisters/frontend/frontend.wasm.gz $GITHUB_WORKSPACE/wasm/frontend.wasm.gz
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -116,6 +94,14 @@ jobs:
         uses: dfinity/setup-dfx@main
         with:
           version: ${{ env.DFX_VERSION }}
+          install-dfxvm: true
+          install-dfx: true
+
+      - name: Setup dfx environment
+        run: |
+          source "$HOME/.local/share/dfx/env"
+          dfxvm install ${{ env.DFX_VERSION }}
+          dfxvm default ${{ env.DFX_VERSION }}
 
       - name: Authenticate dfx
         shell: bash
