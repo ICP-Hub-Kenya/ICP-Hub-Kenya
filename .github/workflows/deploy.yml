@@ -67,7 +67,15 @@ jobs:
       - name: Authenticate dfx
         shell: bash
         run: |
-          echo ${{ secrets.IC_IDENTITY }} | base64 --decode > deploy_identity.pem
+          if [ -z "${{ secrets.IC_IDENTITY }}" ]; then
+            echo "Error: IC_IDENTITY secret is not set"
+            exit 1
+          fi
+          echo "${{ secrets.IC_IDENTITY }}" | base64 --decode > deploy_identity.pem
+          if [ ! -s deploy_identity.pem ]; then
+            echo "Error: Failed to decode IC_IDENTITY"
+            exit 1
+          fi
           dfx identity import --storage-mode=plaintext deploy_identity deploy_identity.pem
           dfx identity use deploy_identity
 
