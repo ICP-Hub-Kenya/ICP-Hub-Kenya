@@ -13,7 +13,7 @@ const team = [
   },
   { 
     name: 'Yvonne Kagondu', 
-    role: 'Co-Founder', 
+    role: 'Founder', 
     img: '/images/team/yvonne.png', 
     socials: {
       linkedin: 'https://www.linkedin.com/in/yvonne-kagondu/',
@@ -29,11 +29,51 @@ const team = [
       twitter: 'https://x.com/stevekimoi'
     }
   },
-  { name: 'Sammy Fash', role: 'Lead Designer', img: '/images/team/sammy.png', socials: { linkedin: '#', twitter: 'https://x.com/sammyyfash' } },
-  { name: 'Peace Adekoya', role: 'Social Media Manager', img: '/images/team/orlah.png', socials: { linkedin: '#', twitter: '#' } },
-  { name: 'Osezua Silas', role: 'Community Strategist', img: '/images/team/silas.png', socials: { linkedin: '#', twitter: '#' } },
-  { name: 'Bella Chris', role: 'Community Manager', img: '/images/team/bellah.png', socials: { linkedin: '#', twitter: '#' } },
-  { name: 'Charles Maina', role: 'Technical Writer', img: '/images/team/charles.png', socials: { linkedin: '#', twitter: '#' } },
+  { 
+    name: 'Sammy Fash', 
+    role: 'Lead Designer', 
+    img: '/images/team/sammy.png', 
+    socials: {
+      linkedin: '#',
+      twitter: 'https://x.com/sammyyfash'
+    }
+  },
+  { 
+    name: 'Peace Adekoya', 
+    role: 'Social Media Manager', 
+    img: '/images/team/orlah.png', 
+    socials: {
+      linkedin: '#',
+      twitter: '#'
+    }
+  },
+  { 
+    name: 'Osezua Silas', 
+    role: 'Community Strategist', 
+    img: '/images/team/silas.png', 
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/silas-osezua-254327167/',
+      twitter: 'https://x.com/mickssp'
+    }
+  },
+  { name: 
+    'Bella Chris', 
+    role: 'Community Manager', 
+    img: '/images/team/bellah.png', 
+    socials: {
+      linkedin: '#',
+      twitter: '#'
+    }
+  },
+  { 
+    name: 'Charles Maina', 
+    role: 'Technical Writer', 
+    img: '/images/team/charles.png', 
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/charlez-maina',
+      twitter: '#'
+    }
+  },
 ];
 
 const socialIcons: Record<'linkedin' | 'twitter', string> = {
