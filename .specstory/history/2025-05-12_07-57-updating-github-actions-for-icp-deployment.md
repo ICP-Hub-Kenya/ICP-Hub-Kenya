@@ -822,6 +822,103 @@ Now this is the error I am getting
 
 _**Assistant**_
 
+I see the issue. The error is still related to TypeScript and Vite configuration. Let's modify the workflow to ensure all necessary dependencies are installed and the TypeScript configuration is properly set up.
+
+
+---
+
+
+
+---
+
+Let me try again with a more focused change:
+
+
+---
+
+```diff
+            cd src/frontend
+            npm install
+-           npm install --save-dev typescript @types/node vite @vitejs/plugin-react
++           npm install --save-dev typescript @types/node vite @vitejs/plugin-react @types/react @types/react-dom
++           npm install --save-dev @types/vite
+  
+        - name: Setup dfx directories
+```
+
+---
+
+I've updated the dependencies installation step to include:
+1. `@types/react` and `@types/react-dom` for React type definitions
+2. `@types/vite` specifically for Vite type definitions
+
+This should resolve the TypeScript error about missing Vite type definitions. The workflow will now:
+1. Install all necessary dependencies including the specific Vite type definitions
+2. Set up the build environment properly
+3. Run the build with the correct type definitions available
+
+Try running the workflow again and let me know if you encounter any other issues! If this doesn't resolve the issue, we might need to look at your `tsconfig.json` file to ensure it's properly configured for Vite.
+
+---
+
+_**User**_
+
+Now I am getting these errors 
+
+npm warn workspaces website_frontend in filter set, but no workspace folder present
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+
+added 246 packages, and audited 248 packages in 8s
+
+46 packages are looking for funding
+  run `npm fund` for details
+
+8 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues possible (including breaking changes), run:
+  npm audit fix --force
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+
+added 2 packages, and audited 250 packages in 2s
+
+46 packages are looking for funding
+  run `npm fund` for details
+
+8 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues possible (including breaking changes), run:
+  npm audit fix --force
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+npm error code E404
+npm error 404 Not Found - GET https://registry.npmjs.org/@types%2fvite - Not found
+npm error 404
+npm error 404  '@types/vite@*' is not in this registry.
+npm error 404
+npm error 404 Note that you can also install from a
+npm error 404 tarball, folder, http url, or git url.
+npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-05-12T08_49_59_449Z-debug-0.log
+
+
+---
+
+_**Assistant**_
+
+I apologize for the confusion. The `@types/vite` package doesn't exist because Vite includes its own type definitions. Let me correct the workflow:
 
 
 ---

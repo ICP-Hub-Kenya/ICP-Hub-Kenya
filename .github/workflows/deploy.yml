@@ -33,7 +33,6 @@ jobs:
           cd src/frontend
           npm install
           npm install --save-dev typescript @types/node vite @vitejs/plugin-react @types/react @types/react-dom
-          npm install --save-dev @types/vite
 
       - name: Setup dfx directories
         run: |
