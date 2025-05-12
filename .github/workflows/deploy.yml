@@ -29,8 +29,10 @@ jobs:
         uses: dfinity/setup-dfx@main
 
       - name: Install dependencies
-        run: npm install
-        working-directory: src/frontend
+        run: |
+          cd src/frontend
+          npm install
+          npm install --save-dev typescript @types/node vite @vitejs/plugin-react
 
       - name: Setup dfx directories
         run: |
@@ -38,8 +40,9 @@ jobs:
           cp src/frontend/assetstorage.did .dfx/local/canisters/frontend/ || true
 
       - name: Build frontend
-        run: npm run build
-        working-directory: src/frontend
+        run: |
+          cd src/frontend
+          npm run build
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
