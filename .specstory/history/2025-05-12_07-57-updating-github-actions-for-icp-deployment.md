@@ -273,6 +273,78 @@ Error: Process completed with exit code 127.
 
 _**Assistant**_
 
+The error occurs because `dfx` is not available during the build step. We need to install `dfx` before running the build command since your frontend build process requires `dfx generate`. Let me update the workflow to include this step.
+
+
+---
+
+```diff
+            node-version: '20'
+  
++       - name: Install dfx
++         uses: dfinity/setup-dfx@main
++ 
+        - name: Install dependencies
+          run: npm install
+```
+
+---
+
+I've updated the workflow to install `dfx` before running the build step. The key changes are:
+
+1. Added the `Install dfx` step right after setting up Node.js and before installing dependencies
+2. This ensures that `dfx` is available when `npm run build` executes the `dfx generate` command
+
+The workflow should now be able to:
+1. Install Node.js
+2. Install dfx
+3. Install npm dependencies
+4. Run the build command (which includes `dfx generate`)
+5. Upload the built assets
+6. Deploy to the Internet Computer
+
+Try pushing these changes and the build should now succeed. Let me know if you encounter any other issues!
+
+---
+
+_**User**_
+
+> website_frontend@0.0.0 prebuild
+> dfx generate
+
+Creating the "default" identity.
+WARNING: The "default" identity is not stored securely. Do not use it to control a lot of cycles/ICP.
+To create a more secure identity, create and use an identity that is protected by a password using the following commands:
+    dfx identity new <my-secure-identity-name> # creates a password protected identity
+    dfx identity use <my-secure-identity-name> # uses this identity by default
+
+  - generating new key at /home/runner/.config/dfx/identity/default/identity.pem
+Your seed phrase: elbow modify admit rural club language month urge silent width gather aunt barely lawsuit board corn inform ozone reveal dilemma supreme practice increase unfair
+This can be used to reconstruct your key in case of emergency, so write it down in a safe place.
+Created the "default" identity.
+Error: Failed while trying to generate type declarations for 'frontend'.
+Caused by: Candid file: /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/.dfx/local/canisters/frontend/assetstorage.did doesn't exist.
+npm error Lifecycle script `build` failed with error:
+npm error code 255
+npm error path /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error workspace website_frontend@0.0.0
+npm error location /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error command failed
+npm error command sh -c dfx generate
+
+now this is the error we're getting 
+
+We need to make the directories: 
+mkdir -p .dfx/local/canisters/frontend
+          cp src/frontend/assetstorage.did .dfx/local/canisters/frontend/
+
+
+like this
+
+---
+
+_**Assistant**_
+
 
 
 ---
