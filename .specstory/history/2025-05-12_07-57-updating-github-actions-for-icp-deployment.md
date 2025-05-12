@@ -655,3 +655,174 @@ Try running the workflow again and let me know if you encounter any other issues
 
 ---
 
+_**User**_
+
+Now I am getting this error: 
+Run dfx deploy frontend --network ic
+Deploying: frontend
+All canisters have already been created.
+Building canister 'frontend'.
+Error: Failed while trying to deploy canisters.
+Caused by: Failed to build all canisters.
+Caused by: Failed while trying to build all canisters.
+Caused by: The post-build step failed for canister 'avdd3-5aaaa-aaaal-amrjq-cai' (frontend)
+Caused by: Failed to build frontend for network 'ic'.
+Caused by: The command 'cd "/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya" && CANISTER_CANDID_PATH="/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/.dfx/ic/canisters/frontend/assetstorage.did" CANISTER_ID="avdd3-5aaaa-aaaal-amrjq-cai" CANISTER_ID_FRONTEND="avdd3-5aaaa-aaaal-amrjq-cai" DFX_NETWORK="ic" DFX_VERSION="0.26.1" NODE_ENV="production" "npm" "run" "build"' failed with exit status 'exit status: 2'.
+Stdout:
+
+> prebuild
+> npm run prebuild --workspaces --if-present
+
+
+> website_frontend@0.0.0 prebuild
+> dfx generate
+
+
+> build
+> npm run build --workspaces --if-present
+
+
+> website_frontend@0.0.0 prebuild
+> dfx generate
+
+
+> website_frontend@0.0.0 build
+> tsc && vite build
+
+error TS2688: Cannot find type definition file for 'vite/client'.
+  The file is in the program because:
+    Entry point of type library 'vite/client' specified in compilerOptions
+
+Stderr:
+Generated type declarations for canister 'frontend' to '/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/declarations/frontend'
+Generated type declarations for canister 'frontend' to '/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/declarations/frontend'
+npm error Lifecycle script `build` failed with error:
+npm error code 2
+npm error path /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error workspace website_frontend@0.0.0
+npm error location /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error command failed
+npm error command sh -c tsc && vite build
+
+Error: Process completed with exit code 255.
+
+---
+
+_**Assistant**_
+
+The error is occurring because TypeScript can't find the type definitions for Vite. We need to install the necessary TypeScript dependencies and ensure the build environment is properly set up. Let me update the workflow to handle this:
+
+
+---
+
+```diff
+  
+        - name: Install dependencies
+-         run: npm install
+-         working-directory: src/frontend
++         run: |
++           cd src/frontend
++           npm install
++           npm install --save-dev typescript @types/node vite @vitejs/plugin-react
+  
+        - name: Setup dfx directories
+```
+
+```diff
+  
+        - name: Build frontend
+-         run: npm run build
+-         working-directory: src/frontend
++         run: |
++           cd src/frontend
++           npm run build
+  
+        - name: Upload Artifact
+```
+
+---
+
+I've made several changes to fix the TypeScript and Vite build issues:
+
+1. Updated the dependencies installation step to:
+   - Install all regular dependencies
+   - Install TypeScript and Vite-related dev dependencies explicitly
+   - Added `@types/node` for Node.js type definitions
+   - Added `@vitejs/plugin-react` for React support
+
+2. Changed the working directory handling to use `cd` commands instead of `working-directory` to ensure proper context
+
+3. Made the build step more explicit by changing directory before running the build command
+
+This should resolve the TypeScript error about missing Vite type definitions. The workflow will now:
+1. Install all necessary dependencies including TypeScript and Vite
+2. Set up the build environment properly
+3. Run the build with the correct context
+4. Deploy the built assets
+
+Try running the workflow again and let me know if you encounter any other issues!
+
+---
+
+_**User**_
+
+Run dfx deploy frontend --network ic
+Deploying: frontend
+All canisters have already been created.
+Building canister 'frontend'.
+Error: Failed while trying to deploy canisters.
+Caused by: Failed to build all canisters.
+Caused by: Failed while trying to build all canisters.
+Caused by: The post-build step failed for canister 'avdd3-5aaaa-aaaal-amrjq-cai' (frontend)
+Caused by: Failed to build frontend for network 'ic'.
+Caused by: The command 'cd "/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya" && CANISTER_CANDID_PATH="/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/.dfx/ic/canisters/frontend/assetstorage.did" CANISTER_ID="avdd3-5aaaa-aaaal-amrjq-cai" CANISTER_ID_FRONTEND="avdd3-5aaaa-aaaal-amrjq-cai" DFX_NETWORK="ic" DFX_VERSION="0.26.1" NODE_ENV="production" "npm" "run" "build"' failed with exit status 'exit status: 2'.
+Stdout:
+
+> prebuild
+> npm run prebuild --workspaces --if-present
+
+
+> website_frontend@0.0.0 prebuild
+> dfx generate
+
+
+> build
+> npm run build --workspaces --if-present
+
+
+> website_frontend@0.0.0 prebuild
+> dfx generate
+
+
+> website_frontend@0.0.0 build
+> tsc && vite build
+
+error TS2688: Cannot find type definition file for 'vite/client'.
+  The file is in the program because:
+    Entry point of type library 'vite/client' specified in compilerOptions
+
+Stderr:
+Generated type declarations for canister 'frontend' to '/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/declarations/frontend'
+Generated type declarations for canister 'frontend' to '/home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/declarations/frontend'
+npm error Lifecycle script `build` failed with error:
+npm error code 2
+npm error path /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error workspace website_frontend@0.0.0
+npm error location /home/runner/work/ICP-Hub-Kenya/ICP-Hub-Kenya/src/frontend
+npm error command failed
+npm error command sh -c tsc && vite build
+
+Error: Process completed with exit code 255.
+
+Now this is the error I am getting 
+
+
+
+---
+
+_**Assistant**_
+
+
+
+---
+
