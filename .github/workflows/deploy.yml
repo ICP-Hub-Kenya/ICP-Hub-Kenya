@@ -81,5 +81,7 @@ jobs:
 
       - name: Deploy frontend assets canister
         shell: bash
+        env:
+          DFX_WARNING: -mainnet_plaintext_identity
         run: |
           dfx deploy frontend --network ic

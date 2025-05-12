@@ -602,3 +602,56 @@ Let me know if you still encounter any issues!
 
 ---
 
+_**User**_
+
+I am getting this error 
+
+Run dfx deploy frontend --network ic
+Error: Failed to create AgentEnvironment.
+Caused by: Failed to create AgentEnvironment for network 'ic'.
+Caused by: The deploy_identity identity is not stored securely. Do not use it to control a lot of cycles/ICP.
+- For enhanced security, create a new identity using the command: 
+    dfx identity new
+  Then, specify the new identity in mainnet-facing commands with the `--identity` flag.
+- If you understand the risks and still wish to use the insecure plaintext identity, you can suppress this warning by running:
+    export DFX_WARNING=-mainnet_plaintext_identity
+  After setting this environment variable, re-run the command.
+
+
+We need to run this command
+ export DFX_WARNING=-mainnet_plaintext_identity
+
+---
+
+_**Assistant**_
+
+I'll update the workflow to add the environment variable before running the deploy command.
+
+
+---
+
+```diff
+        - name: Deploy frontend assets canister
+          shell: bash
++         env:
++           DFX_WARNING: -mainnet_plaintext_identity
+          run: |
+            dfx deploy frontend --network ic
+```
+
+---
+
+I've updated the workflow to:
+1. Add the `DFX_WARNING` environment variable to the deploy step
+2. Set it to `-mainnet_plaintext_identity` to suppress the warning
+
+This should now allow the deployment to proceed without the warning about the plaintext identity. The workflow will:
+1. Set up the environment
+2. Import your identity
+3. Set the warning suppression environment variable
+4. Deploy to the Internet Computer
+
+Try running the workflow again and let me know if you encounter any other issues!
+
+---
+
