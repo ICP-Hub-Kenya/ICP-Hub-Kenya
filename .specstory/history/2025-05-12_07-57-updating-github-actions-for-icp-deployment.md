@@ -345,7 +345,38 @@ like this
 
 _**Assistant**_
 
+I'll update the workflow to create the necessary directories and copy the `assetstorage.did` file before running the build command.
 
+
+---
+
+```diff
+          working-directory: src/frontend
+  
++       - name: Setup dfx directories
++         run: |
++           mkdir -p .dfx/local/canisters/frontend
++           cp src/frontend/assetstorage.did .dfx/local/canisters/frontend/
++ 
+        - name: Build frontend
+          run: npm run build
+```
+
+---
+
+I've added a new step called "Setup dfx directories" that:
+1. Creates the required directory structure: `.dfx/local/canisters/frontend`
+2. Copies the `assetstorage.did` file from `src/frontend/` to the newly created directory
+
+This should resolve the error you were seeing about the missing `assetstorage.did` file. The workflow will now:
+1. Set up Node.js
+2. Install dfx
+3. Install dependencies
+4. Create the necessary dfx directories and copy the required file
+5. Run the build command
+6. Upload and deploy the assets
+
+Try pushing these changes and let me know if you encounter any other issues!
 
 ---
 

@@ -35,7 +35,7 @@ jobs:
       - name: Setup dfx directories
         run: |
           mkdir -p .dfx/local/canisters/frontend
-          cp src/frontend/assetstorage.did .dfx/local/canisters/frontend/
+          cp src/frontend/assetstorage.did .dfx/local/canisters/frontend/ || true
 
       - name: Build frontend
         run: npm run build
