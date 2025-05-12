@@ -103,9 +103,10 @@ jobs:
         uses: ./.github/actions/deploy
         with:
           identity: ${{ secrets.IC_IDENTITY }}
-          canister_name: ${{ env.FRONTEND_PACKAGE }}
+          canister_name: ${{ env.PACKAGE }}
           network: ic
           wasm_file: wasm/frontend.wasm.gz
+          install_args: "--all"
 
       
           
