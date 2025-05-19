@@ -4,7 +4,7 @@ const contactInfo = [
   {
     icon: '/images/contact/mail.png',
     alt: 'Email',
-    text: 'info@icpkushite.com',
+    text: 'kenya@icphub.org',
   },
   {
     icon: '/images/contact/telephone.png',

@@ -254,7 +254,7 @@ All the social media and website links will now be clickable and will open in ne
 
 _**User**_
 
-on this section get an intro, it should re-direct someone to send an email to info@icpkushite.com 
+on this section get an intro, it should re-direct someone to send an email to kenya@icphub.org 
 
 with the title 
 
@@ -272,7 +272,7 @@ I'll help you modify the "Get an Intro" button to open an email client with a pr
             <div className="font-bold text-xl mb-2 mt-2">{p.title}</div>
 -           <button className="ml-auto mb-2 bg-white/10 hover:bg-white/30 text-white px-4 py-1 rounded-lg font-light border border-white hover:border-2 text-sm transition">Get an Intro &rsaquo;</button>
 +           <a 
-+             href={`mailto:info@icpkushite.com?subject=Introduction Request for ${p.title}`}
++             href={`mailto:kenya@icphub.org?subject=Introduction Request for ${p.title}`}
 +             className="ml-auto mb-2 bg-white/10 hover:bg-white/30 text-white px-4 py-1 rounded-lg font-light border border-white hover:border-2 text-sm transition inline-block"
 +           >
 +             Get an Intro &rsaquo;
@@ -288,14 +288,14 @@ I've made the following changes:
 1. Changed the `button` element to an `a` (anchor) element
 2. Added a `mailto` link that will:
    - Open the user's default email client
-   - Pre-fill the recipient as info@icpkushite.com
+   - Pre-fill the recipient as kenya@icphub.org
    - Pre-fill the subject line with "Introduction Request for [Project Name]" (dynamically using the project's title)
 3. Maintained all the existing styling by:
    - Keeping all the same CSS classes
    - Adding `inline-block` to preserve the button-like appearance
    - Preserving the hover effects and transitions
 
-Now when users click the "Get an Intro" button, it will open their default email client with a pre-filled email to info@icpkushite.com and a subject line specific to the project they're interested in.
+Now when users click the "Get an Intro" button, it will open their default email client with a pre-filled email to kenya@icphub.org and a subject line specific to the project they're interested in.
 
 ---
 
