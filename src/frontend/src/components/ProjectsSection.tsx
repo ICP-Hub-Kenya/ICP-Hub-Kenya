@@ -154,7 +154,7 @@ const ProjectsSection = () => (
             {p.title}
           </motion.div>
           <motion.a 
-            href={`mailto:info@icpkushite.com?subject=Introduction Request for ${p.title}`}
+            href={`mailto:kenya@icphub.org?subject=Introduction Request for ${p.title}`}
             className="ml-auto mb-2 bg-white/10 hover:bg-white/30 text-white px-4 py-1 rounded-lg font-light border border-white hover:border-2 text-sm transition inline-block"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}

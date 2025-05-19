@@ -1383,7 +1383,7 @@ Read file: website/src/frontend/src/components/Footer.tsx
 +         <div className="font-semibold mb-3">Contact Info</div>
 +         <div className="flex items-center gap-3 mb-2">
 +           <img src="/images/mail.png" alt="Mail" className="w-6 h-6" />
-+           <span className="text-white/90">info@icpkushite.com</span>
++           <span className="text-white/90">kenya@icphub.org</span>
 +         </div>
 +         <div className="flex items-center gap-3">
 +           <img src="/images/location.png" alt="Location" className="w-6 h-6" />
@@ -1552,8 +1552,8 @@ _**Assistant**_
 +         <div className="font-semibold text-sm mb-3">Contact Info</div>
           <div className="flex items-center gap-3 mb-2">
             <img src="/images/mail.png" alt="Mail" className="w-6 h-6" />
--           <span className="text-white/90">info@icpkushite.com</span>
-+           <span className="text-white/90 text-sm">info@icpkushite.com</span>
+-           <span className="text-white/90">kenya@icphub.org</span>
++           <span className="text-white/90 text-sm">kenya@icphub.org</span>
           </div>
           <div className="flex items-center gap-3">
             <img src="/images/location.png" alt="Location" className="w-6 h-6" />
